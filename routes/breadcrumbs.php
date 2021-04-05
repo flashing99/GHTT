@@ -48,3 +48,17 @@ Breadcrumbs::for('editSlider', function ($trail, $slider) {
     $trail->parent('Sliders', $slider);
     $trail->push('Modifier un slide', route('sliders.index'));
 });
+
+// Accueil > Events
+Breadcrumbs::for('Events', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Gestion des évènements', route('events.index'));
+});
+Breadcrumbs::for('createEvent', function ($trail) {
+    $trail->parent('Events');
+    $trail->push('Ajouter un nouveau évènement', route('events.index'));
+});
+Breadcrumbs::for('editEvent', function ($trail, $slider) {
+    $trail->parent('Events', $slider);
+    $trail->push('Modifier un évènement', route('events.index'));
+});

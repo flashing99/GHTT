@@ -64,6 +64,22 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="{{ route('sliders.index') }}" class="nav-link  {{ (request()->is('backoffice/sliders*')) ? 'active' : '' }}">
+              <i class="nav-icon fas fa-users"></i>
+              <p>Galerie d'images</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ route('events.index') }}" class="nav-link  {{ (request()->is('backoffice/events*')) ? 'active' : '' }}">
+              <i class="nav-icon fas fa-users"></i>
+              <p>Gestion des évènements</p>
+            </a>
+          </li>
+
+
+
           <li class="nav-item has-treeview _menu-open">
             <a href="#" class="nav-link _active">
               <i class="nav-icon fas fa-info"></i>

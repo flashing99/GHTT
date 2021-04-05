@@ -55,10 +55,17 @@ Route::namespace('Bookings')->group(function(){
 Route::namespace('Sliders')->middleware('can:manage-sliders')->group(function(){
 
     Route::resource('/sliders', 'SliderController'); // Les admins
-    Route::post('/sliders/ajax/{slider}/status', 'SliderController@statusUser');
+    //Route::post('/sliders/ajax/{slider}/status', 'SliderController@statusUser');
     
 });
 
+// Events
+Route::namespace('Events')->middleware('can:manage-events')->group(function(){
+
+    Route::resource('/events', 'EventController'); // Les admins
+    //Route::post('/sliders/ajax/{slider}/status', 'SliderController@statusUser');
+    
+});
 
 
 
