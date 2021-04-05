@@ -70,7 +70,7 @@ class UserController extends Controller
 
         $roles = Role::all();
 
-        return view('BackEnd.admin.users.create')->with([
+        return view('Backend.admin.users.create')->with([
 //            'user' => $user,
             'roles' => $roles
         ]);
@@ -152,7 +152,7 @@ public function store(Request $request){
 
     $user->roles()->attach($request->roles);
 
-    return redirect('/admin/users');
+    return redirect('/backoffice/users');
     //return redirect()->back();
     
 }
