@@ -62,13 +62,13 @@ class SliderController extends Controller
     //Show form
     public function create(){
 
-        if(Gate::denies('add-dealers')){
+        if(Gate::denies('add-sliders')){
             return redirect( route('sliders.index') );
         }
 
-        $manufacturers = Manufacturer::where('state', '1')->get();
+        //$manufacturers = Manufacturer::where('state', '1')->get();
 
-        return view('Backend.sliders.create')->with(['manufacturers' => $manufacturers]);
+        return view('Backend.sliders.create');//->with(['manufacturers' => $manufacturers]);
     }
 
     public function store(Request $request)
@@ -166,11 +166,11 @@ class SliderController extends Controller
             return redirect( route('sliders.index') );
         }
 
-        $manufacturers = Manufacturer::where('state', '1')->get();
-
+        //$manufacturers = Manufacturer::where('state', '1')->get();
+        
         return view('Backend.sliders.edit')->with([
             'slider'            => $slider,
-            'manufacturers'     => $manufacturers
+            //'manufacturers'     => $manufacturers
         ]);
     }
 

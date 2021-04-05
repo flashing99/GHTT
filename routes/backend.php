@@ -50,6 +50,18 @@ Route::namespace('Bookings')->group(function(){
     //Route::get('create/', ['as' => 'create', 'uses' => 'BookingsController@create']);
 });
 
+
+// Sliders
+Route::namespace('Sliders')->middleware('can:manage-sliders')->group(function(){
+
+    Route::resource('/sliders', 'SliderController'); // Les admins
+    Route::post('/sliders/ajax/{slider}/status', 'SliderController@statusUser');
+    
+});
+
+
+
+
 /*
 // Revendeurs
 Route::namespace('Dealers')->prefix('revendeurs')->name('dealers.')->middleware('can:manage-dealers')->group(function(){

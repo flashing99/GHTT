@@ -33,3 +33,18 @@ Breadcrumbs::for('bookings', function ($trail) {
     $trail->parent('home');
     $trail->push('Bookings', route('bookings.index'));
 });
+
+
+// Accueil > Sliders
+Breadcrumbs::for('Sliders', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Gestion des sliders', route('sliders.index'));
+});
+Breadcrumbs::for('createSlider', function ($trail) {
+    $trail->parent('Sliders');
+    $trail->push('Ajouter un nouveau slide', route('sliders.index'));
+});
+Breadcrumbs::for('editSlider', function ($trail, $slider) {
+    $trail->parent('Sliders', $slider);
+    $trail->push('Modifier un slide', route('sliders.index'));
+});

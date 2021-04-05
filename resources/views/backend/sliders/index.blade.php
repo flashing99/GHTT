@@ -1,30 +1,33 @@
-@extends('layouts.admin')
-@section('title', 'Gestion des sliders')
+@extends('backend.layouts.app')
+@section('header_page_title', 'Gestion des sliders')
+
 
 @section('include_css')
-
-    <link href="{{ asset('js/plugins/DataTables/datatables.min.css') }}" rel="stylesheet">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
     <!-- Sweet Alert -->
-    <link href="{{ asset('css/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet"> --}}
+
+	
+  
 @endsection
 
 @section('breadcrumbs', Breadcrumbs::render('Sliders'))
 
-@section('content')
+@section('main-content')
 
 <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Gestion des sliders</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
 
-  <div class="col-lg-12">
-      <div class="ibox ">
-          <div class="ibox-title">
-              <h5>Gestion des sliders </h5>
-              <div class="ibox-tools">
-                  <a class="collapse-link">
-                      <i class="fa fa-chevron-up"></i>
-                  </a>
-              </div>
-          </div>
-          <div class="ibox-content">
+
 
             <div class="row p-b-md">
                 <div class="col-lg-12 p-l-none">
@@ -46,19 +49,43 @@
               </thead>
            </table>
 
-          </div>
-      </div>
-  </div>
 
+
+
+
+
+        </div>
+      </div>
+    </div>
 </div>
+
+
+
 
 @endsection
 
 @section('include_scripts')
-    <!-- datatables -->
-    <script src="{{ asset('js/plugins/DataTables/datatables.min.js') }}"></script>
+    
+    <!-- DataTables  & Plugins -->
+    <script src="{{ asset('adminlte/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/jszip/jszip.min.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/pdfmake/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/pdfmake/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
     <!-- Sweet alert -->
-    <script src="{{ asset('js/plugins/sweetalert/sweetalert.min.js') }}"></script>
+    {{-- <script src="{{ asset('js/plugins/sweetalert/sweetalert.min.js') }}"></script> --}}
+
+
+
+
+
 @endsection
 
 @section('scripts')
@@ -80,9 +107,9 @@
             });
 
             listing_table.DataTable({
-                language: { 
-                url: "{{ asset('js/plugins/DataTables/French.json') }}"
-                },
+                // language: { 
+                // url: "{{ asset('js/plugins/DataTables/French.json') }}"
+                // },
                 processing: true,
                 serverSide: true,
                 searching: false,
@@ -102,8 +129,8 @@
             
                 ],
                 ajax: {
-                    url     : SITEURL + "/admin/sliders",
-                    //url     : "{{ route('sliders.index') }}",
+                    //url     : SITEURL + "/Backoffice/sliders",
+                    url     : "{{ route('sliders.index') }}",
                     type    : 'GET',
                 },
                 columns: [
@@ -127,7 +154,7 @@
        /* When click edit user */
         $('body').on('click', '.edit-article', function () {
             var slider_id = $(this).data('id');
-            window.location.href = SITEURL + "/admin/sliders/"+slider_id+"/edit";
+            window.location.href = SITEURL + "/backoffice/sliders/"+slider_id+"/edit";
        });
 
 
@@ -148,7 +175,7 @@
 
                 $.ajax({
                     type: "DELETE",
-                    url: SITEURL + "/admin/sliders/"+slider_id,
+                    url: SITEURL + "/Backoffice/sliders/"+slider_id,
                     success: function (data) {
                     listing_table.DataTable().destroy();
                     fill_datatable();
@@ -173,7 +200,7 @@
             $.ajax({ 
             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
             type: "POST",
-            url: SITEURL + "/admin/sliders/ajax/"+slider_id+'/status',
+            url: SITEURL + "/Backoffice/sliders/ajax/"+slider_id+'/status',
             data: { etat : slider_status }, 
             dataType: "json",
             success: function (data) {
