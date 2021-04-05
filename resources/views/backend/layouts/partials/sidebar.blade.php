@@ -50,6 +50,13 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="{{ route('bookings.index') }}" class="nav-link  {{ (request()->is('backoffice/bookings*')) ? 'active' : '' }}">
+              <i class="nav-icon fas fa-users"></i>
+              <p>Bookings</p>
+            </a>
+          </li>
+
           <li class="nav-item has-treeview _menu-open">
             <a href="#" class="nav-link _active">
               <i class="nav-icon fas fa-info"></i>
