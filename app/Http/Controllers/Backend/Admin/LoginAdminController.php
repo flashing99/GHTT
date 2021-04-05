@@ -43,7 +43,7 @@ class LoginAdminController extends Controller
     {
         
 
-        return view('BackEnd.admin.login',[
+        return view('backend.admin.login',[
             'title' => 'Admin Login',
             'loginRoute' => 'admin.login',
             'forgotPasswordRoute' => 'admin.password.request',
