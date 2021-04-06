@@ -9,16 +9,6 @@ Route::get('/', function () {
 
 
 
-
-
-
-
-
-
-
-
-
-
 //
 // Render in view
 Route::get('/contactus', ['uses' => 'Contacts\ContactUsFormController@createForm']);
