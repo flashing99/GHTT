@@ -1,3 +1,4 @@
+
 $c-main: #E1BD85;
 $c-black: #0E171E;
 $c-white: #fff;
@@ -147,7 +148,7 @@ $c-white: #fff;
                 }
               }
               &.current-menu-item{
-                a{                  
+                a{
                   background-color: $c-main !important;
                 }
               }
@@ -276,7 +277,7 @@ $c-white: #fff;
               font-size: 14px;
               font-family: 'Hind', sans-serif;
               &.caret {
-                background: url("../images/home-3/icon-dropdow.png") !important;
+                background: url("./assets/images/home-3/icon-dropdow.png") !important;
                 background-repeat: no-repeat;
                 background-position: center center;
                 height: 13px;
@@ -506,7 +507,7 @@ $c-white: #fff;
 .section-home-guestbook {
   &.home-guestbook-style-2 {
     &.bg-22 {
-      background: url("../images/home-3/bgr-guest-book.png");
+      background: url("./assets/images/home-3/bgr-guest-book.png");
       background-position: 50% 50%;
       background-attachment: fixed;
       background-repeat: no-repeat;
@@ -528,7 +529,7 @@ $c-white: #fff;
             padding-top: 35px;
             &:before {
               content: "";
-              background: url("../images/home-3/icon/before-testimonial.png");
+              background: url("./assets/images/home-3/icon/before-testimonial.png");
               width: 30px;
               height: 19px;
               right: 0;
@@ -664,7 +665,7 @@ $c-white: #fff;
 .section-video {
   position: relative;
   &.bg-23 {
-    background: url("../images/home-3/bgr-video.png");
+    background: url("./assets/images/home-3/bgr-video.png");
     background-position: center center;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -677,7 +678,7 @@ $c-white: #fff;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     transition: all .3s;
-    background: url("../images/home-3/icon/player-1.png");
+    background: url("./assets/images/home-3/icon/player-1.png");
     width: 64px;
     height: 64px;
     background-repeat: no-repeat;
@@ -716,7 +717,7 @@ $c-white: #fff;
     .btn-play{
       width: 70px;
       height: 70px;
-      background: url("../images/home-3/icon/player-2-1.png");
+      background: url("./assets/images/home-3/icon/player-2-1.png");
       background-repeat: no-repeat;
       background-size: cover;
       z-index: 2;
@@ -739,7 +740,7 @@ footer {
     .footer_top {
       padding: 20px 40px !important;
       margin: 100px 0;
-      background: url(../images/home-3/footer/news.png) no-repeat !important;
+      background: url('./assets/images/home-3/footer/news.png') no-repeat !important;
       position: relative;
       z-index: 2;
       .img-mail {
@@ -814,7 +815,7 @@ footer {
     }
   }
   .bgr-footer {
-    background: url(../images/home-3/footer/footer-center.png) no-repeat !important;
+    background: url('./assets/images/home-3/footer/footer-center.png') no-repeat !important;
     background-size: cover !important;
     position: relative;
   }

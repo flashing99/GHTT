@@ -33,6 +33,15 @@
     @include('frontend.home.about')
     {{-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
 
+
+    {{-- +++++++++++++++   add services template  ++++++++++--}}
+    @include('frontend.home.services')
+    {{-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
+    <div class="mt90">
+              cxwwxcw
+    </div>
+
+
 @endsection
 
 

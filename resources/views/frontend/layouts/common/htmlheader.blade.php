@@ -17,6 +17,7 @@
 {{--<link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/lib/owl.carousel.css) }}">--}}
 <link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/lib/jquery-ui.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/lib/magnific-popup.css') }}">
+
 <link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/lib/settings.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/lib/bootstrap-select.min.css') }}">
 
@@ -26,6 +27,11 @@
 <!-- /. Styles -->
 {{--<link  rel="stylesheet" href="{{ asset('./assets/css/app.css') }}" >--}}
 <link  rel="stylesheet" href="{{ asset('./assets/css/custom.css') }}" >
+
+<link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/header.css ') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/helper.css ') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/responsive.css ') }}">
+
 
 <!--[if lt IE 9]>
 <script src="{{ asset('http://html5shim.googlecode.com/svn/trunk/html5.js') }}"></script>
