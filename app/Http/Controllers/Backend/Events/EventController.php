@@ -43,9 +43,10 @@ class EventController extends Controller
             {
                 return date('d-m-Y à H:i', strtotime($data->created_at) );
             })
-            ->editColumn('state', 'Backend.events.status')
+            //->editColumn('state', 'Backend.events.status')
             ->addColumn('action', 'Backend.events.action_button')
-            ->rawColumns(['action', 'state'])
+            //->rawColumns(['action', 'state'])
+            ->rawColumns(['action'])
             ->addIndexColumn()
             ->make(true);
         }

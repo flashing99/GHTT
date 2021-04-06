@@ -62,114 +62,104 @@
                     @csrf
                     {{ method_field('POST')}}
 
-                    <fieldset class="scheduler-border">
-                        <legend class="scheduler-border">Informations de base :</legend>
 
-                        <div class="form-group row">
-                            <label class="col-lg-2 col-form-label">Titre</label>
-                            <div class="col-lg-10">
-                                <input id="titre" type="text" class="form-control @error('titre') is-invalid @enderror" name="titre" value="{{ old('titre') }}" required autofocus placeholder="Veuillez introduire le titre du slide">
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label">Titre</label>
+                        <div class="col-lg-10">
+                            <input id="titre" type="text" class="form-control @error('titre') is-invalid @enderror" name="titre" value="{{ old('titre') }}" required autofocus placeholder="Veuillez introduire le titre du slide">
 
-                                @error('titre')
+                            @error('titre')
+                            <div class="alert alert-danger m-b-none">
+                                <strong>{{ $message }}</strong>
+                            </div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label">Description</label>
+                        <div class="col-lg-10">
+
+                            <textarea id="description" class="form-control @error('description') is-invalid @enderror" name="description" rows="8" required placeholder="Veuillez introduire la description du slide">{{ old('description') }}</textarea>
+
+                            @error('description')
                                 <div class="alert alert-danger m-b-none">
                                     <strong>{{ $message }}</strong>
                                 </div>
-                                @enderror
-                            </div>
+                            @enderror
                         </div>
+                    </div>
 
-                        <div class="form-group row">
-                            <label class="col-lg-2 col-form-label">Description</label>
-                            <div class="col-lg-10">
 
-                                <textarea id="description" class="form-control @error('description') is-invalid @enderror" name="description" rows="8" required placeholder="Veuillez introduire la description du slide">{{ old('description') }}</textarea>
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label">Image du slide</label>
+                        <div class="col-lg-10">
 
-                                @error('description')
-                                    <div class="alert alert-danger m-b-none">
-                                        <strong>{{ $message }}</strong>
-                                    </div>
-                                @enderror
+                            <input id="image_slide" type="file" hidden="hidden" class="form-control @error('image_slide') is-invalid @enderror" name="image_slide">
+                            <button type="button" id="custom-button">Choisir une image</button>
+                            <span id="custom-text">Aucun fichier choisi, pour le moment.</span>
+
+                            @error('image_slide')
+                            <div class="alert alert-danger m-b-none">
+                                <strong>{{ $message }}</strong>
                             </div>
+                            @enderror
                         </div>
+                    </div>
 
-                    </fieldset>
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label">Texte sur le bouton</label>
+                        <div class="col-lg-10">
+                            <input id="texte_bouton" type="text" class="form-control @error('texte_bouton') is-invalid @enderror" name="texte_bouton" value="{{ old('texte_bouton') }}" required autofocus placeholder="Veuillez introduire le texte du bouton">
 
-                    <fieldset class="scheduler-border">
-                        <legend class="scheduler-border">Slide :</legend>
-
-                        <div class="form-group row">
-                            <label class="col-lg-2 col-form-label">Image du slide</label>
-                            <div class="col-lg-10">
-
-                                <input id="image_slide" type="file" hidden="hidden" class="form-control @error('image_slide') is-invalid @enderror" name="image_slide">
-                                <button type="button" id="custom-button">Choisir une image</button>
-                                <span id="custom-text">Aucun fichier choisi, pour le moment.</span>
-
-                                @error('image_slide')
-                                <div class="alert alert-danger m-b-none">
-                                    <strong>{{ $message }}</strong>
-                                </div>
-                                @enderror
+                            @error('texte_bouton')
+                            <div class="alert alert-danger m-b-none">
+                                <strong>{{ $message }}</strong>
                             </div>
+                            @enderror
                         </div>
+                    </div>
 
-                        <div class="form-group row">
-                            <label class="col-lg-2 col-form-label">Texte sur le bouton</label>
-                            <div class="col-lg-10">
-                                <input id="texte_bouton" type="text" class="form-control @error('texte_bouton') is-invalid @enderror" name="texte_bouton" value="{{ old('texte_bouton') }}" required autofocus placeholder="Veuillez introduire le texte du bouton">
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label">Le lien</label>
+                        <div class="col-lg-10">
+                            <input id="lien" type="text" class="form-control @error('lien') is-invalid @enderror" name="lien" value="{{ old('lien') }}" required autofocus placeholder="Veuillez introduire le lien du slide">
 
-                                @error('texte_bouton')
-                                <div class="alert alert-danger m-b-none">
-                                    <strong>{{ $message }}</strong>
-                                </div>
-                                @enderror
+                            @error('lien')
+                            <div class="alert alert-danger m-b-none">
+                                <strong>{{ $message }}</strong>
                             </div>
+                            @enderror
                         </div>
+                    </div>
 
-                        <div class="form-group row">
-                            <label class="col-lg-2 col-form-label">Le lien</label>
-                            <div class="col-lg-10">
-                                <input id="lien" type="text" class="form-control @error('lien') is-invalid @enderror" name="lien" value="{{ old('lien') }}" required autofocus placeholder="Veuillez introduire le lien du slide">
 
-                                @error('lien')
-                                <div class="alert alert-danger m-b-none">
-                                    <strong>{{ $message }}</strong>
-                                </div>
-                                @enderror
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label">Statut du slide</label>
+                        <div class="col-lg-10">
+
+                            <div class="radio radio-inline radio-danger">
+                                <input type="radio" name="etat" id="desactiver" value="0">
+                                <label for="desactiver">
+                                    Bloquer
+                                </label>
                             </div>
-                        </div>
-
-                    </fieldset>
-
-                    <fieldset class="scheduler-border">
-                        <legend class="scheduler-border">Statut :</legend>
-
-                        <div class="form-group row">
-                            <label class="col-lg-2 col-form-label">Statut de l'article</label>
-                            <div class="col-lg-10">
-
-                                <div class="radio radio-inline radio-danger">
-                                    <input type="radio" name="etat" id="desactiver" value="0">
-                                    <label for="desactiver">
-                                        Bloquer
-                                    </label>
-                                </div>
-                                <div class="radio radio-inline radio-success">
-                                    <input type="radio" name="etat" id="activer" value="1" checked>
-                                    <label for="activer">
-                                        Débloquer
-                                    </label>
-                                </div>
-
-                                @error('etat')
-                                <div class="alert alert-danger m-b-none">
-                                    <strong>{{ $message }}</strong>
-                                </div>
-                                @enderror
+                            <div class="radio radio-inline radio-success">
+                                <input type="radio" name="etat" id="activer" value="1" checked>
+                                <label for="activer">
+                                    Débloquer
+                                </label>
                             </div>
-                        </div>
 
-                    </fieldset>
+                            @error('etat')
+                            <div class="alert alert-danger m-b-none">
+                                <strong>{{ $message }}</strong>
+                            </div>
+                            @enderror
+                        </div>
+                    </div>
+
+
 
                     <div class="form-group row">
                         <div class="col-lg-offset-2 col-lg-10">

@@ -8,15 +8,15 @@ Breadcrumbs::for('home', function ($trail) {
 // Accueil > Administrateurs
 Breadcrumbs::for('admin', function ($trail) {
     $trail->parent('home');
-    $trail->push('Utilisateurs', route('admin.users.index'));
+    $trail->push('Administrateurs', route('admin.users.index'));
 });
 Breadcrumbs::for('addAdmin', function ($trail) {
     $trail->parent('admin');
-    $trail->push('Ajouter un utilisateur', route('admin.users.create'));
+    $trail->push('Ajouter un administrateur', route('admin.users.create'));
 });
 Breadcrumbs::for('editAdmin', function ($trail, $user) {
     $trail->parent('admin');
-    $trail->push('Modifier un utilisateur', route('admin.users.edit', $user));
+    $trail->push('Modifier un administrateur', route('admin.users.edit', $user));
 });
 Breadcrumbs::for('profile', function ($trail) {
     $trail->parent('home');

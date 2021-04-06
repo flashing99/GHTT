@@ -27,7 +27,7 @@ class ChangePasswordController extends Controller
      */
     public function index()
     {
-        return view('BackEnd.admin.changePassword');
+        return view('Backend.admin.changePassword');
     } 
    
     /**
@@ -54,6 +54,8 @@ class ChangePasswordController extends Controller
         User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
    
         //dd('Password change successfully.');
-        return redirect('admin/change-password')->with('message', 'Votre mot de passe à bien été modifié.');
+        //return redirect('admin/change-password')->with('message', 'Votre mot de passe à bien été modifié.');
+
+        return redirect()->route('change.password')->with('message', 'Votre mot de passe à bien été modifié.');
     }
 }

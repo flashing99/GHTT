@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Backend\Sliders;
 
 use App\Models\Slider;
-use App\Models\Manufacturer;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -31,11 +30,6 @@ class SliderController extends Controller
     {
         if(request()->ajax()) {
             $data = Slider::all();
-            /*
-                $data = Dealer::query();
-                $data->with(['fullLocality']);
-                $data->get();
-            */
 
             return Datatables::of($data)
 
@@ -43,16 +37,13 @@ class SliderController extends Controller
             {
                 return date('d-m-Y à H:i', strtotime($data->created_at) );
             })
-            ->editColumn('state', 'Backend.sliders.status')
+            //->editColumn('state', 'Backend.sliders.status')
             ->addColumn('action', 'Backend.sliders.action_button')
-            ->rawColumns(['action', 'state'])
+            ->rawColumns(['action'])
             ->addIndexColumn()
             ->make(true);
         }
 
-        // return view('dealers.users.index')->with([
-        //     'wilayas'  => $wilayas,
-        // ]);
 
         return view('Backend.sliders.index');
 
@@ -66,9 +57,7 @@ class SliderController extends Controller
             return redirect( route('sliders.index') );
         }
 
-        //$manufacturers = Manufacturer::where('state', '1')->get();
-
-        return view('Backend.sliders.create');//->with(['manufacturers' => $manufacturers]);
+        return view('Backend.sliders.create');
     }
 
     public function store(Request $request)
@@ -81,7 +70,7 @@ class SliderController extends Controller
         $rules = [
             'titre'                         => ['required','string','max:100'],
             'description'                   => ['required','string','max:200'],
-            'marque'                        => ['required','integer'],
+            //'marque'                        => ['required','integer'],
             'image_slide'                   => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
             'texte_bouton'                  => ['required','string','max:50'],
             'lien'                          => ['required','string','max:255'],
@@ -93,8 +82,7 @@ class SliderController extends Controller
             'titre.max'                     => 'Le champ :attribute ne doit pas dépasser :max caractères.',
             'description.required'          => 'Le champ :attribute est obligatoire.',
             'description.max'               => 'Le champ :attribute ne doit pas dépasser :max caractères.',
-            'marque.required'               => 'Le champ :attribute est obligatoire.',
-            'email.required'                => 'Le champ :attribute est invalide.',
+            //'marque.required'               => 'Le champ :attribute est obligatoire.',
             'image_slide.required'          => 'Le champ :attribute est obligatoire.',
             'texte_bouton.required'         => 'Le champ :attribute est obligatoire.',
             'texte_bouton.max'              => 'Le champ :attribute ne doit pas dépasser :max caractères.',
@@ -111,9 +99,6 @@ class SliderController extends Controller
 
         //return dd($request->mobile1);
 
-        // Logo de la marque :
-        //------------------//
-        $manufacturer = Manufacturer::find($request->marque);
 
 
         // Nombre de slides :
@@ -125,7 +110,7 @@ class SliderController extends Controller
             'order'             => $nbr_slides + 1,
             'title'             => $request->titre,
             'text'              => $request->description,
-            'manufacturer_id'   => $manufacturer->id,
+            //'manufacturer_id'   => $manufacturer->id,
             //'picture'   => $request->image,
             'button_text'       => $request->texte_bouton,
             'link'              => $request->lien,
@@ -226,7 +211,7 @@ class SliderController extends Controller
 
         $slider->title              = $request->titre;
         $slider->text               = $request->description;
-        $slider->manufacturer_id    = $request->marque;
+        //$slider->manufacturer_id    = $request->marque;
         $slider->button_text        = $request->texte_bouton;
         $slider->link               = $request->lien;
         $slider->state              = $request->etat;

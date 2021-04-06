@@ -7,8 +7,11 @@
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-rowreorder/css/rowReorder.bootstrap4.min.css') }}">
+
     <!-- Sweet Alert -->
-    {{-- <link href="{{ asset('css/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/sweetalert/sweetalert.css') }}">
 
 	
   
@@ -39,12 +42,13 @@
               <thead>
                  <tr>
                     <th>ID</th>
+                    <th width="50">N°</th>
                     <th width="50">Ordre</th>
                     <th>Image</th>
                     <th>Titre</th>
-                    <th width='100'>Ajouté le</th>
-                    <th width='45'>Statut</th>
-                    <th width='85'>Action</th>
+                    <th width='110'>Ajouté le</th>
+                    {{-- <th width='45'>Statut</th> --}}
+                    <th width='90'>Action</th>
                  </tr>
               </thead>
            </table>
@@ -79,8 +83,14 @@
     <script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
     <script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+
+    {{-- <script src="https://cdn.datatables.net/rowreorder/1.2.7/js/dataTables.rowReorder.min.js"></script> --}}
+    <script src="{{ asset('adminlte/plugins/datatables-rowreorder/js/dataTables.rowReorder.min.js') }}"></script>
+    
+    
+
     <!-- Sweet alert -->
-    {{-- <script src="{{ asset('js/plugins/sweetalert/sweetalert.min.js') }}"></script> --}}
+    <script src="{{ asset('adminlte/plugins/sweetalert/sweetalert.min.js') }}"></script>
 
 
 
@@ -106,10 +116,11 @@
             }
             });
 
-            listing_table.DataTable({
+            var table = listing_table.DataTable({
                 // language: { 
                 // url: "{{ asset('js/plugins/DataTables/French.json') }}"
                 // },
+                
                 processing: true,
                 serverSide: true,
                 searching: false,
@@ -135,17 +146,34 @@
                 },
                 columns: [
                         { data: 'id', name: 'id', 'visible': false },
-                        //{ data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false,searchable: false },
+                        { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false,searchable: false },
                         { data: 'order', name: 'order' },
                         { data: 'picture', name: 'picture' },
                         { data: 'title', name: 'title' },
                         { data: 'created_at', name: 'created_at' },
-                        { data: 'state', name: 'state' },
+                        //{ data: 'state', name: 'state' },
                         { data: 'action', name: 'action', orderable: false },
                     ],
-                order: [[1, 'desc']]
+                rowReorder: {
+                    dataSrc: 'id'
+                },
+                order: [[5, 'desc']]
             });
             
+
+    /*table.on( 'row-reorder', function ( e, diff, edit ) {
+        var result = 'Reorder started on row: '+edit.triggerRow.data()[1]+'<br>';
+ 
+        for ( var i=0, ien=diff.length ; i<ien ; i++ ) {
+            var rowData = table.row( diff[i].node ).data();
+ 
+            result += rowData[1]+' updated to be in position '+
+                diff[i].newData+' (was '+diff[i].oldData+')<br>';
+        }
+ 
+        $('#result').html( 'Event result:<br>'+result );
+    });*/
+
             // Apply the tooltips //
             $('body').tooltip({selector: '[data-toggle="tooltip"]'});
         }

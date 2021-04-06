@@ -44,7 +44,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ route('admin.users.index') }}" class="nav-link  {{ (request()->is('backoffice/admin/users*')) ? 'active' : '' }}">
+            <a href="{{ route('admin.users.index') }}" class="nav-link  {{ (request()->is('backoffice/users*')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-users"></i>
               <p>Administrateurs</p>
             </a>

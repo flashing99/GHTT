@@ -21,7 +21,7 @@ Route::post('login', 'Admin\LoginAdminController@login')->name('login');
 Route::post('logout', 'Admin\LoginAdminController@logout')->name('logout');
 
 
-Route::get('/change-password', 'Admin\ChangePasswordController@index');
+Route::get('/change-password', 'Admin\ChangePasswordController@index')->name('change.password');
 Route::post('/change-password', 'Admin\ChangePasswordController@store')->name('change.password');
 
 Route::get('/profile', 'Admin\ProfileController@edit')->name('profile');

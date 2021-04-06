@@ -39,10 +39,11 @@
               <thead>
                  <tr>
                     <th>ID</th>
-                    <th>Image</th>
+                    <th width='20'>N°</th>
+                    <th width='100'>Image</th>
                     <th>Titre</th>
                     <th width='100'>Ajouté le</th>
-                    <th width='45'>Statut</th>
+                    {{-- <th width='45'>Statut</th> --}}
                     <th width='85'>Action</th>
                  </tr>
               </thead>
@@ -134,11 +135,11 @@
                 },
                 columns: [
                         { data: 'id', name: 'id', 'visible': false },
-                        //{ data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false,searchable: false },
+                        { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false,searchable: false },
                         { data: 'picture', name: 'picture' },
                         { data: 'title', name: 'title' },
                         { data: 'created_at', name: 'created_at' },
-                        { data: 'state', name: 'state' },
+                        //{ data: 'state', name: 'state' },
                         { data: 'action', name: 'action', orderable: false },
                     ],
                 order: [[1, 'desc']]
