@@ -14,7 +14,7 @@
 @section('main-content')
 
     {{-- +++++++++++++++ add footer template  +++++++++++++++++++++--}}
-    @include('frontend.layouts.common.header')
+    @include('frontend.layouts.common.header-2')
     {{-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
 
     {{-- +++++++++++++++ add slider template  +++++++++++++++++++++--}}
@@ -37,9 +37,7 @@
     {{-- +++++++++++++++   add services template  ++++++++++--}}
     @include('frontend.home.services')
     {{-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
-    <div class="mt90">
-              cxwwxcw
-    </div>
+
 
 
 @endsection

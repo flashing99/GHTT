@@ -277,12 +277,13 @@
     }
 
     /*Banner Slide*/
-    BannerSlider();
+  //  BannerSlider();
     function BannerSlider() {
         if ($('#banner-slider').length) {
             var offset_h = $('#header').innerHeight();
             $('#banner-slider').owlCarousel({
                 autoPlay: 5000,
+
                 navigation: true,
                 singleItem: true,
                 pagination: false,
@@ -360,7 +361,7 @@
                 navigationStyle: "round",
 
                 touchenabled: "on",
-                onHoverStop: "off",
+                onHoverStop: "on",
 
                 swipe_velocity: 0.7,
                 swipe_min_touches: 1,
@@ -1182,7 +1183,7 @@
 
 })(jQuery);
 
-// function for ajax 
+// function for ajax
 function sendBooking() {
     var $ = jQuery;
     $('#ajax-form-search-send').validate({

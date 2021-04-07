@@ -43,7 +43,7 @@
                     <div class="header_left float-left">
                         <span><i class="lotus-icon-cloud"></i> 18 °C</span>
                         <span><i class="lotus-icon-location"></i> 225 Beach Street, Australian</span>
-                        <span><i class="lotus-icon-phone"></i> 1-548-854-8898</span>
+                        <span><i class="lotus-icon-phone"></i>  +213 (0) 671 23 14 14</span>
                     </div>
                     <div class="header_right float-right">
 
