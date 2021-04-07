@@ -45,62 +45,111 @@
 
           <li class="nav-item">
             <a href="{{ route('admin.users.index') }}" class="nav-link  {{ (request()->is('backoffice/users*')) ? 'active' : '' }}">
-              <i class="nav-icon fas fa-users"></i>
+              <i class="nav-icon fas fa-users-cog"></i>
               <p>Administrateurs</p>
             </a>
           </li>
 
+          <li class="nav-item has-treeview _menu-open">
+            <a href="#" class="nav-link _active">
+              <i class="nav-icon fas fa-info"></i>
+              <p>Qui sommes nous ? <i class="right fas fa-angle-left"></i></p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/home" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>A propos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Titre</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Logo</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
           <li class="nav-item">
             <a href="{{ route('bookings.index') }}" class="nav-link  {{ (request()->is('backoffice/bookings*')) ? 'active' : '' }}">
-              <i class="nav-icon fas fa-users"></i>
+              <i class="nav-icon fas fa-luggage-cart"></i>
               <p>Bookings</p>
             </a>
           </li>
 
           <li class="nav-item">
             <a href="{{ route('sliders.index') }}" class="nav-link  {{ (request()->is('backoffice/sliders*')) ? 'active' : '' }}">
-              <i class="nav-icon fas fa-users"></i>
-              <p>Sliders</p>
+              <i class="nav-icon fas fa-sliders-h"></i>
+              <p>Gestion des sliders</p>
             </a>
           </li>
 
           <li class="nav-item">
-            <a href="{{ route('sliders.index') }}" class="nav-link  {{ (request()->is('backoffice/sliders*')) ? 'active' : '' }}">
-              <i class="nav-icon fas fa-users"></i>
-              <p>Galerie d'images</p>
+            <a href="{{ route('galleries.index') }}" class="nav-link  {{ (request()->is('backoffice/galleries*')) ? 'active' : '' }}">
+              <i class="nav-icon fas fa-photo-video"></i>
+              <p>Gestion de la galerie</p>
             </a>
           </li>
 
           <li class="nav-item">
             <a href="{{ route('events.index') }}" class="nav-link  {{ (request()->is('backoffice/events*')) ? 'active' : '' }}">
-              <i class="nav-icon fas fa-users"></i>
+              <i class="nav-icon fas fa-calendar-alt"></i>
               <p>Gestion des évènements</p>
             </a>
           </li>
 
-
-
-          <li class="nav-item has-treeview _menu-open">
-            <a href="#" class="nav-link _active">
-              <i class="nav-icon fas fa-info"></i>
-              <p>Starter <i class="right fas fa-angle-left"></i></p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/home" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Active Page</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inactive Page</p>
-                </a>
-              </li>
-            </ul>
-          </li>
           <li class="nav-item">
+            <a href="{{ route('events.index') }}" class="nav-link  {{ (request()->is('backoffice/accommodation*')) ? 'active' : '' }}">
+              <i class="nav-icon fas fa-hotel"></i>
+              <p>Gestion de l'hébergement</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-utensils"></i>
+              <p>Restaurations</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-bullhorn"></i>
+              <p>Animations et Activités</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user-tie"></i>
+              <p>Gestion des clients</p>
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-concierge-bell"></i>
+              <p>Nos services</p>
+            </a>
+          </li>
+          
+
+
+
+
+
+
+
+
+
+          {{-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
@@ -117,7 +166,7 @@
                 <span class="right badge badge-danger">New</span>
               </p>
             </a>
-          </li>
+          </li> --}}
 
         </ul>
       </nav>

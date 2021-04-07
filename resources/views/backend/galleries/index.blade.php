@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('header_page_title', 'Gestion des sliders')
+@section('header_page_title', 'Gestion de la galerie')
 
 
 @section('include_css')
@@ -17,7 +17,7 @@
   
 @endsection
 
-@section('breadcrumbs', Breadcrumbs::render('Sliders'))
+@section('breadcrumbs', Breadcrumbs::render('Galleries'))
 
 @section('main-content')
 
@@ -25,7 +25,7 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Gestion des sliders</h3>
+          <h3 class="card-title">Gestion de la galerie</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -34,12 +34,11 @@
 
             <div class="row p-b-md">
                 <div class="col-lg-12 p-l-none">
-                    <a href="{{ route('sliders.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Ajouter un nouveau slide</a>
+                    <a href="{{ route('sliders.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Ajouter un nouveau media</a>
                 </div>
             </div>
-            <div id="result">
-                Event result:
-            </div>
+            
+
             <table class="table table-bordered table-striped" id="datatable">
               <thead>
                  <tr>
@@ -85,11 +84,6 @@
     <script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
     <script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
-
-    {{-- <script src="https://cdn.datatables.net/rowreorder/1.2.7/js/dataTables.rowReorder.min.js"></script> --}}
-    <script src="{{ asset('adminlte/plugins/datatables-rowreorder/js/dataTables.rowReorder.min.js') }}"></script>
-    
-    
 
     <!-- Sweet alert -->
     <script src="{{ asset('adminlte/plugins/sweetalert/sweetalert.min.js') }}"></script>
@@ -142,8 +136,8 @@
             
                 ],
                 ajax: {
-                    //url     : SITEURL + "/Backoffice/sliders",
-                    url     : "{{ route('sliders.index') }}",
+                    //url     : SITEURL + "/Backoffice/galleries",
+                    url     : "{{ route('galleries.index') }}",
                     type    : 'GET',
                 },
                 columns: [
@@ -156,9 +150,6 @@
                         //{ data: 'state', name: 'state' },
                         { data: 'action', name: 'action', orderable: false },
                     ],
-                rowReorder: {
-                    dataSrc: 'id'
-                },
                 order: [[5, 'desc']]
             });
             

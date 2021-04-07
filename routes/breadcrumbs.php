@@ -62,3 +62,17 @@ Breadcrumbs::for('editEvent', function ($trail, $slider) {
     $trail->parent('Events', $slider);
     $trail->push('Modifier un évènement', route('events.index'));
 });
+
+// Accueil > Galleries
+Breadcrumbs::for('Galleries', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Gestion de la galerie', route('galleries.index'));
+});
+Breadcrumbs::for('createGallerie', function ($trail) {
+    $trail->parent('Galleries');
+    $trail->push('Ajouter un nouveau media', route('galleries.index'));
+});
+Breadcrumbs::for('editGallerie', function ($trail, $slider) {
+    $trail->parent('Galleries', $slider);
+    $trail->push('Modifier un media', route('galleries.index'));
+});

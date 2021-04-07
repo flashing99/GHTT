@@ -54,19 +54,24 @@ Route::namespace('Bookings')->group(function(){
 // Sliders
 Route::namespace('Sliders')->middleware('can:manage-sliders')->group(function(){
 
-    Route::resource('/sliders', 'SliderController'); // Les admins
-    //Route::post('/sliders/ajax/{slider}/status', 'SliderController@statusUser');
+    Route::resource('/sliders', 'SliderController');
     
 });
 
 // Events
 Route::namespace('Events')->middleware('can:manage-events')->group(function(){
 
-    Route::resource('/events', 'EventController'); // Les admins
-    //Route::post('/sliders/ajax/{slider}/status', 'SliderController@statusUser');
+    Route::resource('/events', 'EventController');
     
 });
 
+
+// Galleries
+Route::namespace('Galleries')->middleware('can:manage-galleries')->group(function(){
+
+    Route::resource('/galleries', 'GallerieController');
+    
+});
 
 
 /*
