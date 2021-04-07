@@ -28,7 +28,7 @@
 {{--<link  rel="stylesheet" href="{{ asset('./assets/css/app.css') }}" >--}}
 <link  rel="stylesheet" href="{{ asset('./assets/css/custom.css') }}" >
 
-<link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/header.css ') }}">
+{{--<link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/header.css ') }}">--}}
 <link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/helper.css ') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/responsive.css ') }}">
 
