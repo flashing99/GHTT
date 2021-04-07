@@ -37439,10 +37439,21 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
-  \*********************************/
+/***/ "./resources/less/style.less":
+/*!***********************************!*\
+  !*** ./resources/less/style.less ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/less-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.lessLoader (D:\\laragon\\www\\ghtt\\node_modules\\less-loader\\dist\\index.js:21:24)\n    at D:\\laragon\\www\\ghtt\\node_modules\\webpack\\lib\\NormalModule.js:316:20\n    at D:\\laragon\\www\\ghtt\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at D:\\laragon\\www\\ghtt\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)");
+
+/***/ }),
+
+/***/ "./resources/sass/custom.scss":
+/*!************************************!*\
+  !*** ./resources/sass/custom.scss ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -37451,14 +37462,15 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ }),
 
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
+/*!********************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/less/style.less ./resources/sass/custom.scss ***!
+  \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\laragon\www\ghtt_cet\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\laragon\www\ghtt_cet\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\laragon\www\ghtt\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\laragon\www\ghtt\resources\less\style.less */"./resources/less/style.less");
+module.exports = __webpack_require__(/*! D:\laragon\www\ghtt\resources\sass\custom.scss */"./resources/sass/custom.scss");
 
 
 /***/ })

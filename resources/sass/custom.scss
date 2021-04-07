@@ -114,8 +114,13 @@ $b-gray-light2:#bcbcbc;
       text-align: center;
       .header_logo {
         display: none;
+
       }
-      .header_menu {
+        .header_logo a  img {
+            max-height: 98px!important;
+        }
+
+        .header_menu {
         .menu {
           > li {
             a {
@@ -194,6 +199,7 @@ $b-gray-light2:#bcbcbc;
   }
 }
 
+
 /* =============================  BANNER SLIDER =========================*/
 .section-slider {
   &.slider-style-2 {
@@ -208,7 +214,7 @@ $b-gray-light2:#bcbcbc;
         left: 50px;
         &:before {
           content: "\e61c";
-          font-family: 'Lotus Icon', sans-serif;
+          font-family: 'Lotus icons', sans-serif;
           color: $c-white;
           z-index: 100;
           font-size: 13px;
@@ -219,7 +225,7 @@ $b-gray-light2:#bcbcbc;
         right: 50px;
         &:before {
           content: "\e61d";
-          font-family: 'Lotus Icon', sans-serif;
+          font-family: 'Lotus icons', sans-serif;
           color: $c-white;
           z-index: 100;
           font-size: 13px;
@@ -271,7 +277,7 @@ $b-gray-light2:#bcbcbc;
               color: $c-black;
             }
           }
-          .lotus-icon-calendar {
+          .lotus-icons-calendar {
             color: $c-black;
           }
         }
@@ -284,7 +290,7 @@ $b-gray-light2:#bcbcbc;
               font-size: 14px;
               font-family: 'Hind', sans-serif;
               &.caret {
-                background: url("../assets/images/home-3/icon-dropdow.png") !important;
+                background: url("../assets/images/home/icon-dropdow.png") !important;
                 background-repeat: no-repeat;
                 background-position: center center;
                 height: 13px;
@@ -514,7 +520,7 @@ $b-gray-light2:#bcbcbc;
 .section-home-guestbook {
   &.home-guestbook-style-2 {
     &.bg-22 {
-      background: url("../assets/images/home-3/bgr-guest-book.png");
+      background: url("../assets/images/home/bgr-guest-book.png");
       background-position: 50% 50%;
       background-attachment: fixed;
       background-repeat: no-repeat;
@@ -536,7 +542,7 @@ $b-gray-light2:#bcbcbc;
             padding-top: 35px;
             &:before {
               content: "";
-              background: url("../assets/images/home-3/icon/before-testimonial.png");
+              background: url("../assets/images/home/icons/before-testimonial.png");
               width: 30px;
               height: 19px;
               right: 0;
@@ -672,7 +678,7 @@ $b-gray-light2:#bcbcbc;
 .section-video {
   position: relative;
   &.bg-23 {
-    background: url("../assets/images/home-3/bgr-video.png");
+    background: url("../assets/images/home/bgr-video.png");
     background-position: center center;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -685,7 +691,7 @@ $b-gray-light2:#bcbcbc;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     transition: all .3s;
-    background: url("../assets/images/home-3/icon/player-1.png");
+    background: url("../assets/images/home/icons/player-1.png");
     width: 64px;
     height: 64px;
     background-repeat: no-repeat;
@@ -724,7 +730,7 @@ $b-gray-light2:#bcbcbc;
     .btn-play{
       width: 70px;
       height: 70px;
-      background: url("../assets/images/home-3/icon/player-2-1.png");
+      background: url("../assets/images/home/icons/player-2-1.png");
       background-repeat: no-repeat;
       background-size: cover;
       z-index: 2;
@@ -747,7 +753,7 @@ footer {
     .footer_top {
       padding: 20px 40px !important;
       margin: 100px 0;
-      background: url('../assets/images/home-3/footer/news.png') no-repeat !important;
+      background: url('../assets/images/footer/news.png') no-repeat !important;
       position: relative;
       z-index: 2;
       .img-mail {
@@ -822,7 +828,7 @@ footer {
     }
   }
   .bgr-footer {
-    background: url('../assets/images/home-3/footer/footer-center.png') no-repeat !important;
+    background: url('../assets/images/footer/footer-center.png') no-repeat !important;
     background-size: cover !important;
     position: relative;
   }
