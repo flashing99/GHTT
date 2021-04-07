@@ -35,13 +35,35 @@ class GallerieController extends Controller
 
             return Datatables::of($data)
 
+            ->editColumn('media', function ($data)
+            {
+                if($data->type==1){
+                    $media = $data->name;
+                } else {
+                    $media = '<img src=\''.$data->name.'\' height=\'50\'/>';
+                }
+                
+                return $media;
+                //return date('d-m-Y à H:i', strtotime($data->created_at) );
+            })
+            ->editColumn('type', function ($data)
+            {
+                if($data->type==1){
+                    $type = 'Video';
+                } else {
+                    $type = 'Image';
+                }
+                
+                return $type;
+                //return date('d-m-Y à H:i', strtotime($data->created_at) );
+            })            
             ->editColumn('created_at', function ($data)
             {
                 return date('d-m-Y à H:i', strtotime($data->created_at) );
             })
             //->editColumn('state', 'Backend.sliders.status')
             ->addColumn('action', 'Backend.galleries.action_button')
-            ->rawColumns(['action'])
+            ->rawColumns(['action', 'media'])
             ->addIndexColumn()
             ->make(true);
         }

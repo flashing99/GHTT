@@ -44,11 +44,11 @@
                  <tr>
                     <th>ID</th>
                     <th width="50">N°</th>
-                    <th width="50">Ordre</th>
-                    <th>Image</th>
                     <th>Titre</th>
+                    <th width="150">media</th>
+                    <th width="50">Type</th>
                     <th width='110'>Ajouté le</th>
-                    {{-- <th width='45'>Statut</th> --}}
+                    <th width='45'>Statut</th>
                     <th width='90'>Action</th>
                  </tr>
               </thead>
@@ -126,7 +126,6 @@
                 dom: '<"row"<"col-sm-12 col-md-2"l> <"col-sm-12 col-md-4"i> <"col-sm-12 col-md-6 text-right"B>>r t <"col-sm-12 col-md-2"l> <"col-sm-12 col-md-4"i><"col-sm-12 col-md-6"p>',//'Bfrtip',
                 buttons: [
                     'excel', 'pdf', ,'print', //'copy', 'csv',
-                    
                 {
                     text: 'Rafraîchir',
                     action: function ( e, dt, node, config ) {
@@ -143,35 +142,16 @@
                 columns: [
                         { data: 'id', name: 'id', 'visible': false },
                         { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false,searchable: false },
-                        { data: 'order', name: 'order' },
-                        { data: 'picture', name: 'picture' },
                         { data: 'title', name: 'title' },
+                        { data: 'media', name: 'media' },
+                        { data: 'type', name: 'type' },
                         { data: 'created_at', name: 'created_at' },
-                        //{ data: 'state', name: 'state' },
+                        { data: 'state', name: 'state' },
                         { data: 'action', name: 'action', orderable: false },
                     ],
                 order: [[5, 'desc']]
             });
             
-
-    table.on( 'row-reorder', function ( e, diff, edit ) {
-
-        console.log('edit : ', edit);
-        console.log('diff', diff);
-
-
-        var result = 'Reorder started on row: '+edit.triggerRow.data()[1]+'<br>';
- 
-        for ( var i=0, ien=diff.length ; i<ien ; i++ ) {
-            var rowData = table.row( diff[i].node ).data();
- 
-            result += rowData[1]+' updated to be in position '+
-                diff[i].newData+' (was '+diff[i].oldData+')<br>';
-        }
- 
-        $('#result').html( 'Event result:<br>'+result );
-    });
-
             // Apply the tooltips //
             $('body').tooltip({selector: '[data-toggle="tooltip"]'});
         }
