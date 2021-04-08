@@ -37446,7 +37446,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/less-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.lessLoader (D:\\laragon\\www\\ghtt\\node_modules\\less-loader\\dist\\index.js:21:24)\n    at D:\\laragon\\www\\ghtt\\node_modules\\webpack\\lib\\NormalModule.js:316:20\n    at D:\\laragon\\www\\ghtt\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at D:\\laragon\\www\\ghtt\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)");
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
