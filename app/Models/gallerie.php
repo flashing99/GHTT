@@ -26,7 +26,7 @@ class gallerie extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'name', 'type', 'state', 'category_gallerie_id', 
+        'title', 'name', 'type', 'description', 'state', 'category_gallerie_id', 
     ];
 
     public function CategoryGallerie(){

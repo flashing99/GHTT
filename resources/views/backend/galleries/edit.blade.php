@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('header_page_title', 'Modifier slide')
+@section('header_page_title', 'Modifier le media')
 
 @section('include_css')
     <!-- Ionicons -->
@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css') }}">
 
     <style>
-        #image_slide { display: none; }
+        #image_gallerie { display: none; }
         #custom-button {
         padding: 8px 15px;
         color: white;
@@ -42,7 +42,7 @@
 
 @endsection
 
-@section('breadcrumbs', Breadcrumbs::render('editSlider', $slider))
+@section('breadcrumbs', Breadcrumbs::render('editGallerie', $slider))
 
 @section('main-content')
 
@@ -58,7 +58,7 @@
             <div class="card-body">
 
 
-            <form method="POST" action="{{ route('sliders.update', $slider) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('gallerie.update', $slider) }}" enctype="multipart/form-data">
                 @csrf
                 {{ method_field('PUT')}}
 
@@ -92,19 +92,32 @@
 
 
                 <div class="form-group row">
-                    <label class="col-lg-2 col-form-label">Image du slide</label>
+                    <label class="col-lg-2 col-form-label">Image</label>
                     <div class="col-lg-10">
 
-                        <input id="image_slide" type="file" hidden="hidden" class="form-control @error('image_slide') is-invalid @enderror" name="image_slide">
+                        <input id="image_gallerie" type="file" hidden="hidden" class="form-control @error('image_gallerie') is-invalid @enderror" name="image_gallerie">
                         <button type="button" id="custom-button">Choisir une image</button>
                         <span id="custom-text">Aucun fichier choisi, pour le moment.</span>
 
-                        @error('image_slide')
+                        @error('image_gallerie')
                         <div class="alert alert-danger m-b-none">
                             <strong>{{ $message }}</strong>
                         </div>
                         @enderror
 
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-lg-2 col-form-label">Video Youtube</label>
+                    <div class="col-lg-10">
+                        <input id="url" type="text" class="form-control @error('url') is-invalid @enderror" name="url" value="{{ $slider->name }}" required autofocus placeholder="Veuillez introduire l'URL de la video">
+
+                        @error('url')
+                        <div class="alert alert-danger m-b-none">
+                            <strong>{{ $message }}</strong>
+                        </div>
+                        @enderror
                     </div>
                 </div>
 
@@ -207,7 +220,7 @@ $(document).ready( function () {
     //         });
 
     //--
-    const realFileBtn   = document.getElementById("image_slide");
+    const realFileBtn   = document.getElementById("image_gallerie");
     const customBtn     = document.getElementById("custom-button");
     const customTxt     = document.getElementById("custom-text");
 

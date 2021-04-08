@@ -34,7 +34,7 @@
 
             <div class="row p-b-md">
                 <div class="col-lg-12 p-l-none">
-                    <a href="{{ route('sliders.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Ajouter un nouveau media</a>
+                    <a href="{{ route('galleries.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Ajouter un nouveau media</a>
                 </div>
             </div>
             
