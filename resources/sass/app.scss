@@ -1,3 +1,4 @@
+/*
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
@@ -9,3 +10,36 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+*/
+
+////$c-main: #e1bd85;
+//$c-main: #00ffdf;
+//$c-black: #0E171E;
+//$c-white: #fff;
+//$b-blue :#092E6B;
+//$b-black: #040404;
+//$b-gray:#e1e1e1;
+//$b-gray-light:#dadada;
+//$b-gray-light2:#bcbcbc;
+
+//$c-main: #e1bd85;
+$c-main: #00ffdf;
+$c-black: #0E171E;
+$c-white: #fff;
+$b-blue :#092E6B;
+$b-black: #040404;
+$b-gray:#e1e1e1;
+$b-gray-light:#dadada;
+$b-gray-light2:#bcbcbc;
+
+
+// Variables
+//@import 'variables';
+//
+
+//@import 'header-v3';
+@import 'helper';
+@import "custom";
+@import "responsive";
+
+
