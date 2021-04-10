@@ -1,0 +1,43 @@
+php artisan serve
+
+composer install
+npm install
+
+npm run watch
+
+
+
+Complex touristique CET
+FAITES DE VOTRE SÉJOUR
+ET DE CELUI DE VOS PROCHES
+UN MOMENT UNIQUE !
+
+
+Chambre d'hotel
+Spatieuses et confortables
+
+Notre complexe touristique et toute son équipe vous souhaite la bienvenue à Zemmouri dans la wilaya de Boumerdès.
+Réservez directement en ligne et profitez de nos meilleurs tarifs du Complexe ADIM en Algérie !
+
+
+un lieu unique
+Trouvez un deuxième chez vous, où que vous alliez
+
+Faites-vous plaisir ! Votre séjour de rêve dans un luxueux complexe hôtelier n'est qu'à quelques clics.
+
+Un séjour mémorable
+Des villas et appartements qui valent le détour
+
+
+
+Chambres d’hôtel du Complexe Touristique
+
+
+Restaurant
+
+Complexe Touristique ADIM dispose de 2 grands restaurants en son sein, avec pour l’un une capacité d’accueil de plus de 120 couverts, pour l’autre, de plus de 360 couverts. Ces 2 établissements combinent un espace de restauration classique avec un espace familial qui fait se sentir vraiment chez soi. Un service professionnel prend grand soin de vous tandis que nos chefs cuisiniers ne proposent rien d’autre que de la haute gastronomie à travers diverses spécialités algériennes et internationales.
+
+
+
+   <h2>services haut de gamme</h2>
+{{--                            du Complexe Touristique CET--}}

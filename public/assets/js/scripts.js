@@ -26,6 +26,7 @@
 
     /* Datepicker */
     DatePicker();
+
     function DatePicker() {
         $(".awe-calendar:not(.from, .to)").datepicker({
             prevText: '<i class="lotus-icon-left-arrow"></i>',
@@ -59,6 +60,7 @@
 
     /*Accordion*/
     Accordion();
+
     function Accordion() {
         $(".accordion").accordion({
             heightStyle: "content"
@@ -67,6 +69,7 @@
 
     /* Tabs */
     Tabs();
+
     function Tabs() {
         $('.tabs').tabs({
             show: {effect: "fadeIn", duration: 300},
@@ -76,6 +79,7 @@
 
     /* Select */
     aweSelect();
+
     function aweSelect() {
         $('.awe-select').each(function (index, el) {
             $(this).selectpicker();
@@ -85,6 +89,7 @@
 
     /* aweCalendar */
     aweCalendar();
+
     function aweCalendar() {
         $('.awe-calendar').each(function () {
             var aweselect = $(this);
@@ -157,6 +162,7 @@
 
     /* Menu Click */
     MenuBar();
+
     function MenuBar() {
 
         $('.menu-bars').on('click', function (event) {
@@ -277,7 +283,8 @@
     }
 
     /*Banner Slide*/
-  //  BannerSlider();
+
+    //  BannerSlider();
     function BannerSlider() {
         if ($('#banner-slider').length) {
             var offset_h = $('#header').innerHeight();
@@ -343,6 +350,7 @@
 
     /*Slider Home*/
     SliderRevolution();
+
     function SliderRevolution() {
         if ($('#slider-revolution').length) {
             jQuery('#slider-revolution').show().revolution({
@@ -471,9 +479,9 @@
             url = $(target).data('video');
 
         var has_query_string = url.split('?', url);
-        if(typeof has_query_string[1] == 'string'){
-            url += '&' +$(target).data('query-string');
-        }else{
+        if (typeof has_query_string[1] == 'string') {
+            url += '&' + $(target).data('query-string');
+        } else {
             url += '?' + $(target).data('query-string');
         }
         $(target).find('iframe').attr('src', url);
@@ -533,6 +541,7 @@
 
     /* Coming Soon */
     CountDown();
+
     function CountDown() {
         if ($('#countdown').length) {
 
@@ -548,6 +557,7 @@
     }
 
     CountDate();
+
     /*==========  Count Date ==========*/
     function CountDate() {
         if ($('.count-date').length) {
@@ -571,6 +581,7 @@
 
     /* Popup Gallery */
     GalleryPopup();
+
     function GalleryPopup() {
 
         if ($('.gallery_item').length) {
@@ -598,6 +609,7 @@
 
     /*Gallery Room Detail*/
     GalleryRoomDetail();
+
     function GalleryRoomDetail() {
 
         if ($('.room-detail_img').length) {
@@ -640,6 +652,7 @@
 
     /* ACCOMMODATIONS SLIDE */
     Accommodations1();
+
     function Accommodations1() {
         if ($('.accomd-modations-slide_1').length) {
 
@@ -654,6 +667,7 @@
 
     /* SET BACKGROUND ROOM ITEM */
     BackgroundRoomItem();
+
     function BackgroundRoomItem() {
         $('.room_item-6, .room_item-5').each(function (index, el) {
             var $this = $(this),
@@ -1009,6 +1023,7 @@
     }
 
     AttractionList();
+
     function AttractionList() {
         $('.attraction_sidebar').on('click', '.attraction_heading_dropdown', function (event) {
             event.preventDefault();
@@ -1023,6 +1038,7 @@
 
     /*STATISTICS Count Number*/
     StatisticsCount();
+
     function StatisticsCount() {
         if ($('.statistics_item .count').length) {
 
@@ -1041,6 +1057,7 @@
 
     /*View Password*/
     ViewPassword();
+
     function ViewPassword() {
         $('.view-pass').mousedown(function (event) {
             $(this).prev('input[type="password"]').attr('type', 'text');
