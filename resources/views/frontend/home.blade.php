@@ -25,17 +25,26 @@
     @include('frontend.home.availability')
     {{-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
 
-    {{-- +++++++++++++++  Chambres et tarifs - add ROOMS & RATES template  ++++++++++--}}
-    @include('frontend.home.rooms')
-    {{-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
 
     {{-- +++++++++++++++   add About template  ++++++++++--}}
     @include('frontend.home.about')
     {{-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
 
+    {{-- +++++++++++++++  Chambres et tarifs - add ROOMS & RATES template  ++++++++++--}}
+    @include('frontend.home.rooms')
+    {{-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
+
+    {{-- +++++++++++++++ add template Restaurant  ++++++++++--}}
+    @include('frontend.home.restaurant')
+    {{-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
+
 
     {{-- +++++++++++++++   add services template  ++++++++++--}}
     @include('frontend.home.services')
+    {{-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
+
+    {{-- +++++++++++++++   add gallery template  ++++++++++--}}
+    @include('frontend.home.gallery')
     {{-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
 
 

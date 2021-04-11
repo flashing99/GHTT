@@ -1,6 +1,6 @@
 <!-- FOOTER -->
 <footer id="footer" class="footer-style-2">
-    <!-- FOOTER TOP -->
+   {{-- <!-- FOOTER TOP -->
     <div class="container">
         <div class="footer_top">
             <div class="row">
@@ -30,7 +30,7 @@
             </div>
         </div>
     </div>
-    <!-- END / FOOTER TOP -->
+    <!-- END / FOOTER TOP -->--}}
 
     <!-- FOOTER CENTER -->
     <div class="footer_center bgr-footer">
@@ -55,11 +55,11 @@
                     </div>
                     <div class="col-xs-6 col-sm-3">
                         <div class="widget">
-                            <h4 class="widget-title f20 bold">Information</h4>
+                            <h4 class="widget-title f20 bold">Informations</h4>
                             <div class="text">
-                                <p><i class="lotus-icon-location mr10"></i> 225 Beach Street, Australian</p>
-                                <p><i class="lotus-icon-phone mr10"></i> 1-548-854-8898</p>
-                                <p><i class="fa fa-envelope-o mr10"></i> <a href="mailto:hello@thelotushotel.com">hello@thelotushotel.com</a>
+                                <p><i class="lotus-icon-location mr10"></i> Complexe touristique CET, Tipaza</p>
+                                <p><i class="lotus-icon-phone mr10"></i>+213 (0) 23 252-525</p>
+                                <p><i class="fa fa-envelope-o mr10"></i> <a href="mailto:hello@thelotushotel.com">cont@complex-cet.com</a>
                                 </p>
                             </div>
                         </div>
@@ -76,26 +76,25 @@
                     </div>
                     <div class="col-xs-6 col-sm-3">
                         <div class="widget">
-                            <h4 class="widget-title f20 bold">Hotel</h4>
+                            <h4 class="widget-title f20 bold">Le Complexe</h4>
                             <ul>
-                                <li><a href="#">Accommodation</a></li>
-                                <li><a href="#">Guest Book</a></li>
-                                <li><a href="#">Gallery</a></li>
-                                <li><a href="#">Restaurant</a></li>
-                                <li><a href="#">Event</a></li>
-                                <li><a href="#">Offer</a></li>
+                                <li><a href="">Accuiel</a></li>
+                                <li><a href="">A propos</a></li>
+                                <li><a href="#">Hébergement</a></li>
+                                <li><a href="#">Restaurants</a></li>
+
                             </ul>
                         </div>
                     </div>
                     <div class="col-xs-6 col-sm-3">
                         <div class="widget">
-                            <h4 class="widget-title f20 bold">More Link</h4>
+                            <h4 class="widget-title f20 bold">&nbsp;</h4>
                             <ul>
-                                <li><a href="">About</a></li>
-                                <li><a href="">Blog</a></li>
-                                <li><a href="">Contact Us</a></li>
-                                <li><a href="">Comming Soon</a></li>
-                                <li><a href="">Inquires</a></li>
+                                <li><a href="#">Animation</a></li>
+                                <li><a href="#">Gallerie</a></li>
+                                <li><a href="#">Resèrvation</a></li>
+                                <li><a href="">Contactez-nous</a></li>
+
                             </ul>
                         </div>
                     </div>
@@ -104,10 +103,10 @@
         </div>
         <div class="copyright">
             <div class="container">
-                <p class="left inline-block f14">&copy; 2017 Lotus Hotel All rights reserved.</p>
-                <div class="payment pull-right inline-block">
+                <p class="left inline-block f14">&copy;2021 Complexe touristique CET,Tous droit réservés.</p>
+               {{-- <div class="payment pull-right inline-block">
                     <img src="./assets/images/footer/card.png" alt="" class="img-responsive">
-                </div>
+                </div>--}}
             </div>
         </div>
     </div>
