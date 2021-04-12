@@ -1,6 +1,6 @@
 
 <!-- OUR BEST -->
-    <section class="ot-out-best mt60">
+    <section class="ot-out-best pt40 pb40">
         <div class="container">
             <div class="content">
                 <div class="row">

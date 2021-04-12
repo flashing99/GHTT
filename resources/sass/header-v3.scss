@@ -19,7 +19,7 @@ body header.header-v3 {
       body header.header-v3 .header_top .dropdown ul li {
         line-height: 20px; }
         body header.header-v3 .header_top .dropdown ul li > a:hover {
-          background-color: #E1BD85 !important;
+          background-color: $c-main !important;
           color: #fff !important; }
     body header.header-v3 .header_top .socials a {
       font-size: 12px;
@@ -47,7 +47,7 @@ body header.header-v3 {
       left: 20px;
       right: 20px;
       width: auto;
-      background-color: #E1BD85; }
+      background-color: $c-main; }
     body header.header-v3 .header_content .header_menu .menu .sub-menu {
       background-color: #0E171E;
       border: none; }
@@ -55,6 +55,6 @@ body header.header-v3 {
         line-height: 20px; }
         body header.header-v3 .header_content .header_menu .menu .sub-menu li a:hover {
           color: #fff;
-          background-color: #E1BD85; }
+          background-color: $c-main; }
     body header.header-v3 .header_content:after {
       background: rgba(0, 0, 0, 0.6); }

@@ -8,8 +8,9 @@
 	&.header-v2{
 		.header_content{
 			&:after{
-				background: rgba(0, 0, 0, 0.6);
-                background: rgba(12, 48 ,111,0.6);
+				//background: rgba(0, 0, 0, 0.6);
+                //background: rgba(12, 48 ,111,0.6);
+                background: rgb(12 48 111 / 75%);
 
 
 			}
@@ -17,32 +18,34 @@
 				li{
 					&:hover{
 						a{
-							background: #030404;
-                            background: #0c306f;
+							//background: #030404;
+                            //background: @brand;
+                            background: @main;
 						}
 					}
 					a{
-						color: #fff;
+						color: @white;
 					}
 					&.current-menu-item{
 						a{
-							background: #030404;
-                            background: #0c306f;
+							//background: #030404;
+                            //background: @brand;
+                            background: @active;
 						}
 					}
 					.sub-menu li{
 						a{
 							color: #333;
-							background: #fff;
+							background: @white;
 							&:hover{
-								color: #fff;
+								color: @white;
 								background: @brand;
-                                background: rgb(255, 214 ,88);
+                                //background: rgb(255, 214 ,88);
 							}
 						}
 						&.current-menu-item{
 							a{
-								color: #fff;
+								color: @white;
 								background: @brand;
 							}
 						}
@@ -68,7 +71,7 @@
 
 	.header_left span {
 		font-size: 12px;
-		color: #fff;
+		color: @white;
 		margin-right: 15px;
 		line-height: 36px;
 
@@ -87,13 +90,13 @@
 			a {
 				font-size: 12px;
 				line-height: 36px;
-				color: #fff;
+				color: @white;
 				display: inline-block;
 				padding: 0 10px;
 				.transition(all 0.3s ease);
 
 				&:hover, &.active {
-					background-color: #fff;
+					background-color: @white;
 					color: #333;
 				}
 			}
@@ -105,7 +108,7 @@
 			display: inline-block;
 
 			span {
-				color: #fff;
+				color: @white;
 				line-height: 36px;
 				display: inline-block;
 				padding-left: 10px;
@@ -125,7 +128,7 @@
 				list-style: none;
 				padding: 0;
 				margin-bottom: 0;
-				background-color: #fff;
+				background-color: @white;
 				position: absolute;
 				min-width: 115px;
 				right: 0;
@@ -146,13 +149,13 @@
 
 						&:hover {
 							background-color: @brand;
-							color: #fff;
+							color: @white;
 						}
 					}
 
 					&.active a {
 						background-color: @brand;
-						color: #fff;
+						color: @white;
 					}
 				}
 			}
@@ -160,7 +163,7 @@
 			&:hover {
 
 				span {
-					background-color: #fff;
+					background-color: @white;
 					color: #333;
 				}
 
@@ -175,7 +178,8 @@
 #header.header-sticky{
 	.header_content{
 		&:after{
-			box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.58);
+			//box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.58);
+
 		}
 	}
 }
@@ -192,7 +196,7 @@
 		position: absolute;
 		width: 100%;
 		height: 100%;
-		background-color: #fff;
+		background-color: @white;
 		opacity: 1;
 		top: 0; left: 0;
 		z-index: -1;
@@ -233,14 +237,14 @@
 
 			&.current-menu-item > a {
 				background-color: @brand;
-				color: #fff;
+				color: @white;
 			}
 
 			&:hover {
 
 				> a {
 					background-color: @brand;
-					color: #fff;
+					color: @white;
 				}
 
 				> .sub-menu {
@@ -260,7 +264,7 @@
 				width:200px;
 				position: absolute;
 				left: 0;
-				background-color: #fff;
+				background-color: @white;
 				list-style: none;
 				padding: 10px 0;
 				margin: 0;
@@ -290,14 +294,14 @@
 
 					&.current-menu-item > a {
 						background-color: @brand;
-						color: #fff;
+						color: @white;
 					}
 
 					&:hover {
 
 						> a {
 							background-color: @brand;
-							color: #fff;
+							color: @white;
 						}
 
 						> .sub-menu {
@@ -369,7 +373,7 @@
 	}
 
 	&:hover {
-		background-color: #fff;
+		background-color: @white;
 
 		span  {
 			background-color: transparent;
@@ -387,7 +391,7 @@
 	}
 
 	&.active {
-		background-color: #fff;
+		background-color: @white;
 
 		span {
 			background-color: transparent;
@@ -406,7 +410,7 @@
 }
 
 .header_mobile {
-	background-color: #fff;
+	background-color: @white;
 	left: 0; right: 0;
 	z-index: 999;
 	position: absolute;
@@ -451,7 +455,7 @@
 				a {
 					display: block;
 					padding: 10px 40px 10px 20px;
-					color: #fff;
+					color: @white;
 					font-size: 14px;
 					text-transform: uppercase;
 					font-weight: 500;
@@ -480,13 +484,13 @@
 					}
 
 					&:hover {
-						background-color: #fff;
+						background-color: @white;
 						color: @color;
 					}
 				}
 
 				&.current-menu-item > a {
-					background-color: #fff;
+					background-color: @white;
 					color: @color;
 				}
 

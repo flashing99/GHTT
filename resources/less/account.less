@@ -13,7 +13,7 @@
 			font-size: 36px;
 			text-transform: uppercase;
 			margin: 0;
-			color: #fff;
+			color: @white;
 			font-weight: bold;
 		}
 
@@ -34,12 +34,12 @@
 			.field-form {
 				position: relative;
 				margin-top: 15px;
-				
+
 				.view-pass {
 					position: absolute;
 					right: 20px;
 					top: 50%;
-					color: #fff;
+					color: @white;
 					line-height: 1;
 					cursor: pointer;
 					font-size: 11px;
@@ -53,14 +53,14 @@
 
 				.field-text {
 					background-color: transparent;
-					border: 2px solid #fff;
-					color: #fff;
+					border: 2px solid @white;
+					color: @white;
 					width: 100%;
 					height: 42px;
 					line-height: 42px;
 					padding-left: 15px;
 					padding-right: 15px;
-					.placeholder(#fff);
+					.placeholder(@white);
 					.transition(all 0.3s ease);
 
 					&:focus {
@@ -80,13 +80,13 @@
 			}
 
 			.account-desc {
-				color: #fff;
+				color: @white;
 				font-size: 13px;
 				display: block;
 				margin-top: 30px;
 
 				a {
-					color: #fff;
+					color: @white;
 					.transition(all 0.3s ease);
 
 					&:hover {

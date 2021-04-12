@@ -25,7 +25,7 @@
                             <h2><a href="#">Luxury Room</a></h2>
                             <p class="desc">Cum sociis natoque penatibus et magnis dis part urient montes, nascetur ridiculus mus. Vestib ulum id ligula porta felis euis.</p>
                             <div class="wrap-price">
-                                <p class="price">
+                                <p class="price  f-600">
                                     <span class="amout">$320</span> /days
                                 </p>
                                 <a href="#" class="awe-btn awe-btn-default">VIEW DETAIL</a>
@@ -42,7 +42,7 @@
                             <h2><a href="#">Luxury Room</a></h2>
                             <p class="desc">Cum sociis natoque penatibus et magnis dis part urient montes, nascetur ridiculus mus. Vestib ulum id ligula porta felis euis.</p>
                             <div class="wrap-price">
-                                <p class="price">
+                                <p class="price  f-600">
                                     <span class="amout">$320</span> /days
                                 </p>
                                 <a href="#" class="awe-btn awe-btn-default">VIEW DETAIL</a>
@@ -60,7 +60,7 @@
                             <h2><a href="#">Luxury Room</a></h2>
                             <p class="desc">Cum sociis natoque penatibus et magnis dis part urient montes, nascetur ridiculus mus. Vestib ulum id ligula porta felis euis.</p>
                             <div class="wrap-price">
-                                <p class="price">
+                                <p class="price  f-600">
                                     <span class="amout">$320</span> /days
                                 </p>
                                 <a href="#" class="awe-btn awe-btn-default">VIEW DETAIL</a>
@@ -77,7 +77,7 @@
                             <h2><a href="#">Luxury Room</a></h2>
                             <p class="desc">Cum sociis natoque penatibus et magnis dis part urient montes, nascetur ridiculus mus. Vestib ulum id ligula porta felis euis.</p>
                             <div class="wrap-price">
-                                <p class="price">
+                                <p class="price  f-600">
                                     <span class="amout">$320</span> /days
                                 </p>
                                 <a href="#" class="awe-btn awe-btn-default">VIEW DETAIL</a>
@@ -99,7 +99,7 @@
 
 
 <!-- ACCOMMODATIONS 2 -->
-<section class="section-accommo_1 awe-parallax bg-14">
+<section class="section-accommo_1 pb60 bg-white">
     <div class="container">
 
         <div class="accomd-modations_1">
@@ -107,7 +107,7 @@
                 <div class="accomd-modations-header">
                     <h2 class="heading">Restaurants</h2>
                     <img src="./assets/images/icon-accmod.png" alt="icon">
-                    <p>Semper ac dolor vitae accumsan. Cras interdum hendrerit lacinia. Phasellus accumsan urna vitae molestie interdum. Nam sed placerat libero, non eleifend dolor.</p>
+                    <p>Le Complexe dispose de 4 grands restaurants en son sein, qui combinent un espace de restauration classique avec un espace familial qui fait se sentir vraiment chez soi.</p>
                 </div>
 
 
@@ -124,7 +124,7 @@
                         </div>
                         <div class="text">
                             <h2><a href="#">Casbah</a></h2>
-                            <p class="price">
+                            <p class="price  f-600 ">
 {{--                                <span class="amout">$320</span>/days--}}
                                 Le Gastro
                             </p>
@@ -138,7 +138,7 @@
                         </div>
                         <div class="text">
                             <h2><a href="#">Panoramique</a></h2>
-                            <p class="price">
+                            <p class="price  f-600">
 {{--                                <span class="amout">$320</span>/days--}}
                                Self
                             </p>
@@ -153,7 +153,7 @@
                         </div>
                         <div class="text">
                             <h2><a href="#">Horse club</a></h2>
-                            <p class="price">
+                            <p class="price  f-600">
 {{--                                <span class="amout">$320</span>/days--}}
                                 Poissons
                             </p>
@@ -167,7 +167,7 @@
                         </div>
                         <div class="text">
                             <h2><a href="#">Typique</a></h2>
-                            <p class="price">
+                            <p class="price  f-600">
 {{--                                <span class="amout">$320</span>/days--}}
 
                                 Traditionnel Algérien
@@ -182,7 +182,7 @@
                         </div>
                         <div class="text">
                             <h2><a href="#">Buvettes </a></h2>
-                            <p class="price">
+                            <p class="price  f-600">
 {{--                                <span class="amout">$320</span>--}}
                                             Deux buvettes
                             </p>
@@ -227,7 +227,7 @@
                                     </div>
                                     <div class="text">
                                         <h2><a href="#">Luxury Room</a></h2>
-                                        <p class="price">
+                                        <p class="price  f-600">
                                             <span class="amout">$320</span>/days
                                         </p>
                                     </div>
@@ -243,7 +243,7 @@
                                     </div>
                                     <div class="text">
                                         <h2><a href="#">Family Room</a></h2>
-                                        <p class="price">
+                                        <p class="price  f-600">
                                             <span class="amout">$320</span>/days
                                         </p>
                                     </div>
@@ -259,7 +259,7 @@
                                     </div>
                                     <div class="text">
                                         <h2><a href="#">Couple Room</a></h2>
-                                        <p class="price">
+                                        <p class="price  f-600">
                                             <span class="amout">$320</span>/days
                                         </p>
                                     </div>
@@ -279,7 +279,7 @@
                                     </div>
                                     <div class="text">
                                         <h2><a href="#">Luxury Room</a></h2>
-                                        <p class="price">
+                                        <p class="price  f-600">
                                             <span class="amout">$320</span>/days
                                         </p>
                                     </div>
@@ -295,7 +295,7 @@
                                     </div>
                                     <div class="text">
                                         <h2><a href="#">Family Room</a></h2>
-                                        <p class="price">
+                                        <p class="price  f-600">
                                             <span class="amout">$320</span>/days
                                         </p>
                                     </div>
@@ -311,7 +311,7 @@
                                     </div>
                                     <div class="text">
                                         <h2><a href="#">Couple Room</a></h2>
-                                        <p class="price">
+                                        <p class="price  f-600">
                                             <span class="amout">$320</span>/days
                                         </p>
                                     </div>
@@ -331,7 +331,7 @@
                                                             </div>
                                                             <div class="text">
                                                                 <h2><a href="#">Luxury Room</a></h2>
-                                                                <p class="price">
+                                                                <p class="price  f-600">
                                                                     <span class="amout">$320</span>/days
                                                                 </p>
                                                             </div>
@@ -346,7 +346,7 @@
                                                             </div>
                                                             <div class="text">
                                                                 <h2><a href="#">Family Room</a></h2>
-                                                                <p class="price">
+                                                                <p class="price  f-600">
                                                                     <span class="amout">$320</span>/days
                                                                 </p>
                                                             </div>
@@ -361,7 +361,7 @@
                                                             </div>
                                                             <div class="text">
                                                                 <h2><a href="#">Couple Room</a></h2>
-                                                                <p class="price">
+                                                                <p class="price  f-600">
                                                                     <span class="amout">$320</span>/days
                                                                 </p>
                                                             </div>
@@ -376,7 +376,7 @@
                                                             </div>
                                                             <div class="text">
                                                                 <h2><a href="#">Standard</a></h2>
-                                                                <p class="price">
+                                                                <p class="price  f-600">
                                                                     <span class="amout">$320</span>/day
                                                                 </p>
                                                             </div>
@@ -391,7 +391,7 @@
                                                             </div>
                                                             <div class="text">
                                                                 <h2><a href="#">Standard</a></h2>
-                                                                <p class="price">
+                                                                <p class="price  f-600">
                                                                     <span class="amout">$320</span>/day
                                                                 </p>
                                                             </div>
@@ -406,7 +406,7 @@
                                                             </div>
                                                             <div class="text">
                                                                 <h2><a href="#">Standard</a></h2>
-                                                                <p class="price">
+                                                                <p class="price  f-600">
                                                                     <span class="amout">$320</span>/day
                                                                 </p>
                                                             </div>
