@@ -29,8 +29,8 @@ class CategoryHousing extends Model
         'name', 'state', 
     ];
 
-    // public function CategoryGallerie(){
-    //     return $this->belongsTo(CategoryGallerie::class);
-    // }
+    public function SubcategoryHousings(){
+        return $this->hasMany(SubcategoryHousing::class);
+    }
 
 }

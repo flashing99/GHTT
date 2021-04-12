@@ -78,6 +78,13 @@
           </li>
 
           <li class="nav-item">
+            <a href="{{ route('housings.index') }}" class="nav-link  {{ (request()->is('backoffice/housings*')) ? 'active' : '' }}">
+              <i class="nav-icon fas fa-hotel"></i>
+              <p>Gestion de l'hébergement</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="{{ route('bookings.index') }}" class="nav-link  {{ (request()->is('backoffice/bookings*')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-luggage-cart"></i>
               <p>Bookings</p>
@@ -102,13 +109,6 @@
             <a href="{{ route('events.index') }}" class="nav-link  {{ (request()->is('backoffice/events*')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-calendar-alt"></i>
               <p>Gestion des évènements</p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="{{ route('events.index') }}" class="nav-link  {{ (request()->is('backoffice/accommodation*')) ? 'active' : '' }}">
-              <i class="nav-icon fas fa-hotel"></i>
-              <p>Gestion de l'hébergement</p>
             </a>
           </li>
 

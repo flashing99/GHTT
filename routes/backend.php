@@ -73,6 +73,13 @@ Route::namespace('Galleries')->middleware('can:manage-galleries')->group(functio
     
 });
 
+// Housings
+Route::namespace('Housings')->middleware('can:manage-housings')->group(function(){
+
+    Route::resource('/housings', 'HousingController');
+    Route::post('/housings/ajax/{housing}/vipstatus', 'HousingController@statusVip');
+});
+
 
 /*
 // Revendeurs

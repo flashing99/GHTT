@@ -29,8 +29,8 @@ class Housing extends Model
         'name', 'number', 'area', 'floor', 'online', 'vip', 'description', 'subcategory_housing_id', 
     ];
 
-    // public function CategoryGallerie(){
-    //     return $this->belongsTo(CategoryGallerie::class);
-    // }
+    public function SubcategoryHousing(){
+        return $this->belongsTo(SubcategoryHousing::class);
+    }
 
 }

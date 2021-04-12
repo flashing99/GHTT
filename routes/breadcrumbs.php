@@ -76,3 +76,17 @@ Breadcrumbs::for('editGallerie', function ($trail, $slider) {
     $trail->parent('Galleries', $slider);
     $trail->push('Modifier un media', route('galleries.index'));
 });
+
+// Accueil > Housings
+Breadcrumbs::for('Housings', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Gestion de l\'hébergement', route('housings.index'));
+});
+Breadcrumbs::for('createHousing', function ($trail) {
+    $trail->parent('Housings');
+    $trail->push('Ajouter un nouveau media', route('housings.index'));
+});
+Breadcrumbs::for('editHousing', function ($trail, $slider) {
+    $trail->parent('Housings', $slider);
+    $trail->push('Modifier un media', route('housings.index'));
+});
