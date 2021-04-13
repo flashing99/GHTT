@@ -1456,7 +1456,7 @@ blockquote p:after {
   line-height: 84px;
 }
 .header_logo img {
-  max-height: 98px;
+  max-height: 92px;
 }
 .menu-bars {
   color: #333;
@@ -7399,7 +7399,6 @@ blockquote p:after {
   margin-top: 0;
   margin-bottom: 10px;
   font-size: 14px;
-  text-transform: uppercase;
   font-weight: bold;
   line-height: 1.428em;
   position: relative;

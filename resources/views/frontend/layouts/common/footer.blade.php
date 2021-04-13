@@ -42,7 +42,7 @@
                             <div class="widget widget_logo clearfix">
                                 <div class="widget-logo text-center">
                                     <div class="img">
-                                        <a href="#"><img class="img-center" src="../assets/images/footer/ghtt-bl.png" alt=""></a>
+                                        <a href="#"><img class="img-center" src="../assets/images/footer/ghtt-bl.png"   style="width: 110px!important;" alt=""></a>
                                     </div>
                                 </div>
                             </div>

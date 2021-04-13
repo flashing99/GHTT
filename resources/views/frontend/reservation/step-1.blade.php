@@ -8,7 +8,7 @@
             <div class="reservation_step">
                 <ul>
                     <li class="active"><a href="#"><span>1.</span> Choisissez la date</a></li>
-                    <li><a href="#"><span>2.</span> Choisissez la pièce</a></li>
+                    <li><a href="#"><span>2.</span> Choisissez le type</a></li>
                     <li><a href="#"><span>3.</span> Faites une réservation</a></li>
                     <li><a href="#"><span>4.</span> Confirmation</a></li>
                 </ul>
@@ -17,7 +17,7 @@
 
             <div class="row">
 
-                <div class="col-md-4 col-lg-3">
+                <div class="col-12 col-md-8 col-lg-8 col-md-offset-2">
 
                     <div class="reservation-sidebar mb40">
 
@@ -54,7 +54,7 @@
                             </div>
 
                             <div class="check_availability_group pl0">
-                       {{--         <span class="label-group">Nombres de personnes</span>--}}
+                                {{--         <span class="label-group">Nombres de personnes</span>--}}
                                 <div class="check_availability-field_group ">
                                     <div class="check_availability-field">
                                         <label>Adulte</label>
@@ -84,39 +84,39 @@
 
                             </div>
 
-                          {{--  <div class="check_availability_group">
+                            {{--  <div class="check_availability_group">
 
-                                <span class="label-group">CHAMBRE 2</span>
+                                  <span class="label-group">CHAMBRE 2</span>
 
-                                <div class="check_availability-field_group">
+                                  <div class="check_availability-field_group">
 
-                                    <div class="check_availability-field">
-                                        <label>Adulte</label>
-                                        <select class="awe-select">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                            <option>6</option>
-                                        </select>
-                                    </div>
+                                      <div class="check_availability-field">
+                                          <label>Adulte</label>
+                                          <select class="awe-select">
+                                              <option>1</option>
+                                              <option>2</option>
+                                              <option>3</option>
+                                              <option>4</option>
+                                              <option>5</option>
+                                              <option>6</option>
+                                          </select>
+                                      </div>
 
-                                    <div class="check_availability-field">
-                                        <label>Chirld</label>
-                                        <select class="awe-select">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                            <option>6</option>
-                                        </select>
-                                    </div>
+                                      <div class="check_availability-field">
+                                          <label>Chirld</label>
+                                          <select class="awe-select">
+                                              <option>1</option>
+                                              <option>2</option>
+                                              <option>3</option>
+                                              <option>4</option>
+                                              <option>5</option>
+                                              <option>6</option>
+                                          </select>
+                                      </div>
 
-                                </div>
+                                  </div>
 
-                            </div>--}}
+                              </div>--}}
 
                             <button class="awe-btn awe-btn-13">VÉRIFIER LA DISPONIBILITÉ</button>
 
@@ -127,7 +127,8 @@
 
                 </div>
 
-                <div class="col-md-8 col-lg-9">
+                {{-- :::::::::::::::: CALANDER ::::::::::::::: --}}
+             {{--   <div class="col-md-8 col-lg-9">
                     <div class="reservation_content bg-gray">
                         <h2 class="reservation-heading">DISPONIBILITÉ DU COMPLEXE</h2>
 
@@ -138,7 +139,8 @@
                                     <span class="reservation-calendar_month uppercase">Avril</span>
                                     <span class="reservation-calendar_year"> 2021</span>
 
-                                    <a href="#" class="reservation-calendar_prev reservation-calendar_corner"><i class="lotus-icon-left-arrow"></i></a>
+                                    <a href="#" class="reservation-calendar_prev reservation-calendar_corner"><i
+                                            class="lotus-icon-left-arrow"></i></a>
                                 </div>
 
                                 <table class="reservation-calendar_tabel">
@@ -158,10 +160,12 @@
                                         <td class="reservation-calendar_current-date">
                                             <a href="#"><small>1</small> <span class="f24">&bull;</span></a>
                                         </td>
-                                        <td class="current-select"><a href="#"><small>2</small> <span>Arrivée</span></a></td>
+                                        <td class="current-select"><a href="#"><small>2</small> <span>Arrivée</span></a>
+                                        </td>
                                         <td class="current-select"><a href="#"><small>3</small></a></td>
                                         <td class="current-select"><a href="#"><small>4</small></a></td>
-                                        <td class="current-select"><a href="#"><small>5</small> <span>Départ</span></a></td>
+                                        <td class="current-select"><a href="#"><small>5</small> <span>Départ</span></a>
+                                        </td>
                                         <td><a href="#"><small>6</small></a></td>
                                     </tr>
                                     <tr>
@@ -169,20 +173,24 @@
                                         <td><a href="#"><small>8</small></a></td>
                                         <td><a href="#"><small>9</small></a></td>
                                         <td><a href="#"><small>10</small></a></td>
-                                        <td class="reservation-calendar_current-select"><a href="#"><small>11</small></a></td>
-                                        <td class="reservation-calendar_current-select"><a href="#"><small>12</small></a></td>
+                                        <td class="reservation-calendar_current-select"><a
+                                                href="#"><small>11</small></a></td>
+                                        <td class="reservation-calendar_current-select"><a
+                                                href="#"><small>12</small></a></td>
                                         <td><a href="#"><small>13</small></a></td>
                                     </tr>
                                     <tr>
-                                        <td  class="current-select" ><a href="#"  ><small>14</small><span>Arrivée</span></a></td>
-                                        <td  class="current-select"><a href="#"><small>15</small></a></td>
-                                        <td  class="current-select"><a href="#"><small>16</small></a></td>
-                                        <td  class="current-select"><a href="#"><small>17</small></a></td>
-                                        <td  class="current-select"><a href="#"><small>18</small></a></td>
-                                        <td  class="current-select"><a href="#"><small>19</small></a></td>
-                                        <td  class="current-select"><a href="#"><small>20</small></a></td>
+                                        <td class="current-select"><a href="#"><small>14</small><span>Arrivée</span></a>
+                                        </td>
+                                        <td class="current-select"><a href="#"><small>15</small></a></td>
+                                        <td class="current-select"><a href="#"><small>16</small></a></td>
+                                        <td class="current-select"><a href="#"><small>17</small></a></td>
+                                        <td class="current-select"><a href="#"><small>18</small></a></td>
+                                        <td class="current-select"><a href="#"><small>19</small></a></td>
+                                        <td class="current-select"><a href="#"><small>20</small></a></td>
                                     <tr>
-                                        <td  class="current-select"><a href="#"><small>21</small><span>Départ</span></a></td>
+                                        <td class="current-select"><a href="#"><small>21</small><span>Départ</span></a>
+                                        </td>
                                         <td><a href="#"><small>22</small></a></td>
                                         <td><a href="#"><small>23</small></a></td>
                                         <td><a href="#"><small>24</small></a></td>
@@ -211,7 +219,8 @@
                                     <span class="reservation-calendar_month">Mai </span>
                                     <span class="reservation-calendar_year">2021</span>
 
-                                    <a href="#" class="reservation-calendar_next reservation-calendar_corner"><i class="lotus-icon-right-arrow"></i></a>
+                                    <a href="#" class="reservation-calendar_next reservation-calendar_corner"><i
+                                            class="lotus-icon-right-arrow"></i></a>
                                 </div>
 
                                 <table class="reservation-calendar_tabel">
@@ -231,10 +240,12 @@
                                         <td class="reservation-calendar_current-date">
                                             <a href="#"><small>1</small> <span> </span></a>
                                         </td>
-                                        <td class="current-select"><a href="#"><small>2</small> <span>Arrivée</span></a></td>
+                                        <td class="current-select"><a href="#"><small>2</small> <span>Arrivée</span></a>
+                                        </td>
                                         <td class="current-select"><a href="#"><small>3</small></a></td>
                                         <td class="current-select"><a href="#"><small>4</small></a></td>
-                                        <td class="current-select"><a href="#"><small>5</small> <span>Départ</span></a></td>
+                                        <td class="current-select"><a href="#"><small>5</small> <span>Départ</span></a>
+                                        </td>
                                         <td><a href="#"><small>6</small></a></td>
                                     </tr>
                                     <tr>
@@ -242,8 +253,10 @@
                                         <td><a href="#"><small>8</small></a></td>
                                         <td><a href="#"><small>9</small></a></td>
                                         <td><a href="#"><small>10</small></a></td>
-                                        <td class="reservation-calendar_current-select"><a href="#"><small>11</small></a></td>
-                                        <td class="reservation-calendar_current-select"><a href="#"><small>12</small></a></td>
+                                        <td class="reservation-calendar_current-select"><a
+                                                href="#"><small>11</small></a></td>
+                                        <td class="reservation-calendar_current-select"><a
+                                                href="#"><small>12</small></a></td>
                                         <td><a href="#"><small>13</small></a></td>
                                     </tr>
                                     <tr>
@@ -279,7 +292,8 @@
                         </div>
 
                     </div>
-                </div>
+                </div>--}}
+                {{-- :::::::::::::::: CALANDER ::::::::::::::: --}}
 
             </div>
         </div>
