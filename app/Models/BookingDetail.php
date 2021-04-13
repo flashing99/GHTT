@@ -3,14 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-// use Illuminate\Database\Eloquent\SoftDeletes;
 
-class View extends Model
+class BookingDetail extends Model
 {
-    // use SoftDeletes;
-
-    // protected $dates    = ['deleted_at'];
-    protected $table    = 'views';
+    protected $table    = 'booking_details';
     //protected $primaryKey   = 'id';
     //public $incrementing    = false;
     //protected $keyType      = 'string';
@@ -26,16 +22,11 @@ class View extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'state', 
+        'booking_id', 'adult', 'children', 'housing_name', 'number', 'amount', 'vat', 'date_start', 'date_end', 'state', 
     ];
 
-    // public function CategoryGallerie(){
-    //     return $this->belongsTo(CategoryGallerie::class);
-    // }
-
-    public function housings()
-    {
-        return $this->belongsToMany(Housing::class);
+    public function Booking(){
+        return $this->belongsTo(Booking::class);
     }
 
 

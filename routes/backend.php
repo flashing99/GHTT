@@ -9,9 +9,11 @@ Auth::routes([
   ]);
 //Route::get('/', 'Admin\LoginAdminController@showLoginForm')->name('login');
 
-Route::get('/', function () {
-    return view('backend.index');
-});
+// Route::get('/', function () {
+//     return view('backend.index');
+// });
+
+Route::redirect('/', '/backoffice/login');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -78,6 +80,7 @@ Route::namespace('Housings')->middleware('can:manage-housings')->group(function(
 
     Route::resource('/housings', 'HousingController');
     Route::post('/housings/ajax/{housing}/vipstatus', 'HousingController@statusVip');
+    Route::post('/housings/ajax/{housing}/onlinestatus', 'HousingController@statusOnline');
 });
 
 

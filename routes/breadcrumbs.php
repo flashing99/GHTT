@@ -29,10 +29,15 @@ Breadcrumbs::for('changePassword', function ($trail) {
 
 
 // Accueil > Bookings
-Breadcrumbs::for('bookings', function ($trail) {
+Breadcrumbs::for('Bookings', function ($trail) {
     $trail->parent('home');
     $trail->push('Bookings', route('bookings.index'));
 });
+
+
+
+
+
 
 
 // Accueil > Sliders

@@ -69,7 +69,7 @@ class HousingController extends Controller
         if(Gate::denies('add-housings')){
             return redirect( route('housings.index') );
         }
-
+/*
         $rules = [
             'titre'                         => ['required','string','max:100'],
             'description'                   => ['required','string','max:200'],
@@ -136,7 +136,7 @@ class HousingController extends Controller
             $slider->picture    = $Image_Name;
             $slider->save();
         }
-
+*/
         return redirect()->route('housings.index');
     }
 
@@ -147,7 +147,7 @@ class HousingController extends Controller
      * @param  \App\Deliverymen  $famille
      * @return \Illuminate\Http\Response
      */
-    public function edit(Slider $slider)
+    public function edit(Housing $housing)
     {
         //return $user->communes()->first();
         if(Gate::denies('edit-housings')){
@@ -157,7 +157,7 @@ class HousingController extends Controller
         //$manufacturers = Manufacturer::where('state', '1')->get();
         
         return view('Backend.housings.edit')->with([
-            'slider'            => $slider,
+            'housing'            => $housing,
             //'manufacturers'     => $manufacturers
         ]);
     }
@@ -170,13 +170,14 @@ class HousingController extends Controller
      * @param  \App\Deliverymen  $famille
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Slider $slider)
+    public function update(Request $request, Housing $housing)
     {
 
         if(Gate::denies('edit-housings')){
             return redirect( route('housings.index') );
         }
 
+/*
         $rules = [
             'titre'                         => ['required','string','max:100'],
             'description'                   => ['required','string','max:200'],
@@ -206,29 +207,29 @@ class HousingController extends Controller
 
 
         if($validator->fails()){
-            return Redirect::to('admin/housings/'.$slider->id.'/edit')->withErrors($validator);
+            return Redirect::to('backoffice/housings/'.$housing->id.'/edit')->withErrors($validator);
         }
 
         //--------------
-        $oldImage = $slider->picture;
+        $oldImage = $housing->picture;
 
-        $slider->title              = $request->titre;
-        $slider->text               = $request->description;
-        //$slider->manufacturer_id    = $request->marque;
-        $slider->button_text        = $request->texte_bouton;
-        $slider->link               = $request->lien;
-        $slider->state              = $request->etat;
+        $housing->title              = $request->titre;
+        $housing->text               = $request->description;
+        //$housing->manufacturer_id    = $request->marque;
+        $housing->button_text        = $request->texte_bouton;
+        $housing->link               = $request->lien;
+        $housing->state              = $request->etat;
 
-        $slider->picture            = $request->image_slide;
+        $housing->picture            = $request->image_slide;
 
         if($request->hasFile('image_slide'))
         {
             $Image          = $request->file('image_slide');
-            $Image_Name     = $slider->id.'_'.time().'.' . $Image->getClientOriginalExtension();
+            $Image_Name     = $housing->id.'_'.time().'.' . $Image->getClientOriginalExtension();
 
-            // if(!empty($slider->picture))
+            // if(!empty($housing->picture))
             // {
-            //     $Image_Name     = $slider->picture;
+            //     $Image_Name     = $housing->picture;
             // }
 
             $folder         = '/slides/images';  // Define folder path
@@ -236,14 +237,14 @@ class HousingController extends Controller
             // Upload image
             $this->uploadOne($Image, $folder, 'public', $Image_Name);
 
-            $slider->picture     = $Image_Name;
+            $housing->picture     = $Image_Name;
 
-            //Storage::delete('/app/public/slides/images/'.$slider->picture);
+            //Storage::delete('/app/public/slides/images/'.$housing->picture);
             unlink(storage_path('app/public/slides/images/'.$oldImage));
         }
 
-        $slider->save();
-
+        $housing->save();
+*/
         return redirect()->route('housings.index');
     }
 
@@ -272,21 +273,46 @@ class HousingController extends Controller
     }
 
     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\User $user
+     * @return \Illuminate\Http\Response
+     */
+    public function statusOnline(Request $request, Housing $housing)
+    {
+        $this->validate($request, [
+            'etat'  => 'required | integer',
+        ]);
+
+        if(Gate::denies('edit-housings')){
+            return redirect( route('housings.index') );
+        }
+
+        $housing->online    = $request->etat;
+
+        $housing->save();
+
+        return Response::json($housing->online);
+    }
+
+    /**
      * Remove the specified resource.
      *
      * @param  \App\Deliverymen  $famille
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Slider $slider)
+    public function destroy(Housing $housing)
     {
         if(Gate::denies('delete-housings')){
             return redirect( route('home') );
         }
+/*
+        $housing->delete();
 
-        $slider->delete();
-
-        return Response::json($slider);
+        return Response::json($housing);
         //return redirect()->route('admin.users.index');
+*/
     }
 
 

@@ -127,11 +127,17 @@
                 
                 processing: true,
                 serverSide: true,
-                searching: false,
+                searching: true,
+                
+                oLanguage: {
+                    sSearch: "Rechercher:",
+                    sSearchPlaceholder: "Numero de chambre"
+                },
+                
                 info: true,
                 lengthMenu: [[10, 25, 50, 100, 200], [10, 25, 50, 100, 200]],
-                //dom: '<"row"<"col-sm-12 col-md-2"l> <"col-sm-12 col-md-4"i> <"col-sm-12 col-md-3 text-right"B> <"col-sm-12 col-md-3 text-right"f>>r t <"col-sm-12 col-md-2"l> <"col-sm-12 col-md-4"i><"col-sm-12 col-md-6"p>',//'Bfrtip',
-                dom: '<"row"<"col-sm-12 col-md-2"l> <"col-sm-12 col-md-4"i> <"col-sm-12 col-md-6 text-right"B>>r t <"col-sm-12 col-md-2"l> <"col-sm-12 col-md-4"i><"col-sm-12 col-md-6"p>',//'Bfrtip',
+                dom: '<"row"<"col-sm-12 col-md-2"l> <"col-sm-12 col-md-4"i> <"col-sm-12 col-md-3 text-right"B> <"col-sm-12 col-md-3 text-right"f>>r t <"col-sm-12 col-md-2"l> <"col-sm-12 col-md-4"i><"col-sm-12 col-md-6"p>',//'Bfrtip',
+                //dom: '<"row"<"col-sm-12 col-md-2"l> <"col-sm-12 col-md-4"i> <"col-sm-12 col-md-6 text-right"B>>r t <"col-sm-12 col-md-2"l> <"col-sm-12 col-md-4"i><"col-sm-12 col-md-6"p>',//'Bfrtip',
                 buttons: [
                     'excel', 'pdf', ,'print', //'copy', 'csv',
                     
@@ -150,11 +156,11 @@
                 },
                 columns: [
                         { data: 'id', name: 'id', 'visible': false },
-                        { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false,searchable: false },
+                        { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
                         { data: 'name', name: 'name' },
                         { data: 'number', name: 'number' },
-                        { data: 'area', name: 'area' },
-                        { data: 'vip', name: 'vip',
+                        { data: 'area', name: 'area', searchable: false },
+                        { data: 'vip', name: 'vip', searchable: false ,
                         
                             render: function(data, type, row, meta){
                                 if(row.vip=='1')
@@ -166,7 +172,7 @@
                             },
 
                         },
-                        { data: 'online', name: 'online', 
+                        { data: 'online', name: 'online', searchable: false , 
                             render: function(data, type, row, meta){
                                 if(row.online=='1')
                                 {
@@ -177,7 +183,7 @@
                             },
 
                         },
-                        { data: 'created_at', name: 'created_at' },
+                        { data: 'created_at', name: 'created_at', searchable: false },
                         //{ data: 'state', name: 'state' },
                         { data: 'action', name: 'action', orderable: false },
                     ],
@@ -215,9 +221,6 @@
         }
 
         $('body').on('switchChange.bootstrapSwitch', 'input[name="vip_checkbox"]', function(event, state) {
-            console.log('VIP::', state);
-            
-
             if(state)
             {
                 var status = 1;
@@ -227,7 +230,6 @@
             var id = $(this).attr('data-id');
             
             changeVipStatus(id, status);
-            
         });
 
         function changeVipStatus(id, status){
@@ -240,20 +242,38 @@
             dataType: "json",
             success: function (data) {
                     
-                    /*
-                    if(data=='0'){
-                        newStatus = '1';
-                    } else {
-                        newStatus = '0';
-                    }
-                    elem.attr("data-status", newStatus);
-                    */
 
                 }
             }); 
         }
 
 
+        $('body').on('switchChange.bootstrapSwitch', 'input[name="online_checkbox"]', function(event, state) {
+            if(state)
+            {
+                var status = 1;
+            } else {
+                var status = 0;
+            }
+            var id = $(this).attr('data-id');
+            
+            changeOnileStatus(id, status);
+        });
+
+        function changeOnileStatus(id, status){
+
+            $.ajax({ 
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            type: "POST",
+            url: SITEURL + "/backoffice/housings/ajax/"+id+'/onlinestatus',
+            data: { etat : status }, 
+            dataType: "json",
+            success: function (data) {
+                    
+
+                }
+            }); 
+        }
 
 
        /* When click edit user */
