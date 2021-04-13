@@ -47,7 +47,7 @@
 {{--@include('frontend.layouts.common.footer')--}}
 {{-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
 {{-- +++++++++++++++ add footer template  +++++++++++++++++++++--}}
-@include('frontend.layouts.common.footer-1')
+@include('frontend.layouts.common.footer')
 {{-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
 {{-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
 <script src="{{ asset('./assets/js/app.js') }}"></script>

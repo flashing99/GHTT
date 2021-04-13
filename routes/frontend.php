@@ -4,7 +4,10 @@ Route::get('/', function () {
     return view('frontend.home');
 });
 
+Route::get('/reservation/{id}', function ($id) {
 
+    return view('frontend.reservation', ['step'=>$id]  );
+});
 
 
 

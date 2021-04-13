@@ -47,6 +47,7 @@
 							a{
 								color: @white;
 								background: @brand;
+                                .transition(all 0.3s ease);
 							}
 						}
 					}
@@ -179,8 +180,32 @@
 	.header_content{
 		&:after{
 			//box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.58);
+            box-shadow: 0 1px 8px 0 rgb(1 33 88 / 29%);
+            /*****************************/
+            background: #fff;
+            .transition(all 0.3s ease);
+
 
 		}
+        .menu{
+
+            li a{
+                color: @active;
+                .transition(all 0.3s ease);
+            }
+            li a:hover{
+                color: @white;
+
+                .transition(all 0.3s ease);
+            }
+
+
+
+            li.current-menu-item a {
+                background: #c9ddff;
+                .transition(all 0.3s ease);
+            }
+        }
 	}
 }
 .header_content {

@@ -1,118 +1,115 @@
 <!-- FOOTER -->
-<footer id="footer">
-
-    <!-- FOOTER TOP -->
-    <div class="footer_top">
-        <div class="container">
+<footer id="footer" class="footer-style-2">
+   {{-- <!-- FOOTER TOP -->
+    <div class="container">
+        <div class="footer_top">
             <div class="row">
-
                 <!-- WIDGET MAILCHIMP -->
-                <div class="col-lg-9">
-                    <div class="mailchimp">
-                        <h4>News &amp; Offers</h4>
-                        <div class="mailchimp-form">
-                            <form action="#" method="POST">
-                                <input type="text" name="email" placeholder="Your email address" class="input-text">
-                                <button class="awe-btn">SIGN UP</button>
-                            </form>
+                <div class="content v-align clearfix">
+                    <div class="col-xs-12 col-sm-6">
+                        <img class="img-responsive img-mail mb20 mr30" src="./assets/images/footer/mail-footer.png"
+                             alt="">
+                        <div class="desc clearfix inline-block">
+                            <h4 class="font-monserat bold f36 upper">News &amp; Offers</h4>
+                            <p class="sub f14">Lorem lipsum dolor sit amet</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="mailchimp">
+                            <div class="mailchimp-form">
+                                <form action="#" method="POST">
+                                    <input type="text" name="email" placeholder="Enter your email address"
+                                           class="input-text">
+                                    <button class="awe-btn">SIGN UP</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- END / WIDGET MAILCHIMP -->
-
-                <!-- WIDGET SOCIAL -->
-                <div class="col-lg-3">
-                    <div class="social">
-                        <div class="social-content">
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-google-plus"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- END / WIDGET SOCIAL -->
-
             </div>
         </div>
     </div>
-    <!-- END / FOOTER TOP -->
+    <!-- END / FOOTER TOP -->--}}
 
     <!-- FOOTER CENTER -->
-    <div class="footer_center">
+    <div class="footer_center bgr-footer">
         <div class="container">
-            <div class="row">
-
-                <div class="col-xs-12 col-lg-5">
-                    <div class="widget widget_logo">
-                        <div class="widget-logo">
-                            <div class="img">
-                                <a href="#"><img src="./assets/images/logo-footer.png" alt=""></a>
+            <div class="content pt10 pb60">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-3">
+                        <div class="footer-logo clearfix">
+                            <div class="widget widget_logo clearfix">
+                                <div class="widget-logo text-center">
+                                    <div class="img">
+                                        <a href="#"><img class="img-center" src="../assets/images/footer/ghtt-bl.png" alt=""></a>
+                                    </div>
+                                </div>
                             </div>
+                           {{-- <div class="widget widget_tripadvisor clearfix">
+                                <div class="tripadvisor text-center">
+                                    <img class="img-center" src="./assets/images/footer/logo-trivision.png" alt="">
+                                </div>
+                            </div>--}}
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <div class="widget">
+                            <h4 class="widget-title f20 bold">Informations</h4>
                             <div class="text">
-                                <p><i class="lotus-icon-location"></i> 225 Beach Street, Australian</p>
-                                <p><i class="lotus-icon-phone"></i> 1-548-854-8898</p>
-                                <p><i class="fa fa-envelope-o"></i> <a href="mailto:hello@thelotushotel.com">hello@thelotushotel.com</a></p>
+                                <p><i class="lotus-icon-location mr10"></i> Complexe touristique CET, Tipaza</p>
+                                <p><i class="lotus-icon-phone mr10"></i>+213 (0) 23 252-525</p>
+                                <p><i class="fa fa-envelope-o mr10"></i> <a href="mailto:hello@thelotushotel.com">cont@complex-cet.com</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="widget">
+                            <h4 class="widget-title f16 bold">Restez connectés !</h4>
+                            <div class="text">
+                                <a class="mr20" href="!#"><i class="fa fa-facebook f20"></i></a>
+                                <a class="mr20" href="!#"><i class="fa fa-twitter f20"></i></a>
+                                <a class="mr20" href="!#"><i class="fa fa-instagram f20"></i></a>
+                                <a class="mr20" href="!#"><i class="fa fa-pinterest f20"></i></a>
+                                <a class="mr20" href="!#"><i class="fa fa-tumblr f20"></i></a>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <div class="widget">
+                            <h4 class="widget-title f20 bold">Le Complexe</h4>
+                            <ul>
+                                <li><a href="">Accuiel</a></li>
+                                <li><a href="">A propos</a></li>
+                                <li><a href="#">Hébergement</a></li>
+                                <li><a href="#">Restaurants</a></li>
 
-                <div class="col-xs-4 col-lg-2">
-                    <div class="widget">
-                        <h4 class="widget-title">Page site</h4>
-                        <ul>
-                            <li><a href="#">Guest Book</a></li>
-                            <li><a href="#">Gallery</a></li>
-                            <li><a href="#">Restaurant</a></li>
-                            <li><a href="#">Event</a></li>
-                        </ul>
+                            </ul>
+                        </div>
                     </div>
-                </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <div class="widget">
+                            <h4 class="widget-title f20 bold">&nbsp;</h4>
+                            <ul>
+                                <li><a href="#">Animation</a></li>
+                                <li><a href="#">Gallerie</a></li>
+                                <li><a href="#">Resèrvation</a></li>
+                                <li><a href="">Contactez-nous</a></li>
 
-                <div class="col-xs-4 col-lg-2">
-                    <div class="widget">
-                        <h4 class="widget-title">ABOUT</h4>
-                        <ul>
-                            <li><a href="">About</a></li>
-                            <li><a href="">Blog</a></li>
-                            <li><a href="">Contact Us</a></li>
-                            <li><a href="">Comming Soon</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-xs-4 col-lg-3">
-                    <div class="widget widget_tripadvisor">
-                        <h4 class="widget-title">Tripadvisor</h4>
-                        <div class="tripadvisor">
-                            <p>Now with hotel reviews by</p>
-                            <img src="./assets/images/tripadvisor.png" alt="">
-                            <span class="tripadvisor-circle">
-                                        <i></i>
-                                        <i></i>
-                                        <i></i>
-                                        <i></i>
-                                        <i class="part"></i>
-                                    </span>
+                            </ul>
                         </div>
                     </div>
                 </div>
-
-
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <p class="left inline-block f14">&copy;2021 Complexe touristique CET,Tous droit réservés.</p>
+               {{-- <div class="payment pull-right inline-block">
+                    <img src="./assets/images/footer/card.png" alt="" class="img-responsive">
+                </div>--}}
             </div>
         </div>
     </div>
-    <!-- END / FOOTER CENTER -->
-
-    <!-- FOOTER BOTTOM -->
-    <div class="footer_bottom">
-        <div class="container">
-            <p>&copy; 2016 Lotus Hotel All rights reserved.</p>
-        </div>
-    </div>
-    <!-- END / FOOTER BOTTOM -->
 
 </footer>
-<!-- END / FOOTER -->
+    <!-- END / FOOTER CENTER -->

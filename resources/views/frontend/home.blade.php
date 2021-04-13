@@ -14,7 +14,7 @@
 @section('main-content')
 
     {{-- +++++++++++++++ add footer template  +++++++++++++++++++++--}}
-    @include('frontend.layouts.common.header-3')
+    @include('frontend.layouts.common.header')
     {{-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
 
     {{-- +++++++++++++++ add slider template  +++++++++++++++++++++--}}

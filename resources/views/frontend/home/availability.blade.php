@@ -4,7 +4,7 @@
         <div class="check-availability">
             <div class="row">
                 <div class="col-lg-3">
-                    <h2>CHECK AVAILABILITY</h2>
+                    <h2>VÉRIFIER LA DISPONIBILITÉ</h2>
                 </div>
                 <div class="col-lg-9">
                     <form id="ajax-form-search-room" action="search_step_2.php" method="post">
