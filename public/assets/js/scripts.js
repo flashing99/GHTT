@@ -349,7 +349,8 @@
     }
 
     /*Slider Home*/
-    SliderRevolution();
+  /* SliderRevolution();
+
 
     function SliderRevolution() {
         if ($('#slider-revolution').length) {
@@ -426,7 +427,8 @@
                 fullScreenOffsetContainer: "#header"
             });
         }
-    }
+    }*/
+
 
     /* Gallery Isotope */
     function GalleryIsotope() {

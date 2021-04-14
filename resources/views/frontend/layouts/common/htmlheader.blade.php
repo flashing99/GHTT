@@ -14,12 +14,12 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/lib/font-awesome.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/lib/font-lotusicon.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/lib/bootstrap.min.css') }}">
-{{--<link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/lib/owl.carousel.css) }}">--}}
 <link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/lib/jquery-ui.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/lib/magnific-popup.css') }}">
-
-<link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/lib/settings.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/lib/bootstrap-select.min.css') }}">
+    {{--<link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/lib/owl.carousel.css) }}">--}}
+{{--<link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/lib/settings.css') }}">--}}
+
 
 <!-- MAIN STYLE -->
 <link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/style.css') }}">

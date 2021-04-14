@@ -1346,7 +1346,7 @@ blockquote p:after {
   vertical-align: middle;
   text-align: left;
   font-size: 14px;
-  padding: 18px 0;
+  padding: 12px 0;
 }
 .header_content .menu {
   list-style: none;
@@ -1456,7 +1456,7 @@ blockquote p:after {
   line-height: 84px;
 }
 .header_logo img {
-  max-height: 92px;
+  max-height: 80px;
 }
 .menu-bars {
   color: #333;
@@ -2096,12 +2096,16 @@ blockquote p:after {
 }
 .check-availability .availability-form {
   font-size: 0;
-  text-align: right;
+  _text-align: right;
   margin-top: 5px;
   position: relative;
+  display: flex;
+  flex-flow: row;
 }
 .check-availability .availability-form .awe-calendar-wrapper {
-  width: 150px;
+  _width: 150px;
+  width: 100%;
+  margin: 4px 0px;
   margin-right: 20px;
 }
 .check-availability .availability-form .awe-calendar-wrapper .awe-calendar {
@@ -2124,14 +2128,23 @@ blockquote p:after {
   color: #fff;
 }
 .check-availability .availability-form .bootstrap-select.btn-group.awe-select {
+  _width: 110px;
+  width: 100%;
+  margin: 4px 0;
   margin-right: 20px;
-  width: 110px;
 }
 .check-availability .availability-form .bootstrap-select.btn-group.awe-select .caret {
   border: none;
   background: url(/images/icon-select-cal.png?d6c3d25137e73f54af44338dde03bf2c) no-repeat;
   width: 13px;
   height: 7px;
+}
+.check-availability .availability-form .bootstrap-select.btn-group.awe-select .dropdown-menu {
+  margin: 0;
+  border-width: 0;
+  padding: 0;
+  border-radius: 0;
+  overflow: visible!important;
 }
 .check-availability .availability-form .vailability-submit {
   vertical-align: middle;
@@ -2143,6 +2156,7 @@ blockquote p:after {
   font-size: 14px;
   padding-left: 20px;
   padding-right: 20px;
+  margin: 4px  0;
 }
 /* END / CHECK AVAILABILITY */
 /* HOME ABOUT */

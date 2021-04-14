@@ -93,7 +93,7 @@ Version:       1.1.0
               touch: {
                 touchenabled: "on",
                 swipe_threshold: 75,
-                swipe_min_touches: 50,
+                swipe_min_touches: 150,
                 swipe_direction: "horizontal",
                 drag_block_vertical: false
               },
@@ -703,7 +703,7 @@ Version:       1.1.0
         } else {
           revapi9 = tpj("#rev-slider-event").show().revolution({
             sliderType: "hero",
-            jsFileLocation: "revolution/js/", 
+            jsFileLocation: "revolution/js/",
             dottedOverlay: "twoxtwo",
             delay: 9000,
             navigation: {},
@@ -1028,7 +1028,7 @@ Version:       1.1.0
     // =============================================
     // BACK TO TOP
     // =============================================
-    var amountScrolled = 500;
+ /*   var amountScrolled = 500;
     var backtotop = $('.back-to-top');
     $(window).on('scroll', function() {
       if ($(window).scrollTop() > amountScrolled) {
@@ -1042,7 +1042,7 @@ Version:       1.1.0
         scrollTop: 0
       }, 500);
       return false;
-    });
+    });*/
 
   });
 })(jQuery);

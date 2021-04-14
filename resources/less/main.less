@@ -379,12 +379,16 @@
 
 	.availability-form {
 		font-size: 0;
-		text-align: right;
+		_text-align: right;
 		margin-top: 5px;
 		position: relative;
+        display: flex;
+        flex-flow: row;
 
 		.awe-calendar-wrapper {
-			width: 150px;
+			_width: 150px;
+            width: 100%;
+            margin: 4px 0px;
 			margin-right: 20px;
 
 			.awe-calendar {
@@ -400,13 +404,25 @@
 
 		.bootstrap-select.btn-group.awe-select {
 			margin-right: 20px;
-			width: 110px;
+			_width: 110px;
+            width: 100%;
+            margin: 4px 0;
+            margin-right: 20px;
+
 			.caret{
 				border: none;
 				background: url(../assets/images/icon-select-cal.png)no-repeat;
 				width: 13px;
 				height:7px;
 			}
+
+            .dropdown-menu {
+                margin: 0;
+                border-width: 0;
+                padding: 0;
+                border-radius: 0;
+                overflow: visible!important;
+            }
 		}
 
 		.vailability-submit {
@@ -419,8 +435,10 @@
 				font-size: 14px;
 				padding-left: 20px;
 				padding-right: 20px;
+                margin: 4px  0;
 			}
 		}
+
 
 	}
 }

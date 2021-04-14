@@ -191,9 +191,25 @@
     }
   }
 }
+/* =============================  REVOLUTION SLIDER =========================*/
+.tp-mask-wrap {
+  //  overflow: visible!important;
+}
+.rev_slider .caption, .rev_slider .tp-caption {
+    position: relative;
+    visibility: hidden;
+    white-space: nowrap;
+    display: block;
+    -webkit-font-smoothing: antialiased!important;
+    text-shadow: 4px 3px 4px #00082d99;
+    z-index: 1;
 
+    text-align: center!important;
+    //min-width: 320px!important;
+}
 
 /* =============================  BANNER SLIDER =========================*/
+/*
 .section-slider {
   &.slider-style-2 {
     .tparrows {
@@ -227,6 +243,7 @@
     }
   }
 }
+*/
 
 /* ======================= CHECK AVAILABILITY  ==================== */
 .section-check-availability {
