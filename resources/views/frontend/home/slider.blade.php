@@ -18,6 +18,7 @@
                          data-no-retina=""
                     >
                     <!-- LAYER NR. 1 -->
+                    <div class="wrapper">
                     <div
                         class="tp-caption tp-resizeme text-uppercase"
                         data-x="center"
@@ -67,6 +68,7 @@
                         COMPLEXE TOURISTIQUE CET
                     </div>
                     <!-- LAYER NR. 2 -->
+                    </div>
 
                 </li>
 
@@ -83,69 +85,71 @@
                          data-no-retina=""
                     >
                     <!-- LAYER NR. 1 -->
-                    <div
-                        class="tp-caption tp-resizeme text-uppercase"
-                        data-x="center"
-                        data-hoffset=""
-                        data-y="350"
-                        data-voffset=""
-                        data-responsive_offset="on"
-                        data-fontsize="['70','60','50','80']"
-                        data-lineheight="['70','60','50','80']"
-                        data-whitespace="wrap"
-                        data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                        style="z-index: 5; color: #fff; font-weight: 900;">Un lieu unique
-                    </div>
+                   <div class="wrapper">
+                       <div
+                           class="tp-caption tp-resizeme text-uppercase"
+                           data-x="center"
+                           data-hoffset=""
+                           data-y="350"
+                           data-voffset=""
+                           data-responsive_offset="on"
+                           data-fontsize="['70','60','50','80']"
+                           data-lineheight="['70','60','50','80']"
+                           data-whitespace="wrap"
+                           data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                           style="z-index: 5; color: #fff; font-weight: 900;">Un lieu unique
+                       </div>
 
-                    <!-- LAYER NR. 5 -->
-                    <div
-                        class="tp-caption tp_m_title tp-resizeme"
-                        data-x="center"
-                        data-hoffset=""
-                        data-y="250"
-                        data-voffset=""
-                        data-responsive_offset="on"
-                        data-fontsize="['18','18','16','16']"
-                        data-lineheight="['18','18','16','16']"
-                        data-whitespace="nowrap"
-                        data-frames='[{"delay":1800,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                        style="color: #fff">
-                        <i class="fa fa-star-o"></i>
-                        <i class="fa fa-star-o"></i>
-                        <i class="fa fa-star-o"></i>
-                        <i class="fa fa-star-o"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <!-- LAYER NR. 6 -->
-                    <div
-                        class="tp-caption tp_m_title tp-resizeme"
-                        data-x="center"
-                        data-hoffset=""
-                        data-y="290"
-                        data-voffset=""
-                        data-responsive_offset="on"
-                        data-fontsize="['25','25','18','18']"
-                        data-lineheight="['25','25','18','18']"
-                        data-whitespace="nowrap"
-                        data-frames='[{"delay":1800,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                        style="color: #fff">
-                        COMPLEXE TOURISTIQUE CET
-                    </div>
-                    <!-- LAYER NR. 2 -->
-                      <div
-                          class="tp-caption tp-resizeme"
-                          data-x="center"
-                          data-hoffset=""
-                          data-y="420"
-                          data-voffset=""
-                          data-responsive_offset="on"
-                          data-fontsize="['24','24','21','16']"
-                          data-lineheight="['30','30','24','16']"
-                          data-whitespace="nowrap"
-                          data-frames='[{"delay":1500,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                          style="z-index: 6; color: #fff;">
-                          Faites de votre séjour et de celui de vos proches un moment unique !
-                      </div>
+                       <!-- LAYER NR. 5 -->
+                       <div
+                           class="tp-caption tp_m_title tp-resizeme"
+                           data-x="center"
+                           data-hoffset=""
+                           data-y="250"
+                           data-voffset=""
+                           data-responsive_offset="on"
+                           data-fontsize="['18','18','16','16']"
+                           data-lineheight="['18','18','16','16']"
+                           data-whitespace="nowrap"
+                           data-frames='[{"delay":1800,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                           style="color: #fff">
+                           <i class="fa fa-star-o"></i>
+                           <i class="fa fa-star-o"></i>
+                           <i class="fa fa-star-o"></i>
+                           <i class="fa fa-star-o"></i>
+                           <i class="fa fa-star-o"></i>
+                       </div>
+                       <!-- LAYER NR. 6 -->
+                       <div
+                           class="tp-caption tp_m_title tp-resizeme"
+                           data-x="center"
+                           data-hoffset=""
+                           data-y="290"
+                           data-voffset=""
+                           data-responsive_offset="on"
+                           data-fontsize="['25','25','18','18']"
+                           data-lineheight="['25','25','18','18']"
+                           data-whitespace="nowrap"
+                           data-frames='[{"delay":1800,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                           style="color: #fff">
+                           COMPLEXE TOURISTIQUE CET
+                       </div>
+                       <!-- LAYER NR. 2 -->
+                       <div
+                           class="tp-caption tp-resizeme"
+                           data-x="center"
+                           data-hoffset=""
+                           data-y="420"
+                           data-voffset=""
+                           data-responsive_offset="on"
+                           data-fontsize="['24','24','21','16']"
+                           data-lineheight="['30','30','24','16']"
+                           data-whitespace="nowrap"
+                           data-frames='[{"delay":1500,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                           style="z-index: 6; color: #fff;">
+                           Faites de votre séjour et de celui de vos proches un moment unique !
+                       </div>
+                   </div>
 
                 </li>
 
@@ -165,68 +169,70 @@
                          data-no-retina=""
                     >
                     <!-- LAYER NR. 1 -->
-                    <div
-                        class="tp-caption tp-resizeme text-uppercase"
-                        data-x="center"
-                        data-hoffset=""
-                        data-y="350"
-                        data-voffset=""
-                        data-responsive_offset="on"
-                        data-fontsize="['70','60','50','80']"
-                        data-lineheight="['70','60','50','80']"
-                        data-whitespace="wrap"
-                        data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                        style="z-index: 5; color: #fff; font-weight: 900;"> Profitez de vos vacances
-                    </div>
+                    <div class="wrapper">
+                        <div
+                            class="tp-caption tp-resizeme text-uppercase"
+                            data-x="center"
+                            data-hoffset=""
+                            data-y="350"
+                            data-voffset=""
+                            data-responsive_offset="on"
+                            data-fontsize="['70','60','50','80']"
+                            data-lineheight="['70','60','50','80']"
+                            data-whitespace="wrap"
+                            data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                            style="z-index: 5; color: #fff; font-weight: 900;"> Profitez de vos vacances
+                        </div>
 
-                    <!-- LAYER NR. 5 -->
-                    <div
-                        class="tp-caption tp_m_title tp-resizeme"
-                        data-x="center"
-                        data-hoffset=""
-                        data-y="250"
-                        data-voffset=""
-                        data-responsive_offset="on"
-                        data-fontsize="['18','18','16','16']"
-                        data-lineheight="['18','18','16','16']"
-                        data-whitespace="nowrap"
-                        data-frames='[{"delay":1800,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                        style="color: #fff">
-                        <i class="fa fa-star-o"></i>
-                        <i class="fa fa-star-o"></i>
-                        <i class="fa fa-star-o"></i>
-                        <i class="fa fa-star-o"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <!-- LAYER NR. 6 -->
-                    <div
-                        class="tp-caption tp_m_title tp-resizeme"
-                        data-x="center"
-                        data-hoffset=""
-                        data-y="290"
-                        data-voffset=""
-                        data-responsive_offset="on"
-                        data-fontsize="['25','25','18','18']"
-                        data-lineheight="['25','25','18','18']"
-                        data-whitespace="nowrap"
-                        data-frames='[{"delay":1800,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                        style="color: #fff">
-                        COMPLEXE TOURISTIQUE CET
-                    </div>
-                    <!-- LAYER NR. 2 -->
-                    <div
-                        class="tp-caption tp-resizeme"
-                        data-x="center"
-                        data-hoffset=""
-                        data-y="420"
-                        data-voffset=""
-                        data-responsive_offset="on"
-                        data-fontsize="['24','24','21','16']"
-                        data-lineheight="['30','30','24','16']"
-                        data-whitespace="nowrap"
-                        data-frames='[{"delay":1500,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                        style="z-index: 6; color: #fff;">
-                        Profitez de la vie et faites vous plaisir!
+                        <!-- LAYER NR. 5 -->
+                        <div
+                            class="tp-caption tp_m_title tp-resizeme"
+                            data-x="center"
+                            data-hoffset=""
+                            data-y="250"
+                            data-voffset=""
+                            data-responsive_offset="on"
+                            data-fontsize="['18','18','16','16']"
+                            data-lineheight="['18','18','16','16']"
+                            data-whitespace="nowrap"
+                            data-frames='[{"delay":1800,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                            style="color: #fff">
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <!-- LAYER NR. 6 -->
+                        <div
+                            class="tp-caption tp_m_title tp-resizeme"
+                            data-x="center"
+                            data-hoffset=""
+                            data-y="290"
+                            data-voffset=""
+                            data-responsive_offset="on"
+                            data-fontsize="['25','25','18','18']"
+                            data-lineheight="['25','25','18','18']"
+                            data-whitespace="nowrap"
+                            data-frames='[{"delay":1800,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                            style="color: #fff">
+                            COMPLEXE TOURISTIQUE CET
+                        </div>
+                        <!-- LAYER NR. 2 -->
+                        <div
+                            class="tp-caption tp-resizeme"
+                            data-x="center"
+                            data-hoffset=""
+                            data-y="420"
+                            data-voffset=""
+                            data-responsive_offset="on"
+                            data-fontsize="['24','24','21','16']"
+                            data-lineheight="['30','30','24','16']"
+                            data-whitespace="nowrap"
+                            data-frames='[{"delay":1500,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                            style="z-index: 6; color: #fff;">
+                            Profitez de la vie et faites vous plaisir!
+                        </div>
                     </div>
 
                 </li>

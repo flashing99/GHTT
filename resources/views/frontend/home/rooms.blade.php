@@ -133,7 +133,7 @@
                     <!-- ITEM -->
                     <div class="accomd-modations-room">
                         <div class="img">
-                            <a href="#"><img src="./assets/images/room/img-1.jpg" alt=""></a>
+                            <a href="#"><img src="./assets/images/room/img-2.jpg" alt=""></a>
                         </div>
                         <div class="text">
                             <h2><a href="#">Bungalow F2</a></h2>
@@ -147,7 +147,7 @@
                     <!-- ITEM -->
                     <div class="accomd-modations-room">
                         <div class="img">
-                            <a href="#"><img src="./assets/images/room/img-1.jpg" alt=""></a>
+                            <a href="#"><img src="./assets/images/room/img-3.jpg" alt=""></a>
                         </div>
                         <div class="text">
                             <h2><a href="#">Bungalow F3</a></h2>
@@ -160,7 +160,7 @@
                     <!-- ITEM -->
                     <div class="accomd-modations-room">
                         <div class="img">
-                            <a href="#"><img src="./assets/images/room/img-1.jpg" alt=""></a>
+                            <a href="#"><img src="./assets/images/room/img-4.jpg" alt=""></a>
                         </div>
                         <div class="text">
                             <h2><a href="#">Bungalow F4</a></h2>

@@ -67,7 +67,7 @@
                             <h6 class="check_availability_title">NOMBRE DE PERSONES</h6>
 
                             <div class="check_availability-field">
-                                <label>TYPE DE BUNGALOWS</label>
+                                <label>TYPE DE BUNGALOW</label>
                                 <select class="awe-select">
                                     <option>F1</option>
                                     <option>F2</option>
