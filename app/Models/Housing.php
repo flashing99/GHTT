@@ -37,7 +37,12 @@ class Housing extends Model
     // {
     //     return $this->belongsToMany(View::class);
     // }
+    public function bookings()
+    {
+        return $this->hasMany(BookingDetail::class);
+    }
 
+    
     public function views()
     {
         return $this->belongsToMany(View::class, 'housing_view');

@@ -9,7 +9,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Collection;
 
+use Carbon\Carbon;
 use Gate, Auth, DataTables, Redirect, Response;
 
 
@@ -25,6 +27,7 @@ class BookingsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+/*
     public function index000000()
     {
         if(request()->ajax()) {
@@ -49,8 +52,8 @@ class BookingsController extends Controller
 
         return view('backend.bookings.index');
     }
-
-    public function index()
+*/
+    public function _index()
     {
         if(request()->ajax()) {
             
@@ -75,7 +78,7 @@ class BookingsController extends Controller
     }
 
 //--------------------------------------------------------------
-    public function searchRoom(Request $request)
+    public function ___searchRoom(Request $request)
     {
         $rooms = null;
         if($request->filled(['start_time', 'end_time', 'capacity'])) {
@@ -95,6 +98,71 @@ class BookingsController extends Controller
                 })
                 ->get();
         }
+
+        return view('admin.bookings.search', compact('rooms'));
+    }
+
+    //---
+    public function index(Request $request)
+    {
+
+        $start_date = '2021-04-14';
+        $end_date   = '2021-04-15';
+        
+        $times = [
+            Carbon::parse($start_date),
+            Carbon::parse($end_date),
+        ];
+
+        $rooms = Housing::where('online', 1)
+        // ->with(['Bookings'])
+        // ->whereHas('bookings')
+        // ->whereDoesntHave('bookings')
+
+            ->whereDoesntHave('bookings', function ($query) use ($times) {
+                $query->whereBetween('date_start', $times)
+                        ->orWhereBetween('date_end', $times)
+                        ->orWhere(function ($query) use ($times) {
+                            $query->where('date_start', '<', $times[0])
+                                ->where('date_end', '>', $times[1]);
+                        });
+            })
+            ->with(['subcategoryHousing', 'views'])//->distinct()
+            
+            
+            /*
+            ->whereDoesntHave('events', function ($query) use ($times) {
+                $query->whereBetween('start_time', $times)
+                    ->orWhereBetween('end_time', $times)
+                    ->orWhere(function ($query) use ($times) {
+                        $query->where('start_time', '<', $times[0])
+                            ->where('end_time', '>', $times[1]);
+                    });
+            })
+            */
+
+            ->get();
+        
+
+
+            foreach($rooms as $key => $room)
+            {
+                $chambre[$key]['HousingId'] = $room->id;
+                $chambre[$key]['categoryName'] = $room->subcategoryHousing->name;
+                
+                foreach($room->views as $i => $view)
+                {
+                    $chambre[$key][$i]['view'] = $view->name;
+                }
+                
+            }
+
+            //$collection = collect([1, 2, 3]);
+
+        //return collect($chambre);//->distinct('HousingId');
+        return $chambre;
+        return $rooms;
+
 
         return view('admin.bookings.search', compact('rooms'));
     }
