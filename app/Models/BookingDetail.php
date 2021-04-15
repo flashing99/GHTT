@@ -25,9 +25,12 @@ class BookingDetail extends Model
         'booking_id', 'adult', 'children', 'housing_name', 'number', 'amount', 'vat', 'date_start', 'date_end', 'state', 
     ];
 
-    public function Booking(){
+    public function booking(){
         return $this->belongsTo(Booking::class);
     }
 
+    public function housing(){
+        return $this->belongsTo(Housing::class);
+    }
 
 }

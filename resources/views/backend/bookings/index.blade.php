@@ -46,8 +46,9 @@
                     <th width="50">N°</th>
                     <th>Nom</th>
                     <th>Prénom</th>
-                    <th>Nbr personnes</th>
-                    <th>Bungalow</th>
+                    <th>Nbr d'adultes</th>
+                    <th>Nbr d'enfants</th>
+                    <th>Logement</th>
                     <th>Date début</th>
                     <th>Date Fin</th>
                     <th width='110'>Ajouté le</th>
@@ -153,8 +154,9 @@
                         { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false,searchable: false },
                         { data: 'firstname', name: 'firstname' },
                         { data: 'lastname', name: 'lastname' },
-                        { data: 'people', name: 'people' },
-                        { data: 'housing_name', name: 'housing_name' },
+                        { data: 'adult', name: 'adult' },
+                        { data: 'children', name: 'children' },
+                        { data: 'logement', name: 'logement' },
                         { data: 'date_start', name: 'date_start' },
                         { data: 'date_end', name: 'date_end' },
                         { data: 'created_at', name: 'created_at' },
@@ -164,7 +166,7 @@
                 rowReorder: {
                     dataSrc: 'id'
                 },
-                order: [[8, 'desc']]
+                order: [[9, 'desc']]
             });
             
 

@@ -27,18 +27,40 @@ class BookingsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-/*
-    public function index000000()
+
+    public function index()
     {
         if(request()->ajax()) {
-            $data = Booking::all();
-            
+            $data = Booking::query();
+            $data->with(['BookingDetail']);
+            $data->get();
             // $data = Housing::query();
             // $data->with(['views']);
             // $data->get();
 
             return Datatables::of($data)
 
+            ->addColumn('adult', function ($data)
+            {
+                return $data->BookingDetail->adult;
+            })
+            ->addColumn('children', function ($data)
+            {
+                return $data->BookingDetail->children;
+            })
+            ->addColumn('logement', function ($data)
+            {
+                return $data->BookingDetail->housing_name.' ('.$data->BookingDetail->number.')';
+            })
+            ->addColumn('date_start', function ($data)
+            {
+                return $data->BookingDetail->date_start;
+            })
+            ->addColumn('date_end', function ($data)
+            {
+                return $data->BookingDetail->date_end;
+            })
+            
             ->editColumn('created_at', function ($data)
             {
                 return date('d-m-Y à H:i', strtotime($data->created_at) );
@@ -52,8 +74,9 @@ class BookingsController extends Controller
 
         return view('backend.bookings.index');
     }
-*/
-    public function _index()
+
+/*
+    public function index()
     {
         if(request()->ajax()) {
             
@@ -76,8 +99,9 @@ class BookingsController extends Controller
 
         return view('backend.bookings.index');
     }
-
+*/
 //--------------------------------------------------------------
+/*
     public function ___searchRoom(Request $request)
     {
         $rooms = null;
@@ -101,13 +125,61 @@ class BookingsController extends Controller
 
         return view('admin.bookings.search', compact('rooms'));
     }
-
+*/
     //---
-    public function index(Request $request)
+
+    public function searchRoomForm(){
+
+        // $roles = Role::all();
+
+        return view('BackEnd.bookings.searchroom')->with([
+//            'user' => $user,
+//            'roles' => $roles
+        ]);
+    }
+
+    public function searchRoom(Request $request)
     {
 
-        $start_date = '2021-04-14';
-        $end_date   = '2021-04-15';
+        if(Gate::denies('add-sliders')){
+            return redirect( route('sliders.index') );
+        }
+
+        $rules = [
+            'start_date'                    => ['required','date'],
+            'end_date'                      => ['required','date'],
+            //'adult'                         => ['required','integer', 'min:1'],
+            //'children'                      => ['required','integer', 'min:0'],
+            
+        ];
+
+        // $customMessages = [
+        //     'titre.required'                => 'Le champ :attribute est obligatoire.',
+        //     'titre.max'                     => 'Le champ :attribute ne doit pas dépasser :max caractères.',
+        //     'description.required'          => 'Le champ :attribute est obligatoire.',
+        //     'description.max'               => 'Le champ :attribute ne doit pas dépasser :max caractères.',
+        //     'marque.required'               => 'Le champ :attribute est obligatoire.',
+        //     'email.required'                => 'Le champ :attribute est invalide.',
+        //     'image_slide.required'          => 'Le champ :attribute est obligatoire.',
+        //     'texte_bouton.required'         => 'Le champ :attribute est obligatoire.',
+        //     'texte_bouton.max'              => 'Le champ :attribute ne doit pas dépasser :max caractères.',
+        //     'lien.required'                 => 'Le champ :attribute est obligatoire.',
+        //     'lien.max'                      => 'Le champ :attribute ne doit pas dépasser :max caractères.',
+        // ];
+        //$validator = Validator::make($request->all(), $rules, $customMessages);
+        $validator = Validator::make($request->all(), $rules);
+
+//return 'ok1';
+        if($validator->fails()){
+            return Redirect::to('/backoffice/search/room')->withErrors($validator);
+        }
+
+        //return 'ok';
+        $start_date = $request->start_date;
+        $end_date   = $request->end_date;
+        
+        // $start_date = '2021-04-14';
+        // $end_date   = '2021-04-15';
         
         $times = [
             Carbon::parse($start_date),
@@ -145,32 +217,112 @@ class BookingsController extends Controller
         
 
 
+            // foreach($rooms as $key => $room)
+            // {
+            //     $chambres[$key]['HousingId'] = $room->id;
+            //     $chambres[$key]['categoryName'] = $room->subcategoryHousing->name;
+                
+            //     foreach($room->views as $i => $view)
+            //     {
+            //         $chambres[$key][$i]['view'] = $view->name;
+            //     }
+                
+            // }
+            $categorys = array();
+
             foreach($rooms as $key => $room)
             {
-                $chambre[$key]['HousingId'] = $room->id;
-                $chambre[$key]['categoryName'] = $room->subcategoryHousing->name;
+                $chambres[$key]['HousingId']    = $room->id;
+                $chambres[$key]['categoryId']   = $room->subcategoryHousing->id;
+                $chambres[$key]['categoryName'] = $room->subcategoryHousing->name;
                 
-                foreach($room->views as $i => $view)
+                if($room->views->count()!=0)
                 {
-                    $chambre[$key][$i]['view'] = $view->name;
+                    foreach($room->views as $i => $view)
+                    {
+                        $chambres[$key]['views'][] = $view->name;
+                    }
+                } else {
+                    $chambres[$key]['views'][] = '';
+                }
+                
+                if(!in_array($room->subcategoryHousing->id, $categorys))
+                {
+                    $categorys[] = $room->subcategoryHousing->id;
                 }
                 
             }
 
+
+
+
+            foreach($categorys as $k => $category)
+            {
+                $cats = collect($chambres)->where('categoryId', $category);
+
+                $catViews[$k] = array();
+                $catViews[$k]['views'] = array();
+
+                foreach($cats as $i => $cat)
+                {
+                    $catViews[$k]['name'] = $cat['categoryName'];
+                    
+                    foreach($cat['views'] as $j => $view)
+                    {
+                        
+                        if(!in_array($view, $catViews[$k]['views']) && !empty($view))
+                        {
+                            $catViews[$k]['views'][] = $view;
+                        }
+                        
+                    }
+
+
+                }
+            }
+            return $catViews;
+
+
+
+            // $chambres = array();
+            // $category = array();
+
+            // foreach($rooms as $key => $room)
+            // {
+            //     if(!in_array($room->subcategoryHousing->name, $category))
+            //     {
+            //         $category[] = $room->subcategoryHousing->name;
+
+            //         foreach($room->views as $i => $view)
+            //         {
+            //             $category[][$i]['view'] = $view->name;
+            //         }
+            //     }
+                
+
+            //     $chambres[$key]['HousingId'] = $room->id;
+            //     $chambres[$key]['categoryName'] = $room->subcategoryHousing->name;
+                
+                
+            // }
+
             //$collection = collect([1, 2, 3]);
 
-        //return collect($chambre);//->distinct('HousingId');
-        return $chambre;
-        return $rooms;
+        //return collect($chambres);//->distinct('HousingId');
+
+        //return $category;
+
+        //return collect($chambres)->where('categoryId', 4);
+
+        //return $chambres;
+        //return $rooms;
 
 
-        return view('admin.bookings.search', compact('rooms'));
+        //return view('admin.bookings.search', compact('rooms'));
     }
-//--------------------------------------------------------------
+//------------------------
 
-
-
-
+    
     public function create(){
 
         //$roles = Role::all();

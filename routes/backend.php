@@ -50,6 +50,10 @@ Route::namespace('Admin')->name('admin.')->middleware('can:manage-users')->group
 Route::namespace('Bookings')->group(function(){
     Route::resource('/bookings', 'BookingsController');
     //Route::get('create/', ['as' => 'create', 'uses' => 'BookingsController@create']);
+
+    Route::get('/search/room/', 'BookingsController@searchRoomForm')->name('Bookings.searchRoomForm');
+    Route::post('/search/room/', 'BookingsController@searchRoom')->name('Bookings.searchRoom');
+
 });
 
 
