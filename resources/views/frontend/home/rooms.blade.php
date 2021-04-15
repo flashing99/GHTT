@@ -106,7 +106,11 @@
 
                 <div class="accomd-modations-header">
                     <h2 class="heading">Hébergement & Tarifs</h2>
-                    <img src="./assets/images/icon-accmod.png" alt="icon">
+               <img src="./assets/images/icon-accmod.png" alt="icon">
+                {{--    <img src="./assets/images/deco-1.svg" alt="icon">--}}
+
+
+
                     <p>Semper ac dolor vitae accumsan. Cras interdum hendrerit lacinia. Phasellus accumsan urna vitae molestie interdum. Nam sed placerat libero, non eleifend dolor.</p>
                 </div>
 
