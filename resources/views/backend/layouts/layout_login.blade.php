@@ -26,7 +26,7 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Veulliez introduire vos codes d'accès</p>
+      <p class="login-box-msg">Veuillez introduire vos codes d'accès</p>
 
       @yield('content')
 

@@ -82,6 +82,7 @@
                     <th width="50">N°</th>
                     <th>Titre</th>
                     <th width="50">media</th>
+                    <th width="120">Categorie</th>
                     <th width="50">Type</th>
                     <th width='110'>Ajouté le</th>
                     <th width='45'>Statut</th>
@@ -198,6 +199,7 @@
                         { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false,searchable: false },
                         { data: 'title', name: 'title' },
                         { data: 'media', name: 'media' },
+                        { data: 'categorie', name: 'categorie' },
                         { data: 'type', name: 'type' },
                         { data: 'created_at', name: 'created_at' },
                         //{ data: 'state', name: 'state' },

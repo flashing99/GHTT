@@ -48,6 +48,10 @@ class GallerieController extends Controller
 
             return Datatables::of($data)
 
+            ->editColumn('categorie', function ($data) {
+
+                return $data->CategoryGallerie->name;
+            })
             ->editColumn('media', function ($data)
             {
                 if($data->type==2){
@@ -100,7 +104,7 @@ class GallerieController extends Controller
             return redirect( route('galleries.index') );
         }
 
-        $categories = CategoryGallerie::all();
+        $categories = CategoryGallerie::where('state', '1')->get();
 
         return view('Backend.galleries.create')->with([
             'categories' => $categories
@@ -249,10 +253,11 @@ class GallerieController extends Controller
         }
 
         //$manufacturers = Manufacturer::where('state', '1')->get();
+        $categories = CategoryGallerie::where('state', '1')->get();
         
         return view('Backend.galleries.edit')->with([
-            'gallery'            => $gallery,
-            //'manufacturers'     => $manufacturers
+            'gallery'       => $gallery,
+            'categories'    => $categories
         ]);
     }
 
@@ -271,72 +276,123 @@ class GallerieController extends Controller
             return redirect( route('galleries.index') );
         }
 
-        $rules = [
-            'titre'                         => ['required','string','max:100'],
-            'description'                   => ['required','string','max:200'],
-            'marque'                        => ['required','integer'],
-            'image_slide'                   => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
-            'texte_bouton'                  => ['required','string','max:50'],
-            'lien'                          => ['required','string','max:255'],
-            'etat'                          => ['nullable', 'regex:/^[0-1]/'],
-        ];
-
-        $customMessages = [
-            'titre.required'                => 'Le champ :attribute est obligatoire.',
-            'titre.max'                     => 'Le champ :attribute ne doit pas dépasser :max caractères.',
-            'description.required'          => 'Le champ :attribute est obligatoire.',
-            'description.max'               => 'Le champ :attribute ne doit pas dépasser :max caractères.',
-            'marque.required'               => 'Le champ :attribute est obligatoire.',
-            'email.required'                => 'Le champ :attribute est invalide.',
-            'image_slide.image'             => 'Vous devez choisir une image.',
-            'image_slide.mimes'             => 'Vous devez introduire une image de type :mimes.',
-            'texte_bouton.required'         => 'Le champ :attribute est obligatoire.',
-            'texte_bouton.max'              => 'Le champ :attribute ne doit pas dépasser :max caractères.',
-            'lien.required'                 => 'Le champ :attribute est obligatoire.',
-            'lien.max'                      => 'Le champ :attribute ne doit pas dépasser :max caractères.',
-        ];
+        //--
+        $rules         = ['type'          => ['required', 'integer']];
+        $customMessages = ['type.required' => 'Le champ :attribute est obligatoire.'];
 
         $validator = Validator::make($request->all(), $rules, $customMessages);
 
+        if ($validator->fails()) {
+            return Redirect::to('backoffice/galleries/create')->withErrors($validator);
+        }
+
+
+        if ($request->type == 1) {
+
+            $rules = [
+                'categorie'                     => ['required', 'exists:category_galleries,id'],
+                'titre'                         => ['required', 'string', 'max:100'],
+                'description'                   => ['nullable', 'string'],
+                'image_gallerie'                => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+                'url'                           => ['nullable', 'string'],
+                'etat'                          => ['nullable', 'regex:/^[0-1]/'],
+            ];
+
+            $customMessages = [
+                'categorie.required'            => 'Le champ :attribute est obligatoire.',
+                'categorie.exists'              => 'La valeur du champ :attribute est invalide.',
+                'titre.required'                => 'Le champ :attribute est obligatoire.',
+                'titre.max'                     => 'Le champ :attribute ne doit pas dépasser :max caractères.',
+                //'description.required'          => 'Le champ :attribute est obligatoire.',
+                'image_gallerie.required'       => 'Le champ :attribute est obligatoire.',
+            ];
+
+        } else {
+
+            $rules = [
+                'categorie'                     => ['required', 'exists:category_galleries,id'],
+                'titre'                         => ['required', 'string', 'max:100'],
+                'description'                   => ['nullable', 'string'],
+                'image_gallerie'                => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
+                'url'                           => ['required', 'string', 'max:255'],
+                'etat'                          => ['nullable', 'regex:/^[0-1]/'],
+            ];
+
+            $customMessages = [
+                'categorie.required'            => 'Le champ :attribute est obligatoire.',
+                'categorie.exists'              => 'La valeur du champ :attribute est invalide.',
+                'titre.required'                => 'Le champ :attribute est obligatoire.',
+                'titre.max'                     => 'Le champ :attribute ne doit pas dépasser :max caractères.',
+                //'description.required'          => 'Le champ :attribute est obligatoire.',
+                'url.required'                  => 'Le champ :attribute est obligatoire.',
+                'url.max'                       => 'Le champ :attribute ne doit pas dépasser :max caractères.',
+            ];
+
+        }
+
+        $validator = Validator::make($request->all(), $rules, $customMessages);
 
         if($validator->fails()){
-            return Redirect::to('backoffice/galleries/'.$slider->id.'/edit')->withErrors($validator);
+            return Redirect::to('backoffice/galleries/'.$gallery->id.'/edit')->withErrors($validator);
         }
 
         //--------------
-        $oldImage = $slider->picture;
-
-        $slider->title              = $request->titre;
-        $slider->text               = $request->description;
-        //$slider->manufacturer_id    = $request->marque;
-        $slider->button_text        = $request->texte_bouton;
-        $slider->link               = $request->lien;
-        $slider->state              = $request->etat;
-
-        $slider->picture            = $request->image_slide;
-
-        if($request->hasFile('image_slide'))
+        $oldType    = $gallery->type;
+        if($oldType==1)
         {
-            $Image          = $request->file('image_slide');
-            $Image_Name     = $slider->id.'_'.time().'.' . $Image->getClientOriginalExtension();
+            $oldImage   = $gallery->name;
+        }
+        
 
-            // if(!empty($slider->picture))
-            // {
-            //     $Image_Name     = $slider->picture;
-            // }
+        $gallery->title                 = $request->titre;
+        $gallery->type                  = $request->type;
+        $gallery->description           = $request->description;
+        $gallery->category_gallerie_id  = $request->categorie;
+        $gallery->state                 = $request->etat;
 
-            $folder         = '/galleries/images';  // Define folder path
+        // Video Youtube :
+        if($request->type==2)
+        {
+            $gallery->name  = $request->url;
 
-            // Upload image
-            $this->uploadOne($Image, $folder, 'public', $Image_Name);
+            if ($oldType == 1) {
+                unlink(storage_path('app/public/gallerie/images/' . $oldImage));
+                unlink(storage_path('app/public/gallerie/images/thumbnail/' . $oldImage));
+            }
 
-            $slider->picture     = $Image_Name;
+        // Image :
+        } else {
 
-            //Storage::delete('/app/public/slides/images/'.$slider->picture);
-            unlink(storage_path('app/public/galleries/images/'.$oldImage));
+            if ($request->hasFile('image_gallerie')) {
+                $Image          = $request->file('image_gallerie');
+                $Image_Name     = $gallery->id . '_' . time() . '.' . $Image->getClientOriginalExtension();
+
+                $folder             = '/gallerie/images';  // Define folder path
+                $folderThumbnail    = '/gallerie/images/thumbnail';  // Define folder path
+
+                // Upload image
+                $this->uploadOne($Image, $folder, 'public', $Image_Name);
+                $this->uploadOne($Image, $folderThumbnail, 'public', $Image_Name);
+
+                //create small thumbnail
+                $smallthumbnailpath = storage_path('app/public/gallerie/images/thumbnail/' . $Image_Name);
+                $this->createThumbnail($smallthumbnailpath, 136, 136);
+
+                $gallery->name     = $Image_Name;
+
+                if ($oldType == 1) {
+                    unlink(storage_path('app/public/gallerie/images/' . $oldImage));
+                    unlink(storage_path('app/public/gallerie/images/thumbnail/' . $oldImage));
+                }
+            }
+
         }
 
-        $slider->save();
+
+
+        $gallery->save();
+
+
 
         return redirect()->route('galleries.index');
     }

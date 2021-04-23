@@ -69,7 +69,7 @@
                         <label class="col-lg-2 col-form-label">Type de media</label>
                         <div class="col-lg-10">
 
-                            <select id="type" name="type" class="type form-control @error('type') is-invalid @enderror" _required>
+                            <select id="type" name="type" class="type form-control @error('type') is-invalid @enderror" required>
                                 <option></option>
                                 <option value="1">Image</option>
                                 <option value="2">Video</option>

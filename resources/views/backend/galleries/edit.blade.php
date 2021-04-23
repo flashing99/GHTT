@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css') }}">
 
     <style>
+        #type_image, #type_video { display: none; }
+
         #image_gallerie { display: none; }
         #custom-button {
         padding: 8px 15px;
@@ -42,7 +44,7 @@
 
 @endsection
 
-@section('breadcrumbs', Breadcrumbs::render('editGallerie', $slider))
+@section('breadcrumbs', Breadcrumbs::render('editGallerie', $gallery))
 
 @section('main-content')
 
@@ -53,20 +55,92 @@
 
         <div class="card card-secondary">
             <div class="card-header">
-                <h3 class="card-title">Modifier un slide</h3>
+                <h3 class="card-title">Modifier un media</h3>
             </div>
             <div class="card-body">
 
 
-            <form method="POST" action="{{ route('gallerie.update', $slider) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('galleries.update', $gallery) }}" enctype="multipart/form-data">
                 @csrf
                 {{ method_field('PUT')}}
 
+                <div class="form-group row">
+                    <label class="col-lg-2 col-form-label">Type de media</label>
+                    <div class="col-lg-10">
+
+                        <select id="type" name="type" class="type form-control @error('type') is-invalid @enderror" required>
+                            <option></option>
+                            <option value="1" @if($gallery->type==1) selected @endif>Image</option>
+                            <option value="2" @if($gallery->type==2) selected @endif>Video</option>
+                        </select>
+
+                        @error('type')
+                            <div class="alert alert-danger m-b-none">
+                                <strong>{{ $message }}</strong>
+                            </div>
+                        @enderror
+                    </div>
+                </div>
+
+                <div id="type_image">
+                <div class="form-group row">
+                    <label class="col-lg-2 col-form-label">Image</label>
+
+                    <div class="col-lg-10">
+
+                        <input id="image_gallerie" type="file" hidden="hidden" class="form-control @error('image_gallerie') is-invalid @enderror" name="image_gallerie">
+                        <button type="button" id="custom-button">Choisir une image</button>
+                        <span id="custom-text">Aucun fichier choisi, pour le moment.</span>
+
+                        @error('image_gallerie')
+                        <div class="alert alert-danger m-b-none">
+                            <strong>{{ $message }}</strong>
+                        </div>
+                        @enderror
+                    </div>
+                </div>
+                </div>
+
+                <div id="type_video">
+                <div class="form-group row">
+                    <label class="col-lg-2 col-form-label">Video YouTube</label>
+                    <div class="col-lg-10">
+                        <input id="url" type="text" class="form-control @error('url') is-invalid @enderror" name="url" value="{{ $gallery->name }}" required autofocus placeholder="Veuillez introduire l'URL de la video YouTube">
+
+                        @error('url')
+                        <div class="alert alert-danger m-b-none">
+                            <strong>{{ $message }}</strong>
+                        </div>
+                        @enderror
+                    </div>
+                </div>
+                </div>
+
+
+
+                <div class="form-group row">
+                    <label class="col-lg-2 col-form-label">Categorie</label>
+                    <div class="col-lg-10">
+
+                        <select id="categorie" name="categorie" class="categorie form-control @error('categorie') is-invalid @enderror" required>
+                            <option></option>
+                            @foreach ($categories as $categorie)
+                            <option value="{{ $categorie->id }}" @if($gallery->category_gallerie_id==$categorie->id) selected @endif>{{ $categorie->name }}</option>
+                            @endforeach
+                        </select>
+
+                        @error('categorie')
+                            <div class="alert alert-danger m-b-none">
+                                <strong>{{ $message }}</strong>
+                            </div>
+                        @enderror
+                    </div>
+                </div>
 
                 <div class="form-group row">
                     <label class="col-lg-2 col-form-label">Titre</label>
                     <div class="col-lg-10">
-                        <input id="titre" type="text" class="form-control @error('titre') is-invalid @enderror" name="titre" value="{{ $slider->title }}" required autofocus placeholder="Veuillez introduire le titre du slide">
+                        <input id="titre" type="text" class="form-control @error('titre') is-invalid @enderror" name="titre" value="{{ $gallery->title }}" required autofocus placeholder="Veuillez introduire le titre">
 
                         @error('titre')
                         <div class="alert alert-danger m-b-none">
@@ -80,7 +154,7 @@
                     <label class="col-lg-2 col-form-label">Description</label>
                     <div class="col-lg-10">
 
-                        <textarea id="description" class="form-control @error('description') is-invalid @enderror" name="description" rows="8" required placeholder="Veuillez introduire la description du slide">{{ $slider->text }}</textarea>
+                        <textarea id="description" class="form-control @error('description') is-invalid @enderror" name="description" rows="8" required placeholder="Veuillez introduire la description du slide">{{ $gallery->description }}</textarea>
 
                         @error('description')
                             <div class="alert alert-danger m-b-none">
@@ -90,76 +164,18 @@
                     </div>
                 </div>
 
-
                 <div class="form-group row">
-                    <label class="col-lg-2 col-form-label">Image</label>
-                    <div class="col-lg-10">
-
-                        <input id="image_gallerie" type="file" hidden="hidden" class="form-control @error('image_gallerie') is-invalid @enderror" name="image_gallerie">
-                        <button type="button" id="custom-button">Choisir une image</button>
-                        <span id="custom-text">Aucun fichier choisi, pour le moment.</span>
-
-                        @error('image_gallerie')
-                        <div class="alert alert-danger m-b-none">
-                            <strong>{{ $message }}</strong>
-                        </div>
-                        @enderror
-
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-lg-2 col-form-label">Video Youtube</label>
-                    <div class="col-lg-10">
-                        <input id="url" type="text" class="form-control @error('url') is-invalid @enderror" name="url" value="{{ $slider->name }}" required autofocus placeholder="Veuillez introduire l'URL de la video">
-
-                        @error('url')
-                        <div class="alert alert-danger m-b-none">
-                            <strong>{{ $message }}</strong>
-                        </div>
-                        @enderror
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-lg-2 col-form-label">Texte sur le bouton</label>
-                    <div class="col-lg-10">
-                        <input id="texte_bouton" type="text" class="form-control @error('texte_bouton') is-invalid @enderror" name="texte_bouton" value="{{ $slider->button_text }}" required autofocus placeholder="Veuillez introduire le texte du bouton">
-
-                        @error('texte_bouton')
-                        <div class="alert alert-danger m-b-none">
-                            <strong>{{ $message }}</strong>
-                        </div>
-                        @enderror
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-lg-2 col-form-label">Le lien</label>
-                    <div class="col-lg-10">
-                        <input id="lien" type="text" class="form-control @error('lien') is-invalid @enderror" name="lien" value="{{ $slider->link }}" required autofocus placeholder="Veuillez introduire le lien du slide">
-
-                        @error('lien')
-                        <div class="alert alert-danger m-b-none">
-                            <strong>{{ $message }}</strong>
-                        </div>
-                        @enderror
-                    </div>
-                </div>
-
-
-                <div class="form-group row">
-                    <label class="col-lg-2 col-form-label">Statut du slide</label>
+                    <label class="col-lg-2 col-form-label">Statut</label>
                     <div class="col-lg-10">
 
                         <div class="radio radio-inline radio-danger">
-                            <input type="radio" name="etat" id="desactiver" value="0" @if( $slider->state == '0' ) checked @endif>
+                            <input type="radio" name="etat" id="desactiver" value="0" @if( $gallery->state == '0' ) checked @endif>
                             <label for="desactiver">
                                 Bloquer
                             </label>
                         </div>
                         <div class="radio radio-inline radio-success">
-                            <input type="radio" name="etat" id="activer" value="1" @if( $slider->state == '1' ) checked @endif>
+                            <input type="radio" name="etat" id="activer" value="1" @if( $gallery->state == '1' ) checked @endif>
                             <label for="activer">
                                 Débloquer
                             </label>
@@ -213,11 +229,54 @@
 var SITEURL = '{{URL::to('')}}';
 $(document).ready( function () {
 
+var type_image = $("#type_image"),
+    type_video = $("#type_video");
+    
+    $(".categorie").select2({
+                theme: 'bootstrap4',
+                placeholder: "Selectionner une categorie",
+                allowClear: true
+        });
 
-    // $('.i-checks').iCheck({
-    //             checkboxClass: 'icheckbox_square-green',
-    //             radioClass: 'iradio_square-green'
-    //         });
+    $(".type").select2({
+                theme: 'bootstrap4',
+                placeholder: "Selectionner le type de media",
+                allowClear: true
+        });
+
+    @if($gallery->type==1)
+        type_image.show();
+        type_video.hide();
+    @elseif($gallery->type==2)
+        type_image.hide();
+        type_video.show();
+    @endif
+
+    @error('image_gallerie')
+        type_image.show();
+        type_video.hide();
+    @enderror
+
+    @error('url')
+        type_image.hide();
+        type_video.show();
+    @enderror
+
+    //--
+    //$(document).on('change','#type',function(){
+    $(".type").on('change', function (e) {
+        
+        if($(this).val()==1){
+            type_image.show();
+            type_video.hide();
+        } else {
+            type_image.hide();
+            type_video.show();
+
+            $("#url").val("");
+        }
+
+    });
 
     //--
     const realFileBtn   = document.getElementById("image_gallerie");
