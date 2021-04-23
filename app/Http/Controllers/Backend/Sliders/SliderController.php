@@ -174,13 +174,38 @@ class SliderController extends Controller
             return redirect( route('sliders.index') );
         }
 
+        // $rules = [
+        //     'titre'                         => ['required','string','max:100'],
+        //     'description'                   => ['required','string','max:200'],
+        //     'marque'                        => ['required','integer'],
+        //     'image_slide'                   => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
+        //     'texte_bouton'                  => ['required','string','max:50'],
+        //     'lien'                          => ['required','string','max:255'],
+        //     'etat'                          => ['nullable', 'regex:/^[0-1]/'],
+        // ];
+
+        // $customMessages = [
+        //     'titre.required'                => 'Le champ :attribute est obligatoire.',
+        //     'titre.max'                     => 'Le champ :attribute ne doit pas dépasser :max caractères.',
+        //     'description.required'          => 'Le champ :attribute est obligatoire.',
+        //     'description.max'               => 'Le champ :attribute ne doit pas dépasser :max caractères.',
+        //     'marque.required'               => 'Le champ :attribute est obligatoire.',
+        //     'email.required'                => 'Le champ :attribute est invalide.',
+        //     'image_slide.image'             => 'Vous devez choisir une image.',
+        //     'image_slide.mimes'             => 'Vous devez introduire une image de type :mimes.',
+        //     'texte_bouton.required'         => 'Le champ :attribute est obligatoire.',
+        //     'texte_bouton.max'              => 'Le champ :attribute ne doit pas dépasser :max caractères.',
+        //     'lien.required'                 => 'Le champ :attribute est obligatoire.',
+        //     'lien.max'                      => 'Le champ :attribute ne doit pas dépasser :max caractères.',
+        // ];
+
         $rules = [
-            'titre'                         => ['required','string','max:100'],
-            'description'                   => ['required','string','max:200'],
-            'marque'                        => ['required','integer'],
-            'image_slide'                   => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
-            'texte_bouton'                  => ['required','string','max:50'],
-            'lien'                          => ['required','string','max:255'],
+            'titre'                         => ['required', 'string', 'max:100'],
+            'description'                   => ['required', 'string', 'max:200'],
+            //'marque'                        => ['required','integer'],
+            'image_slide'                   => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+            'texte_bouton'                  => ['required', 'string', 'max:50'],
+            'lien'                          => ['required', 'string', 'max:255'],
             'etat'                          => ['nullable', 'regex:/^[0-1]/'],
         ];
 
@@ -189,21 +214,20 @@ class SliderController extends Controller
             'titre.max'                     => 'Le champ :attribute ne doit pas dépasser :max caractères.',
             'description.required'          => 'Le champ :attribute est obligatoire.',
             'description.max'               => 'Le champ :attribute ne doit pas dépasser :max caractères.',
-            'marque.required'               => 'Le champ :attribute est obligatoire.',
-            'email.required'                => 'Le champ :attribute est invalide.',
-            'image_slide.image'             => 'Vous devez choisir une image.',
-            'image_slide.mimes'             => 'Vous devez introduire une image de type :mimes.',
+            //'marque.required'               => 'Le champ :attribute est obligatoire.',
+            'image_slide.required'          => 'Le champ :attribute est obligatoire.',
             'texte_bouton.required'         => 'Le champ :attribute est obligatoire.',
             'texte_bouton.max'              => 'Le champ :attribute ne doit pas dépasser :max caractères.',
             'lien.required'                 => 'Le champ :attribute est obligatoire.',
             'lien.max'                      => 'Le champ :attribute ne doit pas dépasser :max caractères.',
         ];
 
+
         $validator = Validator::make($request->all(), $rules, $customMessages);
 
 
         if($validator->fails()){
-            return Redirect::to('admin/sliders/'.$slider->id.'/edit')->withErrors($validator);
+            return Redirect::to('backoffice/sliders/'.$slider->id.'/edit')->withErrors($validator);
         }
 
         //--------------
@@ -244,6 +268,40 @@ class SliderController extends Controller
         return redirect()->route('sliders.index');
     }
 
+
+    
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\User $user
+     * @return \Illuminate\Http\Response
+     */
+    public function updateOrder(Request $request, Slider $slider)
+    {
+        // $idSlide = $request->slider_id;
+        // $order = $request->order;
+        
+
+
+        // $this->validate($request, [
+        //     'slider'  => 'required | integer',
+        //     'order'  => 'required | integer',
+        // ]);
+
+        if(Gate::denies('edit-sliders')){
+            return redirect( route('sliders.index') );
+        }
+        //return $request->slide . ' - ' . $request->order;
+
+        
+        $slider->order    = $request->order;
+
+        $slider->save();
+
+        return Response::json($slider->order);
+    }
+    
     /**
      * Update the specified resource in storage.
      *

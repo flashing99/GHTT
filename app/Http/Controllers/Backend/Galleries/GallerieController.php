@@ -8,11 +8,13 @@ use App\Models\CategoryGallerie;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 use App\Traits\UploadTrait;
 
-use Gate, Auth, DataTables, Redirect, Response, Validator;
+use Gate, Auth, DataTables, Redirect, Response, Validator, Image;
 
 class GallerieController extends Controller
 {
@@ -30,17 +32,31 @@ class GallerieController extends Controller
      */
     public function index(Request $request)
     {
+
         if(request()->ajax()) {
-            $data = Gallerie::all();
+            $data = Gallerie::query();
+            $data->with(['CategoryGallerie']);
+
+            if ($request->has('categorie') && !empty($request->categorie)) {
+                $data->where('category_gallerie_id', $request->categorie);
+            }
+            if ($request->has('type') && !empty($request->type)) {
+                $data->where('type', $request->type);
+            }
+            
+            $data->get();
 
             return Datatables::of($data)
 
             ->editColumn('media', function ($data)
             {
-                if($data->type==1){
-                    $media = $data->name;
+                if($data->type==2){
+                    
+                    $media = '<a href="'. $data->name. '" target="_blank" class="btn btn-block btn-secondary"><i class="fas fa-play"></i></a>';
+
                 } else {
-                    $media = '<img src=\''.$data->name.'\' height=\'50\'/>';
+                    //$media = '<img src=\''.$data->name.'\' height=\'50\'/>';
+                    $media = '<img class="img-thumbnail img-md" src="' . url("backoffice/galleries/images/thumbnail/" . $data->name) . '" />';
                 }
                 
                 return $media;
@@ -48,7 +64,7 @@ class GallerieController extends Controller
             })
             ->editColumn('type', function ($data)
             {
-                if($data->type==1){
+                if($data->type==2){
                     $type = 'Video';
                 } else {
                     $type = 'Image';
@@ -56,7 +72,7 @@ class GallerieController extends Controller
                 
                 return $type;
                 //return date('d-m-Y à H:i', strtotime($data->created_at) );
-            })            
+            })
             ->editColumn('created_at', function ($data)
             {
                 return date('d-m-Y à H:i', strtotime($data->created_at) );
@@ -68,8 +84,11 @@ class GallerieController extends Controller
             ->make(true);
         }
 
+        $categories = CategoryGallerie::all();
 
-        return view('Backend.galleries.index');
+        return view('Backend.galleries.index')->with([
+            'categories' => $categories
+        ]);
 
 
     }
@@ -77,90 +96,144 @@ class GallerieController extends Controller
     //Show form
     public function create(){
 
-        if(Gate::denies('add-sliders')){
-            return redirect( route('sliders.index') );
+        if(Gate::denies('add-galleries')){
+            return redirect( route('galleries.index') );
         }
 
-        return view('Backend.sliders.create');
+        $categories = CategoryGallerie::all();
+
+        return view('Backend.galleries.create')->with([
+            'categories' => $categories
+        ]);
     }
 
     public function store(Request $request)
     {
 
-        if(Gate::denies('add-sliders')){
-            return redirect( route('sliders.index') );
+        if(Gate::denies('add-galleries')){
+            return redirect( route('galleries.index') );
         }
 
-        $rules = [
-            'titre'                         => ['required','string','max:100'],
-            'description'                   => ['required','string','max:200'],
-            //'marque'                        => ['required','integer'],
-            'image_slide'                   => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
-            'texte_bouton'                  => ['required','string','max:50'],
-            'lien'                          => ['required','string','max:255'],
-            'etat'                          => ['nullable', 'regex:/^[0-1]/'],
-        ];
+        //--
+         $rules         = [ 'type'          => ['required', 'integer'] ];
+        $customMessages = [ 'type.required' => 'Le champ :attribute est obligatoire.' ];
+        
+        $validator = Validator::make($request->all(), $rules, $customMessages);
+        
+        if($validator->fails()) {
+            return Redirect::to('backoffice/galleries/create')->withErrors($validator);
+        }
 
-        $customMessages = [
-            'titre.required'                => 'Le champ :attribute est obligatoire.',
-            'titre.max'                     => 'Le champ :attribute ne doit pas dépasser :max caractères.',
-            'description.required'          => 'Le champ :attribute est obligatoire.',
-            'description.max'               => 'Le champ :attribute ne doit pas dépasser :max caractères.',
-            //'marque.required'               => 'Le champ :attribute est obligatoire.',
-            'image_slide.required'          => 'Le champ :attribute est obligatoire.',
-            'texte_bouton.required'         => 'Le champ :attribute est obligatoire.',
-            'texte_bouton.max'              => 'Le champ :attribute ne doit pas dépasser :max caractères.',
-            'lien.required'                 => 'Le champ :attribute est obligatoire.',
-            'lien.max'                      => 'Le champ :attribute ne doit pas dépasser :max caractères.',
-        ];
+
+        if($request->type==1)
+        {
+
+            $rules = [
+                'categorie'                     => ['required', 'exists:category_galleries,id'],
+                'titre'                         => ['required', 'string', 'max:100'],
+                'description'                   => ['nullable', 'string'],
+                'image_gallerie'                => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+                'url'                           => ['nullable','string'],
+                'etat'                          => ['nullable', 'regex:/^[0-1]/'],
+            ];
+
+            $customMessages = [
+                'categorie.required'            => 'Le champ :attribute est obligatoire.',
+                'categorie.exists'              => 'La valeur du champ :attribute est invalide.',
+                'titre.required'                => 'Le champ :attribute est obligatoire.',
+                'titre.max'                     => 'Le champ :attribute ne doit pas dépasser :max caractères.',
+                //'description.required'          => 'Le champ :attribute est obligatoire.',
+                'image_gallerie.required'       => 'Le champ :attribute est obligatoire.',
+            ];
+
+            $name = null;
+
+        } else {
+
+            $rules = [
+                'categorie'                     => ['required', 'exists:category_galleries,id'],
+                'titre'                         => ['required', 'string', 'max:100'],
+                'description'                   => ['nullable', 'string'],
+                'image_gallerie'                => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
+                'url'                           => ['required','string','max:255'],
+                'etat'                          => ['nullable', 'regex:/^[0-1]/'],
+            ];
+
+            $customMessages = [
+                'categorie.required'            => 'Le champ :attribute est obligatoire.',
+                'categorie.exists'              => 'La valeur du champ :attribute est invalide.',
+                'titre.required'                => 'Le champ :attribute est obligatoire.',
+                'titre.max'                     => 'Le champ :attribute ne doit pas dépasser :max caractères.',
+                //'description.required'          => 'Le champ :attribute est obligatoire.',
+                'url.required'                  => 'Le champ :attribute est obligatoire.',
+                'url.max'                       => 'Le champ :attribute ne doit pas dépasser :max caractères.',
+            ];
+
+            $name = $request->url;
+        }
 
         $validator = Validator::make($request->all(), $rules, $customMessages);
 
-
         if($validator->fails()){
-            return Redirect::to('backoffice/sliders/create')->withErrors($validator);
+            return Redirect::to('backoffice/galleries/create')->withErrors($validator);
         }
 
-        //return dd($request->mobile1);
+        //return dd($request);
 
 
 
-        // Nombre de slides :
-        //-----------------//
-        $nbr_slides = Slider::count();
 
-        // Input data user :
+
+        // Input media data :
         $data = [
-            'order'             => $nbr_slides + 1,
-            'title'             => $request->titre,
-            'text'              => $request->description,
-            //'manufacturer_id'   => $manufacturer->id,
-            //'picture'   => $request->image,
-            'button_text'       => $request->texte_bouton,
-            'link'              => $request->lien,
-            'state'             => $request->etat,
+            'title'                 => $request->titre,
+            'name'                  => $name,
+            'type'                  => $request->type,
+            'description'           => $request->description,
+            'category_gallerie_id'  => $request->categorie,
+            'state'                 => $request->etat,
         ];
 
-        // Add Livreur :
+        // Add media :
         //-------------------
-        $slider   = Slider::create($data);
+        $gallerie   = Gallerie::create($data);
 
-        if ($request->hasFile('image_slide')) {
+        if ($request->hasFile('image_gallerie')) {
 
-            $Image          = $request->file('image_slide');
-            $Image_Name     = $slider->id.'_'.time().'.' . $Image->getClientOriginalExtension();
-            $folder         = '/slides/images';  // Define folder path
+            $Image              = $request->file('image_gallerie');
+            $Image_Name         = $gallerie->id.'_'.time().'.' . $Image->getClientOriginalExtension();
+            $folder             = '/gallerie/images';  // Define folder path
+            $folderThumbnail    = '/gallerie/images/thumbnail';  // Define folder path
 
             // Upload image
             $this->uploadOne($Image, $folder, 'public', $Image_Name);
+            $this->uploadOne($Image, $folderThumbnail, 'public', $Image_Name);
 
-            $slider->picture    = $Image_Name;
-            $slider->save();
+            //create small thumbnail
+            $smallthumbnailpath = storage_path('app/public/gallerie/images/thumbnail/' . $Image_Name);
+            $this->createThumbnail($smallthumbnailpath, 136, 136);
+
+            $gallerie->name    = $Image_Name;
+            $gallerie->save();
         }
 
-        return redirect()->route('sliders.index');
+        return redirect()->route('galleries.index');
     }
 
+    /**
+     * Create a thumbnail of specified size
+     *
+     * @param string $path path of thumbnail
+     * @param int $width
+     * @param int $height
+     */
+    public function createThumbnail($path, $width, $height)
+    {
+        $img = Image::make($path)->resize($width, $height, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+        $img->save($path);
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -168,17 +241,17 @@ class GallerieController extends Controller
      * @param  \App\Deliverymen  $famille
      * @return \Illuminate\Http\Response
      */
-    public function edit(Slider $slider)
+    public function edit(Gallerie $gallery)
     {
         //return $user->communes()->first();
-        if(Gate::denies('edit-sliders')){
-            return redirect( route('sliders.index') );
+        if(Gate::denies('edit-galleries')){
+            return redirect( route('galleries.index') );
         }
 
         //$manufacturers = Manufacturer::where('state', '1')->get();
         
-        return view('Backend.sliders.edit')->with([
-            'slider'            => $slider,
+        return view('Backend.galleries.edit')->with([
+            'gallery'            => $gallery,
             //'manufacturers'     => $manufacturers
         ]);
     }
@@ -191,11 +264,11 @@ class GallerieController extends Controller
      * @param  \App\Deliverymen  $famille
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Slider $slider)
+    public function update(Request $request, Gallerie $gallery)
     {
 
-        if(Gate::denies('edit-sliders')){
-            return redirect( route('sliders.index') );
+        if(Gate::denies('edit-galleries')){
+            return redirect( route('galleries.index') );
         }
 
         $rules = [
@@ -227,7 +300,7 @@ class GallerieController extends Controller
 
 
         if($validator->fails()){
-            return Redirect::to('admin/sliders/'.$slider->id.'/edit')->withErrors($validator);
+            return Redirect::to('backoffice/galleries/'.$slider->id.'/edit')->withErrors($validator);
         }
 
         //--------------
@@ -252,7 +325,7 @@ class GallerieController extends Controller
             //     $Image_Name     = $slider->picture;
             // }
 
-            $folder         = '/slides/images';  // Define folder path
+            $folder         = '/galleries/images';  // Define folder path
 
             // Upload image
             $this->uploadOne($Image, $folder, 'public', $Image_Name);
@@ -260,12 +333,12 @@ class GallerieController extends Controller
             $slider->picture     = $Image_Name;
 
             //Storage::delete('/app/public/slides/images/'.$slider->picture);
-            unlink(storage_path('app/public/slides/images/'.$oldImage));
+            unlink(storage_path('app/public/galleries/images/'.$oldImage));
         }
 
         $slider->save();
 
-        return redirect()->route('sliders.index');
+        return redirect()->route('galleries.index');
     }
 
     /**
@@ -275,21 +348,21 @@ class GallerieController extends Controller
      * @param  \App\User $user
      * @return \Illuminate\Http\Response
      */
-    public function statusUser(Request $request, Slider $slider)
+    public function statusMedia(Request $request, Gallerie $gallery)
     {
         $this->validate($request, [
             'etat'  => 'required | integer',
         ]);
 
-        if(Gate::denies('edit-sliders')){
-            return redirect( route('sliders.index') );
+        if(Gate::denies('edit-galleries')){
+            return redirect( route('galleries.index') );
         }
 
-        $slider->state    = $request->etat;
+        $gallery->state    = $request->etat;
 
-        $slider->save();
+        $gallery->save();
 
-        return Response::json($slider->state);
+        return Response::json($gallery->state);
     }
 
     /**
@@ -298,19 +371,58 @@ class GallerieController extends Controller
      * @param  \App\Deliverymen  $famille
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Slider $slider)
+    public function destroy(Gallerie $gallery)
     {
-        if(Gate::denies('delete-sliders')){
+        if(Gate::denies('delete-galleries')){
             return redirect( route('home') );
         }
 
-        $slider->delete();
+        $gallery->delete();
 
-        return Response::json($slider);
+        return Response::json($gallery);
         //return redirect()->route('admin.users.index');
     }
 
 
+    //
+    public function displayImage($filename)
+    {
+
+        //$path = storage_public('products/images/' . $filename);
+        $path = storage_path('app/public/gallerie/images/' . $filename);
+
+        if (!File::exists($path)) {
+            abort(404);
+        }
+
+        $file = File::get($path);
+        $type = File::mimeType($path);
+
+        $response = Response::make($file, 200);
+        $response->header("Content-Type", $type);
+
+        return $response;
+    }
+
+
+    public function displayThumbnailImage($filename)
+    {
+
+        //$path = storage_public('products/images/' . $filename);
+        $path = storage_path('app/public/gallerie/images/thumbnail/' . $filename);
+
+        if (!File::exists($path)) {
+            abort(404);
+        }
+
+        $file = File::get($path);
+        $type = File::mimeType($path);
+
+        $response = Response::make($file, 200);
+        $response->header("Content-Type", $type);
+
+        return $response;
+    }
 
 
 }

@@ -10,9 +10,13 @@
 
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-rowreorder/css/rowReorder.bootstrap4.min.css') }}">
 
+    <!-- Bootstrap Switch -->
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/bootstrap-switch/css/bootstrap3/bootstrap-switch.min.css') }}">
     <!-- Sweet Alert -->
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/sweetalert/sweetalert.css') }}">
-
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
 	
   
 @endsection
@@ -32,10 +36,42 @@
 
 
 
-            <div class="row p-b-md">
-                <div class="col-lg-12 p-l-none">
+            <div class="row">
+                <div class="col-lg-4">
                     <a href="{{ route('galleries.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Ajouter un nouveau media</a>
                 </div>
+
+                <div class="col-lg-8">
+
+                    <form id="filtre">
+                        <div class="form-group row">
+                            <div class="col-lg-4">
+                                <select id="categorie" name="categorie" class="categorie form-control">
+                                    <option></option>
+                                    @foreach ($categories as $categorie)
+                                    <option value="{{ $categorie->id }}">{{ $categorie->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-lg-4">
+                                <select id="type" name="type" class="type form-control">
+                                    <option></option>
+                                    <option value="1">Image</option>
+                                    <option value="2">Video</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4">
+                                <button type="submit" class="btn btn-primary" id="BtnSubmitSearch"><i class="fa fa-search"></i> Rechercher</button>
+                            </div>
+                        </div>
+                    </form>
+
+
+
+                </div>
+
+
+                
             </div>
             
 
@@ -45,7 +81,7 @@
                     <th>ID</th>
                     <th width="50">N°</th>
                     <th>Titre</th>
-                    <th width="150">media</th>
+                    <th width="50">media</th>
                     <th width="50">Type</th>
                     <th width='110'>Ajouté le</th>
                     <th width='45'>Statut</th>
@@ -84,10 +120,13 @@
     <script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
     <script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
-
+    
+    <!-- Bootstrap Switch -->
+    <script src="{{ asset('adminlte/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script>
     <!-- Sweet alert -->
     <script src="{{ asset('adminlte/plugins/sweetalert/sweetalert.min.js') }}"></script>
-
+    <!-- Select2 -->
+    <script src="{{ asset('adminlte/plugins/select2/js/select2.full.min.js') }}"></script>
 
 
 
@@ -102,9 +141,23 @@
 
         var listing_table   = $("#datatable");
 
+
+        $(".categorie").select2({
+                theme: 'bootstrap4',
+                placeholder: "Selectionner une categorie",
+                allowClear: true
+        });
+        $(".type").select2({
+                theme: 'bootstrap4',
+                placeholder: "Selectionner un type de media",
+                allowClear: true
+        });
+
+
+
         fill_datatable();
 
-        function fill_datatable()
+        function fill_datatable(categorie = '', type = '')
         {
             $.ajaxSetup({
             headers: {
@@ -125,7 +178,7 @@
                 //dom: '<"row"<"col-sm-12 col-md-2"l> <"col-sm-12 col-md-4"i> <"col-sm-12 col-md-3 text-right"B> <"col-sm-12 col-md-3 text-right"f>>r t <"col-sm-12 col-md-2"l> <"col-sm-12 col-md-4"i><"col-sm-12 col-md-6"p>',//'Bfrtip',
                 dom: '<"row"<"col-sm-12 col-md-2"l> <"col-sm-12 col-md-4"i> <"col-sm-12 col-md-6 text-right"B>>r t <"col-sm-12 col-md-2"l> <"col-sm-12 col-md-4"i><"col-sm-12 col-md-6"p>',//'Bfrtip',
                 buttons: [
-                    'excel', 'pdf', ,'print', //'copy', 'csv',
+                    //'excel', 'pdf', ,'print', //'copy', 'csv',
                 {
                     text: 'Rafraîchir',
                     action: function ( e, dt, node, config ) {
@@ -138,6 +191,7 @@
                     //url     : SITEURL + "/Backoffice/galleries",
                     url     : "{{ route('galleries.index') }}",
                     type    : 'GET',
+                    data    : {categorie:categorie, type:type}
                 },
                 columns: [
                         { data: 'id', name: 'id', 'visible': false },
@@ -146,26 +200,89 @@
                         { data: 'media', name: 'media' },
                         { data: 'type', name: 'type' },
                         { data: 'created_at', name: 'created_at' },
-                        { data: 'state', name: 'state' },
+                        //{ data: 'state', name: 'state' },
+                        { data: 'state', name: 'state', searchable: false ,
+                        
+                            render: function(data, type, row, meta){
+                                if(row.state=='1')
+                                {
+                                    return '<input type="checkbox" data-id="'+row.id+'" name="state_checkbox" data-bootstrap-switch checked>';
+                                } else {
+                                    return '<input type="checkbox" data-id="'+row.id+'" name="state_checkbox" data-bootstrap-switch>';
+                                }
+                            },
+
+                        },
                         { data: 'action', name: 'action', orderable: false },
                     ],
-                order: [[5, 'desc']]
+                order: [[5, 'desc']],
+                "drawCallback": function() {
+
+                    $("input[name='state_checkbox']").bootstrapSwitch({
+                        size : 'small',
+                        onColor : 'success',
+                        offColor : 'danger',
+                        onText : 'Oui',
+                        offText : 'Non'
+                    });
+
+                }  
             });
             
             // Apply the tooltips //
-            $('body').tooltip({selector: '[data-toggle="tooltip"]'});
+            //$('body').tooltip({selector: '[data-toggle="tooltip"]'});
         }
+
+        $('body').on('switchChange.bootstrapSwitch', 'input[name="state_checkbox"]', function(event, state) {
+            if(state)
+            {
+                var status = 1;
+            } else {
+                var status = 0;
+            }
+            var id = $(this).attr('data-id');
+            
+            changeStatus(id, status);
+        });
+
+        function changeStatus(id, status){
+
+            $.ajax({ 
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            type: "POST",
+            url: SITEURL + "/backoffice/galleries/ajax/"+id+'/status',
+            data: { etat : status }, 
+            dataType: "json",
+            success: function (data) {
+                    
+
+                }
+            }); 
+        }
+
+        // Submit search
+        $("#filtre").submit( function() {
+        
+            var categorie   = $('#categorie').val(),
+                type        = $('#type').val();
+
+            listing_table.DataTable().destroy();
+            fill_datatable(categorie, type)
+
+        return false
+        });
+
 
      
        /* When click edit user */
-        $('body').on('click', '.edit-article', function () {
+        $('body').on('click', '.edit-media', function () {
             var slider_id = $(this).data('id');
-            window.location.href = SITEURL + "/backoffice/sliders/"+slider_id+"/edit";
+            window.location.href = SITEURL + "/backoffice/galleries/"+slider_id+"/edit";
        });
 
 
         // When click delete button
-        $('body').on('click', '#delete-article', function () {
+        $('body').on('click', '#delete-media', function () {
             var slider_id = $(this).data("id");
 
             swal({
@@ -181,7 +298,7 @@
 
                 $.ajax({
                     type: "DELETE",
-                    url: SITEURL + "/Backoffice/sliders/"+slider_id,
+                    url: SITEURL + "/backoffice/galleries/"+slider_id,
                     success: function (data) {
                     listing_table.DataTable().destroy();
                     fill_datatable();
@@ -222,6 +339,9 @@
             }); 
 
         });
+
+
+
 
 
     });

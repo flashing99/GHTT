@@ -61,6 +61,8 @@ Route::namespace('Bookings')->group(function(){
 Route::namespace('Sliders')->middleware('can:manage-sliders')->group(function(){
 
     Route::resource('/sliders', 'SliderController');
+
+    Route::get('/sliders/updateOrder/{slider}/{order}', 'SliderController@updateOrder');
     
 });
 
@@ -76,8 +78,35 @@ Route::namespace('Events')->middleware('can:manage-events')->group(function(){
 Route::namespace('Galleries')->middleware('can:manage-galleries')->group(function(){
 
     Route::resource('/galleries', 'GallerieController');
-    
+
+    Route::post('/galleries/ajax/{gallery}/status', 'GallerieController@statusMedia');
+
+    Route::get('/galleries/images/{filename}', 'GallerieController@displayImage')->name('image.displayImage');
+    Route::get('/galleries/images/thumbnail/{filename}', 'GallerieController@displayThumbnailImage')->name('image.displayThumbnailImage');
+
+/*
+    Route::get('/galleries', 'GallerieController@index')->name('galleries.index');
+    Route::resource('/galleries/images', 'GallerieController');
+    Route::resource('/galleries/videos', 'GallerieController');
+*/
+    /*
+    Route::get('/galleries/image/create', 'GallerieController@createImage')->name('galleries.create.image');
+    Route::post('/galleries/image', 'GallerieController@storeImage')->name('galleries.store.image');
+    Route::get('/galleries/image/edit/{gallery}', 'GallerieController@editImage')->name('galleries.edit.image');
+    Route::put('/galleries/image/{gallery}', 'GallerieController@updateImage')->name('galleries.update.image');
+    Route::delete('/galleries/image/{gallery}', 'GallerieController@destroyImage')->name('galleries.destroy.image');
+
+    Route::get('/galleries/video/create', 'GallerieController@createVideo')->name('galleries.create.video');
+    Route::post('/galleries/video', 'GallerieController@storeVideo')->name('galleries.store.video');
+    Route::get('/galleries/video/edit/{gallery}', 'GallerieController@editVideo')->name('galleries.edit.video');
+    Route::put('/galleries/video/{gallery}', 'GallerieController@updateVideo')->name('galleries.update.video');
+    Route::delete('/galleries/video/{gallery}', 'GallerieController@destroyVideo')->name('galleries.destroy.video');
+    */
 });
+
+// Route::get('articles/images/{filename}', 'Articles\ProductController@displayImage')->name('image.displayImage');
+// Route::get('articles/images/thumbnail/{filename}', 'Articles\ProductController@displayThumbnailImage')->name('image.displayThumbnailImage');
+
 
 // Housings
 Route::namespace('Housings')->middleware('can:manage-housings')->group(function(){

@@ -22,7 +22,7 @@ class BookingDetail extends Model
      * @var array
      */
     protected $fillable = [
-        'booking_id', 'adult', 'children', 'housing_name', 'number', 'amount', 'vat', 'date_start', 'date_end', 'state', 
+        'booking_id', 'adult', 'children', 'housing_id', 'housing_name', 'number', 'amount', 'vat', 'date_start', 'date_end', 'state', 
     ];
 
     public function booking(){

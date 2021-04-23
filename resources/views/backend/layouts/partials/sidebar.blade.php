@@ -5,7 +5,7 @@
     <a href="index3.html" class="brand-link">
       <img src="/adminlte/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">CET Tipaza</span>
     </a>
 
     <!-- Sidebar -->
@@ -50,7 +50,7 @@
             </a>
           </li>
 
-          <li class="nav-item has-treeview _menu-open">
+          {{-- <li class="nav-item has-treeview _menu-open">
             <a href="#" class="nav-link _active">
               <i class="nav-icon fas fa-info"></i>
               <p>Qui sommes nous ? <i class="right fas fa-angle-left"></i></p>
@@ -75,7 +75,7 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li> --}}
 
           <li class="nav-item">
             <a href="{{ route('housings.index') }}" class="nav-link  {{ (request()->is('backoffice/housings*')) ? 'active' : '' }}">
@@ -105,7 +105,7 @@
             </a>
           </li>
 
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="{{ route('events.index') }}" class="nav-link  {{ (request()->is('backoffice/events*')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-calendar-alt"></i>
               <p>Gestion des évènements</p>
@@ -138,7 +138,7 @@
               <i class="nav-icon fas fa-concierge-bell"></i>
               <p>Nos services</p>
             </a>
-          </li>
+          </li> --}}
           
 
 

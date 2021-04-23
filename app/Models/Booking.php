@@ -26,8 +26,13 @@ class Booking extends Model
         'lastname', 'firstname', 'mobile', 'state', 
     ];
 
-    public function BookingDetail(){
-        return $this->hasOne(BookingDetail::class);
+    // public function BookingDetail(){
+    //     return $this->hasOne(BookingDetail::class);
+    // }
+
+    public function BookingDetails()
+    {
+        return $this->hasMany(BookingDetail::class);
     }
 
 

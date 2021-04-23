@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Bookings;
 
 use App\Models\Booking;
+use App\Models\BookingDetail;
 use App\Models\Housing;
 
 use App\Http\Controllers\Controller;
@@ -27,12 +28,77 @@ class BookingsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
         if(request()->ajax()) {
+            $data = BookingDetail::query();
+            $data->with(['booking']);
+            $data->get();
+            // $data = Housing::query();
+            // $data->with(['views']);
+            // $data->get();
+
+            return Datatables::of($data)
+
+                ->addColumn('firstname', function ($data) {
+                    return $data->Booking->firstname;
+                    //return '-';
+                })
+                ->addColumn('lastname', function ($data) {
+                    return $data->Booking->lastname;
+                    //return '-';
+                })
+
+                ->addColumn('logement', function ($data) {
+                    return $data->housing->name.' ('.$data->housing->number.')';
+                })
+        /*
+            ->addColumn('adult', function ($data)
+            {
+                //return $data->BookingDetail->adult;
+                return '-';
+            })
+            ->addColumn('children', function ($data)
+            {
+                //return $data->BookingDetail->children;
+                return '-';
+            })
+            ->addColumn('logement', function ($data)
+            {
+                //return $data->BookingDetail->housing_name.' ('.$data->BookingDetail->number.')';
+                return '-';
+            })
+            ->addColumn('date_start', function ($data)
+            {
+                //return $data->BookingDetail->date_start;
+                return '-';
+            })
+            ->addColumn('date_end', function ($data)
+            {
+                //return $data->BookingDetail->date_end;
+                return '-';
+            })
+        */
+            ->editColumn('created_at', function ($data)
+            {
+                return date('d-m-Y à H:i', strtotime($data->created_at) );
+            })
+            //->editColumn('state', 'Backend.housings.status')
+            ->addColumn('action', 'Backend.bookings.action_button')
+            ->rawColumns(['action', 'state'])
+            ->addIndexColumn()
+            ->make(true);
+        }
+
+        return view('backend.bookings.index');
+    }
+
+/*
+    public function index000000()
+    {
+        if(request()->ajax()) {
             $data = Booking::query();
-            $data->with(['BookingDetail']);
+            $data->with(['BookingDetails']);
             $data->get();
             // $data = Housing::query();
             // $data->with(['views']);
@@ -42,23 +108,28 @@ class BookingsController extends Controller
 
             ->addColumn('adult', function ($data)
             {
-                return $data->BookingDetail->adult;
+                //return $data->BookingDetail->adult;
+                return '-';
             })
             ->addColumn('children', function ($data)
             {
-                return $data->BookingDetail->children;
+                //return $data->BookingDetail->children;
+                return '-';
             })
             ->addColumn('logement', function ($data)
             {
-                return $data->BookingDetail->housing_name.' ('.$data->BookingDetail->number.')';
+                //return $data->BookingDetail->housing_name.' ('.$data->BookingDetail->number.')';
+                return '-';
             })
             ->addColumn('date_start', function ($data)
             {
-                return $data->BookingDetail->date_start;
+                //return $data->BookingDetail->date_start;
+                return '-';
             })
             ->addColumn('date_end', function ($data)
             {
-                return $data->BookingDetail->date_end;
+                //return $data->BookingDetail->date_end;
+                return '-';
             })
             
             ->editColumn('created_at', function ($data)
@@ -74,7 +145,7 @@ class BookingsController extends Controller
 
         return view('backend.bookings.index');
     }
-
+*/
 /*
     public function index()
     {

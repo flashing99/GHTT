@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css') }}">
 
     <style>
+        #type_image, #type_video { display: none; }
+        
         #image_gallerie { display: none; }
         #custom-button {
         padding: 8px 15px;
@@ -35,6 +37,7 @@
 
         #custom-text {
         margin-left: 10px;
+
         font-family: sans-serif;
         color: #aaa;
         }
@@ -42,7 +45,7 @@
 
 @endsection
 
-@section('breadcrumbs', Breadcrumbs::render('createSlider'))
+@section('breadcrumbs', Breadcrumbs::render('createGallerie'))
 
 @section('main-content')
 
@@ -62,27 +65,17 @@
                     @csrf
                     {{ method_field('POST')}}
 
-
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label">Titre</label>
-                        <div class="col-lg-10">
-                            <input id="titre" type="text" class="form-control @error('titre') is-invalid @enderror" name="titre" value="{{ old('titre') }}" required autofocus placeholder="Veuillez introduire le titre du slide">
-
-                            @error('titre')
-                            <div class="alert alert-danger m-b-none">
-                                <strong>{{ $message }}</strong>
-                            </div>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label class="col-lg-2 col-form-label">Description</label>
+                        <label class="col-lg-2 col-form-label">Type de media</label>
                         <div class="col-lg-10">
 
-                            <textarea id="description" class="form-control @error('description') is-invalid @enderror" name="description" rows="8" required placeholder="Veuillez introduire la description du slide">{{ old('description') }}</textarea>
-
-                            @error('description')
+                            <select id="type" name="type" class="type form-control @error('type') is-invalid @enderror" _required>
+                                <option></option>
+                                <option value="1">Image</option>
+                                <option value="2">Video</option>
+                            </select>
+    
+                            @error('type')
                                 <div class="alert alert-danger m-b-none">
                                     <strong>{{ $message }}</strong>
                                 </div>
@@ -91,8 +84,11 @@
                     </div>
 
 
+
+                    <div id="type_image">
                     <div class="form-group row">
                         <label class="col-lg-2 col-form-label">Image</label>
+
                         <div class="col-lg-10">
 
                             <input id="image_gallerie" type="file" hidden="hidden" class="form-control @error('image_gallerie') is-invalid @enderror" name="image_gallerie">
@@ -106,11 +102,13 @@
                             @enderror
                         </div>
                     </div>
+                    </div>
 
+                    <div id="type_video">
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label">Video Youtube</label>
+                        <label class="col-lg-2 col-form-label">Video YouTube</label>
                         <div class="col-lg-10">
-                            <input id="url" type="text" class="form-control @error('url') is-invalid @enderror" name="url" required autofocus placeholder="Veuillez introduire l'URL de la video">
+                            <input id="url" type="text" class="form-control @error('url') is-invalid @enderror" name="url" placeholder="Veuillez introduire l'URL de la video YouTube">
     
                             @error('url')
                             <div class="alert alert-danger m-b-none">
@@ -119,13 +117,37 @@
                             @enderror
                         </div>
                     </div>
+                    </div>
+
+
+
+                    
 
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label">Texte sur le bouton</label>
+                        <label class="col-lg-2 col-form-label">Categorie</label>
                         <div class="col-lg-10">
-                            <input id="texte_bouton" type="text" class="form-control @error('texte_bouton') is-invalid @enderror" name="texte_bouton" value="{{ old('texte_bouton') }}" required autofocus placeholder="Veuillez introduire le texte du bouton">
 
-                            @error('texte_bouton')
+                            <select id="categorie" name="categorie" class="categorie form-control @error('categorie') is-invalid @enderror" required>
+                                <option></option>
+                                @foreach ($categories as $categorie)
+                                <option value="{{ $categorie->id }}">{{ $categorie->name }}</option>
+                                @endforeach
+                            </select>
+    
+                            @error('categorie')
+                                <div class="alert alert-danger m-b-none">
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label">Titre</label>
+                        <div class="col-lg-10">
+                            <input id="titre" type="text" class="form-control @error('titre') is-invalid @enderror" name="titre" value="{{ old('titre') }}" required autofocus placeholder="Veuillez introduire le titre">
+
+                            @error('titre')
                             <div class="alert alert-danger m-b-none">
                                 <strong>{{ $message }}</strong>
                             </div>
@@ -134,21 +156,21 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label">Le lien</label>
+                        <label class="col-lg-2 col-form-label">Description</label>
                         <div class="col-lg-10">
-                            <input id="lien" type="text" class="form-control @error('lien') is-invalid @enderror" name="lien" value="{{ old('lien') }}" required autofocus placeholder="Veuillez introduire le lien du slide">
 
-                            @error('lien')
-                            <div class="alert alert-danger m-b-none">
-                                <strong>{{ $message }}</strong>
-                            </div>
+                            <textarea id="description" class="form-control @error('description') is-invalid @enderror" name="description" rows="4" required placeholder="Veuillez introduire la description">{{ old('description') }}</textarea>
+
+                            @error('description')
+                                <div class="alert alert-danger m-b-none">
+                                    <strong>{{ $message }}</strong>
+                                </div>
                             @enderror
                         </div>
                     </div>
 
-
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label">Statut du slide</label>
+                        <label class="col-lg-2 col-form-label">Statut</label>
                         <div class="col-lg-10">
 
                             <div class="radio radio-inline radio-danger">
@@ -212,16 +234,44 @@
 var SITEURL = '{{URL::to('')}}';
 $(document).ready( function () {
 
-    // $(".marque").select2({
-    //             theme: 'bootstrap4',
-    //             placeholder: "Selectionner une marque",
-    //             allowClear: true
-    //     });
+var type_image = $("#type_image"),
+    type_video = $("#type_video");
+    
+    $(".categorie").select2({
+                theme: 'bootstrap4',
+                placeholder: "Selectionner une categorie",
+                allowClear: true
+        });
 
-    // $('.i-checks').iCheck({
-    //             checkboxClass: 'icheckbox_square-green',
-    //             radioClass: 'iradio_square-green'
-    //         });
+    $(".type").select2({
+                theme: 'bootstrap4',
+                placeholder: "Selectionner le type de media",
+                allowClear: true
+        });
+
+@error('image_gallerie')
+            type_image.show();
+            type_video.hide();
+@enderror
+
+@error('url')
+            type_image.hide();
+            type_video.show();
+@enderror
+
+    //--
+    //$(document).on('change','#type',function(){
+    $(".type").on('change', function (e) {
+        
+        if($(this).val()==1){
+            type_image.show();
+            type_video.hide();
+        } else {
+            type_image.hide();
+            type_video.show();
+        }
+
+    });
 
     //--
     const realFileBtn   = document.getElementById("image_gallerie");
