@@ -26,7 +26,7 @@ class SubcategoryHousing extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'category_housing_id', 'state', 
+        'name', 'category_housing_id', 'image', 'state', 
     ];
 
     public function CategoryHousing(){

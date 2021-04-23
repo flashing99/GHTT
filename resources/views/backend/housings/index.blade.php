@@ -12,9 +12,11 @@
 
     <!-- Sweet Alert -->
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/sweetalert/sweetalert.css') }}">
-
+    <!-- Bootstrap Switch -->
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/bootstrap-switch/css/bootstrap3/bootstrap-switch.min.css') }}">
-    
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
 	
   
 @endsection
@@ -32,13 +34,29 @@
         <!-- /.card-header -->
         <div class="card-body">
 
-            {{-- 
+            
             <div class="row p-b-md">
-                <div class="col-lg-12 p-l-none">
-                    <a href="{{ route('housings.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Ajouter un hébergement</a>
+                <div class="col-lg-12">
+
+                    <form id="filtre">
+                        <div class="form-group row">
+                            <div class="col-lg-4">
+                                <select id="subcategory" name="subcategory" class="subcategory form-control">
+                                    <option></option>
+                                    @foreach ($subcategorys as $subcategory)
+                                    <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-lg-4">
+                                <button type="submit" class="btn btn-primary" id="BtnSubmitSearch"><i class="fa fa-search"></i> Rechercher</button>
+                            </div>
+                        </div>
+                    </form>
+
                 </div>
             </div>
-             --}}
+            
 
             <table class="table table-bordered table-striped" id="datatable">
               <thead>
@@ -48,6 +66,7 @@
                     <th width="50">Nom</th>
                     <th>Numéro</th>
                     <th>Zone</th>
+                    <th>Vues</th>
                     <th width='45'>Vip</th>
                     <th width='45'>Online</th>
                     <th width='110'>Ajouté le</th>
@@ -89,15 +108,12 @@
 
     {{-- <script src="https://cdn.datatables.net/rowreorder/1.2.7/js/dataTables.rowReorder.min.js"></script> --}}
     <script src="{{ asset('adminlte/plugins/datatables-rowreorder/js/dataTables.rowReorder.min.js') }}"></script>
-    
     <!-- Bootstrap Switch -->
     <script src="{{ asset('adminlte/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script>
-
     <!-- Sweet alert -->
     <script src="{{ asset('adminlte/plugins/sweetalert/sweetalert.min.js') }}"></script>
-
-
-
+    <!-- Select2 -->
+    <script src="{{ asset('adminlte/plugins/select2/js/select2.full.min.js') }}"></script>
 
 
 @endsection
@@ -110,9 +126,15 @@
 
         var listing_table   = $("#datatable");
 
+        $(".subcategory").select2({
+                theme: 'bootstrap4',
+                placeholder: "Selectionner une categorie",
+                allowClear: true
+        });
+        
         fill_datatable();
 
-        function fill_datatable()
+        function fill_datatable(subcategory = '')
         {
             $.ajaxSetup({
             headers: {
@@ -153,6 +175,7 @@
                     //url     : SITEURL + "/Backoffice/sliders",
                     url     : "{{ route('housings.index') }}",
                     type    : 'GET',
+                    data    : {subcategory:subcategory}
                 },
                 columns: [
                         { data: 'id', name: 'id', 'visible': false },
@@ -160,6 +183,7 @@
                         { data: 'name', name: 'name' },
                         { data: 'number', name: 'number' },
                         { data: 'area', name: 'area', searchable: false },
+                        { data: 'views', name: 'views' },
                         { data: 'vip', name: 'vip', searchable: false ,
                         
                             render: function(data, type, row, meta){
@@ -219,6 +243,17 @@
 
 
         }
+
+        // Submit search
+        $("#filtre").submit( function() {
+        
+            var subcategory   = $('#subcategory').val();
+
+            listing_table.DataTable().destroy();
+            fill_datatable(subcategory)
+
+        return false
+        });
 
         $('body').on('switchChange.bootstrapSwitch', 'input[name="vip_checkbox"]', function(event, state) {
             if(state)

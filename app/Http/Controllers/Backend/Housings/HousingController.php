@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend\Housings;
 
 
 use App\Models\Housing;
-//use App\Models\CategoryGallerie;
+use App\Models\SubcategoryHousing;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -31,7 +31,15 @@ class HousingController extends Controller
     public function index(Request $request)
     {
         if(request()->ajax()) {
-            $data = Housing::all();
+            // $data = Housing::all();
+            $data = Housing::query();
+            $data->with(['views']);
+
+            if ($request->has('subcategory') && !empty($request->subcategory)) {
+                $data->where('subcategory_housing_id', $request->subcategory);
+            }
+
+            $data->get();
 
             return Datatables::of($data)
 
@@ -40,15 +48,35 @@ class HousingController extends Controller
             {
                 return date('d-m-Y à H:i', strtotime($data->created_at) );
             })
-            //->editColumn('state', 'Backend.housings.status')
+            ->addColumn('views', function ($data){
+                $views = $data->views;
+                
+
+                if($views->count()!=0)
+                {
+                    $v = '';
+                    foreach($views as $view)
+                    {
+                        $v.= '<span class="badge bg-primary">'.$view->name.'</span>';
+                    }
+
+                } else {
+                    $v = '<span class="badge bg-danger">Aucune</span>';
+                }
+
+                return $v;
+            })
             ->addColumn('action', 'Backend.housings.action_button')
-            ->rawColumns(['action', 'online', 'vip'])
+            ->rawColumns(['action', 'views', 'online', 'vip'])
             ->addIndexColumn()
             ->make(true);
         }
 
+        $subCategorys = SubcategoryHousing::where('state', '1')->get();
 
-        return view('Backend.housings.index');
+        return view('Backend.housings.index')->with([
+            'subcategorys' => $subCategorys
+        ]);
 
 
     }
