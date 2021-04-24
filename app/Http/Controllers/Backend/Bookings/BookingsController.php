@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Bookings;
 use App\Models\Booking;
 use App\Models\BookingDetail;
 use App\Models\Housing;
+use App\Models\SubcategoryHousing;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -40,45 +41,28 @@ class BookingsController extends Controller
 
             return Datatables::of($data)
 
-                ->addColumn('firstname', function ($data) {
-                    return $data->Booking->firstname;
-                    //return '-';
-                })
-                ->addColumn('lastname', function ($data) {
-                    return $data->Booking->lastname;
-                    //return '-';
-                })
+            ->addColumn('firstname', function ($data) {
+                return $data->Booking->firstname;
+                //return '-';
+            })
+            ->addColumn('lastname', function ($data) {
+                return $data->Booking->lastname;
+                //return '-';
+            })
 
-                ->addColumn('logement', function ($data) {
-                    return $data->housing->name.' ('.$data->housing->number.')';
-                })
-        /*
-            ->addColumn('adult', function ($data)
-            {
-                //return $data->BookingDetail->adult;
-                return '-';
+            ->addColumn('logement', function ($data) {
+                return $data->housing->name.' ('.$data->housing->number.')';
             })
-            ->addColumn('children', function ($data)
-            {
-                //return $data->BookingDetail->children;
-                return '-';
+            ->editColumn('state', function ($data) {
+                if($data->state==0){
+                    $status = '<span class="badge bg-danger">Annuler</span>';
+                } else if($data->state==1){
+                    $status = '<span class="badge bg-primary">Reserver</span>';
+                } else {
+                    $status = '<span class="badge bg-success">Confirmer</span>';
+                }
+                return $status;
             })
-            ->addColumn('logement', function ($data)
-            {
-                //return $data->BookingDetail->housing_name.' ('.$data->BookingDetail->number.')';
-                return '-';
-            })
-            ->addColumn('date_start', function ($data)
-            {
-                //return $data->BookingDetail->date_start;
-                return '-';
-            })
-            ->addColumn('date_end', function ($data)
-            {
-                //return $data->BookingDetail->date_end;
-                return '-';
-            })
-        */
             ->editColumn('created_at', function ($data)
             {
                 return date('d-m-Y à H:i', strtotime($data->created_at) );
@@ -201,11 +185,10 @@ class BookingsController extends Controller
 
     public function searchRoomForm(){
 
-        // $roles = Role::all();
+        $categorys = SubcategoryHousing::where('state', '1')->get();
 
         return view('BackEnd.bookings.searchroom')->with([
-//            'user' => $user,
-//            'roles' => $roles
+            'categorys' => $categorys
         ]);
     }
 
@@ -219,8 +202,9 @@ class BookingsController extends Controller
         $rules = [
             'start_date'                    => ['required','date'],
             'end_date'                      => ['required','date'],
-            //'adult'                         => ['required','integer', 'min:1'],
-            //'children'                      => ['required','integer', 'min:0'],
+            'category'                      => ['required','integer'],
+            'adult'                         => ['nullable','integer'],
+            'children'                      => ['nullable','integer'],
             
         ];
 
@@ -246,6 +230,7 @@ class BookingsController extends Controller
         }
 
         //return 'ok';
+        $category   = $request->category;
         $start_date = $request->start_date;
         $end_date   = $request->end_date;
         
@@ -261,6 +246,10 @@ class BookingsController extends Controller
         // ->with(['Bookings'])
         // ->whereHas('bookings')
         // ->whereDoesntHave('bookings')
+
+        //if ($request->has('category') && !empty($category)) {
+            ->where('subcategory_housing_id', $category)
+        //}
 
             ->whereDoesntHave('bookings', function ($query) use ($times) {
                 $query->whereBetween('date_start', $times)
@@ -326,7 +315,8 @@ class BookingsController extends Controller
 
 
 
-
+            $catViews = array();
+            
             foreach($categorys as $k => $category)
             {
                 $cats = collect($chambres)->where('categoryId', $category);

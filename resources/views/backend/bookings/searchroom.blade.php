@@ -42,6 +42,23 @@
                 @csrf
                 {{ method_field('POST')}}
 
+                <div class="form-group row">
+                    <label class="col-lg-2 col-form-label">Categorie</label>
+                    <div class="col-lg-10">
+                        <select id="category" name="category" class="category form-control">
+                            <option></option>
+                            @foreach ($categorys as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                        
+                        @error('category')
+                        <div class="alert alert-danger m-b-none">
+                            <strong>{{ $message }}</strong>
+                        </div>
+                        @enderror
+                    </div>
+                </div>
 
                 <div class="form-group row">
                     <label class="col-lg-2 col-form-label">Date début</label>
@@ -59,7 +76,7 @@
                 <div class="form-group row">
                     <label class="col-lg-2 col-form-label">Date fin</label>
                     <div class="col-lg-10">
-                        <input id="end_date" type="text" class="form-control @error('end_date') is-invalid @enderror" name="end_date" required autofocus placeholder="Veuillez introduire la date de fin">
+                        <input id="end_date" type="text" class="form-control @error('end_date') is-invalid @enderror" name="end_date" required placeholder="Veuillez introduire la date de fin">
 
                         @error('end_date')
                         <div class="alert alert-danger m-b-none">

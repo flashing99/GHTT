@@ -128,7 +128,7 @@
 
         $(".subcategory").select2({
                 theme: 'bootstrap4',
-                placeholder: "Selectionner une categorie",
+                placeholder: "Selectionner un type",
                 allowClear: true
         });
         
@@ -153,7 +153,7 @@
                 
                 oLanguage: {
                     sSearch: "Rechercher:",
-                    sSearchPlaceholder: "Numero de chambre"
+                    sSearchPlaceholder: "Numero de bungalow"
                 },
                 
                 info: true,
