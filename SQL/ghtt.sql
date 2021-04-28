@@ -20,18 +20,18 @@ INSERT INTO `bookings` (`id`, `lastname`, `firstname`, `mobile`, `state`, `creat
 	(4, 'nom4', 'prenom4', '0560445566', '1', '2021-04-16 08:34:10', '2021-04-16 08:34:10');
 /*!40000 ALTER TABLE `bookings` ENABLE KEYS */;
 
--- Listage des données de la table ghtt.booking_details : ~6 rows (environ)
+-- Listage des données de la table ghtt.booking_details : ~5 rows (environ)
 /*!40000 ALTER TABLE `booking_details` DISABLE KEYS */;
 INSERT INTO `booking_details` (`id`, `booking_id`, `adult`, `children`, `housing_id`, `housing_name`, `number`, `amount`, `vat`, `date_start`, `date_end`, `state`, `created_at`, `updated_at`) VALUES
-	(1, 1, 1, 0, 7, 'F1', 'F142', 1500.00, 17, '2021-04-01', '2021-04-05', '1', '2021-04-01 09:23:33', NULL),
+	(1, 1, 1, 0, 7, 'F1', 'F142', 1500.00, 17, '2021-04-01', '2021-04-05', '0', '2021-04-01 09:23:33', NULL),
 	(2, 2, 2, 0, 2, 'F2', 'F279', 15000.00, 17, '2021-04-07', '2021-04-15', '1', '2021-04-06 07:44:18', NULL),
-	(3, 3, 3, 1, 3, 'F3', 'F342', 3500.00, 17, '2021-04-11', '2021-04-18', '1', '2021-04-10 08:12:06', NULL),
+	(3, 3, 3, 1, 3, 'F3', 'F342', 3500.00, 17, '2021-04-11', '2021-04-18', '2', '2021-04-10 08:12:06', NULL),
 	(4, 4, 3, 2, 10, 'F4', 'F447', 7800.00, 17, '2021-04-16', '2021-04-20', '1', '2021-04-16 08:34:10', NULL),
 	(5, 4, 4, 1, 9, 'F4', 'F448', 7800.00, 17, '2021-04-16', '2021-04-20', '1', '2021-04-16 08:34:10', NULL),
 	(6, 4, 4, 2, 1, 'F4', 'F449', 7800.00, 17, '2021-04-16', '2021-04-20', '1', '2021-04-16 08:34:10', NULL);
 /*!40000 ALTER TABLE `booking_details` ENABLE KEYS */;
 
--- Listage des données de la table ghtt.category_galleries : ~3 rows (environ)
+-- Listage des données de la table ghtt.category_galleries : ~2 rows (environ)
 /*!40000 ALTER TABLE `category_galleries` DISABLE KEYS */;
 INSERT INTO `category_galleries` (`id`, `name`, `state`, `created_at`, `updated_at`, `deleted_at`) VALUES
 	(1, 'Restauration', '1', '2021-04-07 11:13:56', '2021-04-07 11:13:56', NULL),
@@ -54,7 +54,7 @@ INSERT INTO `category_housings` (`id`, `name`, `state`, `created_at`, `updated_a
 /*!40000 ALTER TABLE `failed_jobs` DISABLE KEYS */;
 /*!40000 ALTER TABLE `failed_jobs` ENABLE KEYS */;
 
--- Listage des données de la table ghtt.galleries : ~5 rows (environ)
+-- Listage des données de la table ghtt.galleries : ~4 rows (environ)
 /*!40000 ALTER TABLE `galleries` DISABLE KEYS */;
 INSERT INTO `galleries` (`id`, `title`, `name`, `type`, `description`, `state`, `category_gallerie_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
 	(1, 'test02 2', '1_1619102111.jpg', '1', 'aa', '1', 1, '2021-04-22 14:35:11', '2021-04-22 23:19:05', '2021-04-22 23:19:05'),
@@ -154,7 +154,7 @@ INSERT INTO `housings` (`id`, `name`, `number`, `area`, `floor`, `online`, `vip`
 	(85, 'B3', 'B307', 'ZONE-B La Perle', NULL, 0, 0, ' ', 3, '2021-04-12 10:50:54', '2021-04-12 10:50:54', NULL),
 	(86, 'B3', 'B306', 'ZONE-B La Perle', NULL, 0, 0, ' ', 3, '2021-04-12 10:50:54', '2021-04-12 10:50:54', NULL),
 	(87, 'B2', 'B203', 'ZONE-B La Perle', NULL, 0, 0, ' ', 2, '2021-04-12 10:50:54', '2021-04-12 10:50:54', NULL),
-	(88, 'B1', 'B102', 'ZONE-B La Perle', NULL, 0, 0, ' ', 1, '2021-04-12 10:50:54', '2021-04-12 10:50:54', NULL),
+	(88, 'B1', 'B102', 'ZONE-B La Perle', NULL, 1, 0, ' ', 1, '2021-04-12 10:50:54', '2021-04-28 01:08:20', NULL),
 	(89, 'B4', 'B405', 'ZONE-B La Perle', NULL, 0, 0, ' ', 4, '2021-04-12 10:50:54', '2021-04-12 10:50:54', NULL),
 	(90, 'B4', 'B408', 'ZONE-B La Perle', NULL, 0, 0, ' ', 4, '2021-04-12 10:50:54', '2021-04-12 10:50:54', NULL),
 	(91, 'B3', 'B305', 'ZONE-B La Perle', NULL, 0, 0, ' ', 3, '2021-04-12 10:50:54', '2021-04-12 10:50:54', NULL),
@@ -216,7 +216,7 @@ INSERT INTO `housings` (`id`, `name`, `number`, `area`, `floor`, `online`, `vip`
 	(147, 'D1', 'D110', 'ZONE-C', NULL, 0, 0, ' ', 1, '2021-04-12 10:50:54', '2021-04-12 10:50:54', NULL),
 	(148, 'D1', 'D111', 'ZONE-C', NULL, 0, 0, ' ', 1, '2021-04-12 10:50:54', '2021-04-12 10:50:54', NULL),
 	(149, 'D1', 'D112', 'ZONE-C', NULL, 0, 0, ' ', 1, '2021-04-12 10:50:54', '2021-04-12 10:50:54', NULL),
-	(150, 'D1', 'D114', 'ZONE-C', NULL, 0, 0, ' ', 1, '2021-04-12 10:50:54', '2021-04-12 10:50:54', NULL),
+	(150, 'D1', 'D114', 'ZONE-C', NULL, 1, 0, ' ', 1, '2021-04-12 10:50:54', '2021-04-28 01:07:36', NULL),
 	(151, 'D4', 'D433', 'ZONE-C', NULL, 0, 0, ' ', 4, '2021-04-12 10:50:54', '2021-04-12 10:50:54', NULL),
 	(152, 'D2', 'D233', 'ZONE-C', NULL, 0, 0, ' ', 2, '2021-04-12 10:50:54', '2021-04-12 10:50:54', NULL),
 	(153, 'D2', 'D237', 'ZONE-C', NULL, 0, 0, ' ', 2, '2021-04-12 10:50:54', '2021-04-12 10:50:54', NULL),
@@ -254,8 +254,8 @@ INSERT INTO `housings` (`id`, `name`, `number`, `area`, `floor`, `online`, `vip`
 	(185, 'C4', 'C414', 'ZONE-C', NULL, 0, 0, ' ', 4, '2021-04-12 10:50:54', '2021-04-12 10:50:54', NULL),
 	(186, 'C3', 'C314', 'ZONE-C', NULL, 0, 0, ' ', 3, '2021-04-12 10:50:54', '2021-04-12 10:50:54', NULL),
 	(187, 'C2', 'C219', 'ZONE-C', NULL, 0, 0, ' ', 2, '2021-04-12 10:50:54', '2021-04-12 10:50:54', NULL),
-	(188, 'C4', 'C412', 'ZONE-C', NULL, 0, 0, ' ', 4, '2021-04-12 10:50:54', '2021-04-12 10:50:54', NULL),
-	(189, 'C4', 'C411', 'ZONE-C', NULL, 0, 0, ' ', 4, '2021-04-12 10:50:54', '2021-04-12 10:50:54', NULL),
+	(188, 'C4', 'C412', 'ZONE-C', NULL, 0, 1, ' ', 4, '2021-04-12 10:50:54', '2021-04-26 16:47:57', NULL),
+	(189, 'C4', 'C411', 'ZONE-C', NULL, 1, 0, ' ', 4, '2021-04-12 10:50:54', '2021-04-23 23:43:10', NULL),
 	(190, 'C4', 'C410', 'ZONE-C', NULL, 0, 0, ' ', 4, '2021-04-12 10:50:54', '2021-04-12 10:50:54', NULL),
 	(191, 'C3', 'C312', 'ZONE-C', NULL, 0, 0, ' ', 3, '2021-04-12 10:50:54', '2021-04-12 10:50:54', NULL),
 	(192, 'C1', 'C106', 'ZONE-C', NULL, 0, 0, ' ', 1, '2021-04-12 10:50:54', '2021-04-12 10:50:54', NULL),
@@ -522,7 +522,31 @@ INSERT INTO `role_user` (`role_id`, `user_id`, `created_at`, `updated_at`) VALUE
 	(2, 1, '2020-09-20 12:00:44', '2020-09-20 12:00:44');
 /*!40000 ALTER TABLE `role_user` ENABLE KEYS */;
 
--- Listage des données de la table ghtt.sliders : ~5 rows (environ)
+-- Listage des données de la table ghtt.services : ~0 rows (environ)
+/*!40000 ALTER TABLE `services` DISABLE KEYS */;
+INSERT INTO `services` (`id`, `name`, `subcategory_housing_id`, `state`, `created_at`, `updated_at`) VALUES
+	(1, 'Air conditioning', 1, '1', '2021-04-28 00:13:39', '2021-04-28 00:13:40'),
+	(2, 'Wifi', 1, '1', '2021-04-28 00:13:39', '2021-04-28 00:13:40'),
+	(3, 'Frigo', 1, '1', '2021-04-28 00:13:39', '2021-04-28 00:13:40'),
+	(4, 'Térasse privé', 1, '1', '2021-04-28 00:13:39', '2021-04-28 00:13:40'),
+	(5, 'Air conditioning', 2, '1', '2021-04-28 00:13:39', '2021-04-28 00:13:40'),
+	(6, 'Wifi', 2, '1', '2021-04-28 00:13:39', '2021-04-28 00:13:40'),
+	(7, 'Frigo', 2, '1', '2021-04-28 00:13:39', '2021-04-28 00:13:40'),
+	(8, 'Térasse privé', 2, '1', '2021-04-28 00:13:39', '2021-04-28 00:13:40'),
+	(9, 'Salle de séjour', 2, '1', '2021-04-28 00:13:39', '2021-04-28 00:13:40'),
+	(10, 'Air conditioning', 3, '1', '2021-04-28 00:13:39', '2021-04-28 00:13:40'),
+	(11, 'Wifi', 3, '1', '2021-04-28 00:13:39', '2021-04-28 00:13:40'),
+	(12, 'Frigo', 3, '1', '2021-04-28 00:13:39', '2021-04-28 00:13:40'),
+	(13, 'Térasse privé', 3, '1', '2021-04-28 00:13:39', '2021-04-28 00:13:40'),
+	(14, 'Salle de séjour', 3, '1', '2021-04-28 00:13:39', '2021-04-28 00:13:40'),
+	(15, 'Air conditioning', 4, '1', '2021-04-28 00:13:39', '2021-04-28 00:13:40'),
+	(16, 'Wifi', 4, '1', '2021-04-28 00:13:39', '2021-04-28 00:13:40'),
+	(17, 'Frigo', 4, '1', '2021-04-28 00:13:39', '2021-04-28 00:13:40'),
+	(18, 'Térasse privé', 4, '1', '2021-04-28 00:13:39', '2021-04-28 00:13:40'),
+	(19, 'Salle de séjour', 4, '1', '2021-04-28 00:13:39', '2021-04-28 00:13:40');
+/*!40000 ALTER TABLE `services` ENABLE KEYS */;
+
+-- Listage des données de la table ghtt.sliders : ~4 rows (environ)
 /*!40000 ALTER TABLE `sliders` DISABLE KEYS */;
 INSERT INTO `sliders` (`id`, `order`, `title`, `text`, `manufacturer_id`, `picture`, `button_text`, `link`, `state`, `created_at`, `updated_at`, `deleted_at`) VALUES
 	(1, 1, 'Titre de HP', 'Texte HP', 6, 'image.jpg', NULL, '#', '0', '2020-10-21 16:05:49', '2021-04-20 10:44:09', '2021-04-20 10:44:09'),
@@ -534,11 +558,11 @@ INSERT INTO `sliders` (`id`, `order`, `title`, `text`, `manufacturer_id`, `pictu
 
 -- Listage des données de la table ghtt.subcategory_housings : 4 rows
 /*!40000 ALTER TABLE `subcategory_housings` DISABLE KEYS */;
-INSERT INTO `subcategory_housings` (`id`, `name`, `category_housing_id`, `image`, `state`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(1, 'F1', 1, 'f1.jpg', '1', '2021-04-23 12:03:33', '2021-04-23 12:03:33', NULL),
-	(2, 'F2', 1, 'f2.jpg', '1', '2021-04-23 12:03:33', '2021-04-23 12:03:33', NULL),
-	(3, 'F3', 1, 'f3.jpg', '1', '2021-04-23 12:03:33', '2021-04-23 12:03:33', NULL),
-	(4, 'F4', 1, 'f4.jpg', '1', '2021-04-23 12:03:33', '2021-04-23 12:03:33', NULL);
+INSERT INTO `subcategory_housings` (`id`, `name`, `category_housing_id`, `description`, `image`, `price`, `state`, `created_at`, `updated_at`, `deleted_at`) VALUES
+	(1, 'F1', 1, 'Description 1', 'f1.jpg', 1000, '1', '2021-04-23 12:03:33', '2021-04-23 12:03:33', NULL),
+	(2, 'F2', 1, 'Description 2', 'f2.jpg', 1500, '1', '2021-04-23 12:03:33', '2021-04-23 12:03:33', NULL),
+	(3, 'F3', 1, 'Description 3', 'f3.jpg', 2000, '1', '2021-04-23 12:03:33', '2021-04-23 12:03:33', NULL),
+	(4, 'F4', 1, 'Description 4', 'f4.jpg', 3000, '1', '2021-04-23 12:03:33', '2021-04-23 12:03:33', NULL);
 /*!40000 ALTER TABLE `subcategory_housings` ENABLE KEYS */;
 
 -- Listage des données de la table ghtt.users : ~2 rows (environ)
