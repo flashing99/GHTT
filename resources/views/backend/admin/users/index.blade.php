@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
     <!-- Sweet Alert -->
-    {{-- <link href="{{ asset('css/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/sweetalert/sweetalert.css') }}">
 @endsection
 
 @section('breadcrumbs', Breadcrumbs::render('admin'))
@@ -40,10 +40,10 @@
                     <th>Nom</th>
                     <th>Prénom</th>
                     <th>Email</th>
-                    {{-- <th>Roles</th> --}}
-                    <th width='100'>Ajouté le</th>
-                    <th width='45'>Statut</th>
-                    <th width='85'>Action</th>
+                    <th>Roles</th>
+                    <th width='110'>Ajouté le</th>
+                    {{-- <th width='45'>Statut</th> --}}
+                    <th width='90'>Action</th>
                  </tr>
               </thead>
            </table>
@@ -76,7 +76,7 @@
     <script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
     <!-- Sweet alert -->
-    {{-- <script src="{{ asset('js/plugins/sweetalert/sweetalert.min.js') }}"></script> --}}
+    <script src="{{ asset('adminlte/plugins/sweetalert/sweetalert.min.js') }}"></script>
 @endsection
 
 @section('scripts')
@@ -103,12 +103,13 @@
                 // },
                 processing: true,
                 serverSide: true,
-                searching: true,
+                searching: false,
                 info: true,
                 lengthMenu: [[10, 25, 50, 100, 200], [10, 25, 50, 100, 200]],
-                dom: '<"row"<"col-sm-12 col-md-2"l> <"col-sm-12 col-md-4"i> <"col-sm-12 col-md-3 text-right"B> <"col-sm-12 col-md-3 text-right"f>>r t <"col-sm-12 col-md-2"l> <"col-sm-12 col-md-4"i><"col-sm-12 col-md-6"p>',//'Bfrtip',
+                //dom: '<"row"<"col-sm-12 col-md-2"l> <"col-sm-12 col-md-4"i> <"col-sm-12 col-md-3 text-right"B> <"col-sm-12 col-md-3 text-right"f>>r t <"col-sm-12 col-md-2"l> <"col-sm-12 col-md-4"i><"col-sm-12 col-md-6"p>',//'Bfrtip',
+                dom: '<"row"<"col-sm-12 col-md-2"l> <"col-sm-12 col-md-4"i> <"col-sm-12 col-md-6 text-right"B>>r t <"col-sm-12 col-md-2"l> <"col-sm-12 col-md-4"i><"col-sm-12 col-md-6"p>',//'Bfrtip',
                 buttons: [
-                    'excel', 'pdf', ,'print', //'copy', 'csv',
+                    //'excel', 'pdf', ,'print', //'copy', 'csv',
                     
                 {
                     text: 'Rafraîchir',
@@ -119,22 +120,22 @@
             
                 ],
                 ajax: {
-                    //url     : SITEURL + "/backoffice/admin/users",
+                    //url     : SITEURL + "/backoffice/backoffice/users",
                     url     : '{{ route('admin.users.index') }}',
                     type    : 'GET',
                 },
                 columns: [
                         { data: 'id', name: 'id', 'visible': false },
-                        { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false,searchable: false },
+                        { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
                         { data: 'lastname', name: 'nom' },
                         { data: 'firstname', name: 'prenom' },
                         { data: 'email', name: 'email' },
-                        //{ data: 'roles', name: 'roles' },
+                        { data: 'roles', name: 'roles' },
                         { data: 'created_at', name: 'created_at' },
-                        { data: 'etat', name: 'etat' },
+                        //{ data: 'etat', name: 'etat' },
                         { data: 'action', name: 'action', orderable: false },
                     ],
-                order: [[1, 'desc']]
+                order: [[6, 'asc']]
             });
             
             // Apply the tooltips //
@@ -145,7 +146,7 @@
        /* When click edit user */
         $('body').on('click', '.edit-user', function () {
             var user_id = $(this).data('id');
-            window.location.href = SITEURL + "/admin/users/"+user_id+"/edit";
+            window.location.href = SITEURL + "/backoffice/users/"+user_id+"/edit";
        });
 
 
@@ -166,7 +167,7 @@
 
                 $.ajax({
                     type: "DELETE",
-                    url: SITEURL + "/admin/users/"+user_id,
+                    url: SITEURL + "/backoffice/users/"+user_id,
                     success: function (data) {
                     listing_table.DataTable().destroy();
                     fill_datatable();
@@ -191,7 +192,7 @@
             $.ajax({ 
             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
             type: "POST",
-            url: SITEURL + "/admin/users/ajax/"+user_id+'/status',
+            url: SITEURL + "/backoffice/users/ajax/"+user_id+'/status',
             data: { etat : user_status }, 
             dataType: "json",
             success: function (data) {

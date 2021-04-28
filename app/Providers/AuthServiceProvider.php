@@ -100,6 +100,49 @@ class AuthServiceProvider extends ServiceProvider
             return $user->hasRole('Administrateur');
         });
 
+        
+        // Galleries
+        Gate::define('manage-galleries', function($user){
+            return $user->hasAnyRoles(['Administrateur', 'Validateur']);
+            //return $user->hasRole('Administrateur');
+        });
+        Gate::define('add-galleries', function($user){
+            //return $user->hasAnyRoles(['admin', 'support']);
+            return $user->hasRole('Administrateur');
+        });
+        Gate::define('view-galleries', function($user){
+            //return $user->hasAnyRoles(['admin', 'support']);
+            return $user->hasRole('Administrateur');
+        });
+        Gate::define('edit-galleries', function($user){
+            //return $user->hasAnyRoles(['admin', 'support']);
+            return $user->hasRole('Administrateur');
+        });
+        Gate::define('delete-galleries', function($user){
+            return $user->hasRole('Administrateur');
+        });
+
+        // Housings
+        Gate::define('manage-housings', function($user){
+            return $user->hasAnyRoles(['Administrateur', 'Validateur']);
+            //return $user->hasRole('Administrateur');
+        });
+        Gate::define('add-housings', function($user){
+            //return $user->hasAnyRoles(['admin', 'support']);
+            return $user->hasRole('Administrateur');
+        });
+        Gate::define('view-housings', function($user){
+            //return $user->hasAnyRoles(['admin', 'support']);
+            return $user->hasRole('Administrateur');
+        });
+        Gate::define('edit-housings', function($user){
+            //return $user->hasAnyRoles(['admin', 'support']);
+            return $user->hasRole('Administrateur');
+        });
+        Gate::define('delete-housings', function($user){
+            return $user->hasRole('Administrateur');
+        });
+        
 
 
         

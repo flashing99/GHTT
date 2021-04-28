@@ -5,17 +5,14 @@
 namespace App\Http\Controllers\BackEnd\Admin;
 
 use App\User;
-//use App\Role;
+use App\Role;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
-use Gate;
-use Auth;
-use DataTables;
-use Redirect,Response;
+use Gate, Auth, DataTables, Redirect, Response;
 
 class UserController extends Controller
 {
@@ -55,10 +52,11 @@ class UserController extends Controller
             {
                 return date('d-m-Y à H:i', strtotime($data->created_at) );
             })
-            ->editColumn('etat', 'backend.admin.users.status')
-            // //    ->addColumn('roles', function ($user) { return $user->roles->count() ? implode(', ', $user->roles->pluck('name')->toArray()) :  '- Aucun -'; })
+            //->editColumn('etat', 'backend.admin.users.status')
+            ->addColumn('roles', function ($user) { return $user->roles->count() ? implode(', ', $user->roles->pluck('name')->toArray()) :  '- Aucun -'; })
             ->addColumn('action', 'backend.admin.users.action_button')
-            ->rawColumns(['action', 'etat'])
+            //->rawColumns(['action', 'etat'])
+            ->rawColumns(['action'])
             ->addIndexColumn()
             ->make(true);
         }
@@ -207,7 +205,7 @@ public function store(Request $request){
 
         $user->save();
 
-        return redirect()->route('backend.admin.users.index');
+        return redirect()->route('admin.users.index');
     }
 
     /**

@@ -8,15 +8,15 @@ Breadcrumbs::for('home', function ($trail) {
 // Accueil > Administrateurs
 Breadcrumbs::for('admin', function ($trail) {
     $trail->parent('home');
-    $trail->push('Utilisateurs', route('admin.users.index'));
+    $trail->push('Administrateurs', route('admin.users.index'));
 });
 Breadcrumbs::for('addAdmin', function ($trail) {
     $trail->parent('admin');
-    $trail->push('Ajouter un utilisateur', route('admin.users.create'));
+    $trail->push('Ajouter un administrateur', route('admin.users.create'));
 });
 Breadcrumbs::for('editAdmin', function ($trail, $user) {
     $trail->parent('admin');
-    $trail->push('Modifier un utilisateur', route('admin.users.edit', $user));
+    $trail->push('Modifier un administrateur', route('admin.users.edit', $user));
 });
 Breadcrumbs::for('profile', function ($trail) {
     $trail->parent('home');
@@ -29,10 +29,15 @@ Breadcrumbs::for('changePassword', function ($trail) {
 
 
 // Accueil > Bookings
-Breadcrumbs::for('bookings', function ($trail) {
+Breadcrumbs::for('Bookings', function ($trail) {
     $trail->parent('home');
     $trail->push('Bookings', route('bookings.index'));
 });
+
+
+
+
+
 
 
 // Accueil > Sliders
@@ -61,4 +66,32 @@ Breadcrumbs::for('createEvent', function ($trail) {
 Breadcrumbs::for('editEvent', function ($trail, $slider) {
     $trail->parent('Events', $slider);
     $trail->push('Modifier un évènement', route('events.index'));
+});
+
+// Accueil > Galleries
+Breadcrumbs::for('Galleries', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Gestion de la galerie', route('galleries.index'));
+});
+Breadcrumbs::for('createGallerie', function ($trail) {
+    $trail->parent('Galleries');
+    $trail->push('Ajouter un nouveau media', route('galleries.index'));
+});
+Breadcrumbs::for('editGallerie', function ($trail, $slider) {
+    $trail->parent('Galleries', $slider);
+    $trail->push('Modifier un media', route('galleries.index'));
+});
+
+// Accueil > Housings
+Breadcrumbs::for('Housings', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Gestion de l\'hébergement', route('housings.index'));
+});
+Breadcrumbs::for('createHousing', function ($trail) {
+    $trail->parent('Housings');
+    $trail->push('Ajouter un nouveau media', route('housings.index'));
+});
+Breadcrumbs::for('editHousing', function ($trail, $slider) {
+    $trail->parent('Housings', $slider);
+    $trail->push('Modifier un media', route('housings.index'));
 });

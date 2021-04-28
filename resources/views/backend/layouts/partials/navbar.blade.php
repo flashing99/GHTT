@@ -39,7 +39,7 @@
           </a>
           <div class="dropdown-divider"></div>
 
-          <a href="#" class="dropdown-item">
+          <a href="{{ route('change.password') }}" class="dropdown-item">
             <i class="fas fa-key mr-2"></i> changer mot de passe
           </a>
           <div class="dropdown-divider"></div>
