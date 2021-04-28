@@ -24,17 +24,17 @@
   box-shadow:         inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
 }
 
-.calc-width(@expression) { 
-    width: -moz-calc(@expression); 
-    width: -o-calc(@expression); 
-    width: -webkit-calc(@expression); 
+.calc-width(@expression) {
+    width: -moz-calc(@expression);
+    width: -o-calc(@expression);
+    width: -webkit-calc(@expression);
     width: calc(@expression);
 }
 
-.calc-padding-top(@expression) { 
-    padding-top: -moz-calc(@expression); 
-    padding-top: -o-calc(@expression); 
-    padding-top: -webkit-calc(@expression); 
+.calc-padding-top(@expression) {
+    padding-top: -moz-calc(@expression);
+    padding-top: -o-calc(@expression);
+    padding-top: -webkit-calc(@expression);
     padding-top: calc(@expression);
 }
 
@@ -65,9 +65,9 @@
   border-bottom-left-radius:          @bottomleft;
   border-top-left-radius:             @topleft;
 
-  -moz-background-clip:    padding; 
-  -webkit-background-clip: padding-box; 
-  background-clip:         padding-box; 
+  -moz-background-clip:    padding;
+  -webkit-background-clip: padding-box;
+  background-clip:         padding-box;
 }
 
 .opacity (@opacity: 0.5) {
@@ -78,6 +78,7 @@
 
 .gradient (@startColor: #eee, @endColor: white) {
   background-color: @startColor;
+  background:  gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
   background: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
   background: -webkit-linear-gradient(top, @startColor, @endColor);
   background: -moz-linear-gradient(top, @startColor, @endColor);
@@ -100,10 +101,10 @@
 }
 
 .transition (@transition) {
-  -webkit-transition: @transition;  
+  -webkit-transition: @transition;
   -moz-transition:    @transition;
-  -ms-transition:     @transition; 
-  -o-transition:      @transition;  
+  -ms-transition:     @transition;
+  -o-transition:      @transition;
 }
 .transform(@string){
   -webkit-transform: @string;

@@ -37392,6 +37392,8 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37461,16 +37463,28 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/sass/font-ghtt.scss":
+/*!***************************************!*\
+  !*** ./resources/sass/font-ghtt.scss ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!*****************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/less/style.less ./resources/sass/app.scss ***!
-  \*****************************************************************************************/
+/*!*************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/less/style.less ./resources/sass/app.scss ./resources/sass/font-ghtt.scss ***!
+  \*************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\laragon\www\ghtt\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! D:\laragon\www\ghtt\resources\less\style.less */"./resources/less/style.less");
-module.exports = __webpack_require__(/*! D:\laragon\www\ghtt\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! G:\laragon\www\ghtt\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! G:\laragon\www\ghtt\resources\less\style.less */"./resources/less/style.less");
+__webpack_require__(/*! G:\laragon\www\ghtt\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! G:\laragon\www\ghtt\resources\sass\font-ghtt.scss */"./resources/sass/font-ghtt.scss");
 
 
 /***/ })

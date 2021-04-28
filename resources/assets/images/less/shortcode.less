@@ -116,8 +116,7 @@ img {
     max-width: 100%;
     height: auto;
     vertical-align: middle;
-    b
-order: 0;
+    border: 0;
 }
 ::-moz-selection {
     color: #fff;
@@ -137,6 +136,7 @@ order: 0;
 #page-wrap {
     overflow: hidden;
     background-color: #f7f7f7;
+    min-height: 550px;
 }
 .box-border{
     display: inline-block;
@@ -166,7 +166,7 @@ order: 0;
 }
 
 .awe-static {
-    color: #fff;
+    color: @white;
     background-position: 50% 50%;
     background-attachment: scroll;
     background-repeat: no-repeat;
@@ -217,12 +217,12 @@ order: 0;
     }
 
     &.awe-btn-1 {
-        border: 2px solid #357ebd;
-        color: #357ebd;
+        border: 2px solid @brand;
+        color: @brand;
 
         &:hover {
-            background-color: #357ebd;
-            color: #fff;
+            background-color: @brand;
+            color: @white;
         }
     }
 
@@ -278,12 +278,12 @@ order: 0;
     }
 
     &.awe-btn-7 {
-        border: 2px solid #357ebd;
-        background-color: #357ebd;
+        border: 2px solid @brand;
+        background-color: @brand;
         color: #fff;
 
         &:hover {
-            color: #357ebd;
+            color: @brand;
             background-color: transparent;
         }
     }
@@ -451,7 +451,7 @@ mark, .mark {
     &:after{
         float: right;
         .horizontal-gradient(#e3e3e3, #fff);
-        
+
     }
 
     &:before {
@@ -488,7 +488,7 @@ mark, .mark {
     font-weight: normal;
     padding-bottom: 10px;
     font-size: 14px;
-    margin: 0;   
+    margin: 0;
     border-bottom: 2px dotted #464646;
 }
 
@@ -729,7 +729,7 @@ blockquote {
                 color: #fff;
                 border-bottom-color: @brand;
             }
-        } 
+        }
     }
 }
 
@@ -751,7 +751,7 @@ blockquote {
                 text-transform: uppercase;
                 font-family: @Montserrat;
             }
-            
+
             a {
                 display: block;
                 position: absolute;
@@ -772,7 +772,7 @@ blockquote {
                     left: 0;
 
                     &:hover {
-                        
+
                     }
                 }
 
@@ -780,13 +780,13 @@ blockquote {
                     right: 0;
 
                     &:hover {
-                       
+
                     }
                 }
             }
         }
 
-        thead { 
+        thead {
             border: 2px solid #333;
 
             th {
@@ -859,11 +859,11 @@ blockquote {
             text-align: center;
             border-width: 0;
             cursor: pointer;
-            -webkit-user-select: none; 
-            -moz-user-select: none;    
-            -ms-user-select: none;     
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
             -o-user-select: none;
-            user-select: none;    
+            user-select: none;
             .border-radius(0);
             .transition(all 0.3s ease);
 
@@ -905,7 +905,7 @@ blockquote {
         line-height: 25px;
         margin-left:6px;
         margin-top:8px;
-        text-align: center;  
+        text-align: center;
     }
     .ui-datepicker-calendar {
         width: 100%;
@@ -925,7 +925,7 @@ blockquote {
         }
 
         td {
-            
+
             a {
                 padding: 0px;
                 background: none;

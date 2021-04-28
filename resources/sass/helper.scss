@@ -190,6 +190,7 @@
 .pr10{
   padding-right: 10px !important;
 }
+
 .pd15{
   padding: 15px !important;
 }
@@ -374,10 +375,13 @@
   height: 100%;
 }
 .block{
-  display: block;
+  display: block!important;
 }
 .inline-block{
   display: inline-block;
+}
+.text-center{
+    text-align: center!important;
 }
 
 @media only screen and( max-width: 1200px){

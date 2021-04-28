@@ -1,5 +1,6 @@
 {
     "/assets/js/app.js": "/assets/js/app.js",
     "/assets/css/style.css": "/assets/css/style.css",
-    "/assets/css/app.css": "/assets/css/app.css"
+    "/assets/css/app.css": "/assets/css/app.css",
+    "/assets/css/lib/font-ghtt.css": "/assets/css/lib/font-ghtt.css"
 }

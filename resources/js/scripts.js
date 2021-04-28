@@ -26,11 +26,13 @@
 
     /* Datepicker */
     DatePicker();
+
     function DatePicker() {
         $(".awe-calendar:not(.from, .to)").datepicker({
             prevText: '<i class="lotus-icon-left-arrow"></i>',
             nextText: '<i class="lotus-icon-right-arrow"></i>',
             buttonImageOnly: false
+
         });
 
         /* Datepicker from - to */
@@ -59,6 +61,7 @@
 
     /*Accordion*/
     Accordion();
+
     function Accordion() {
         $(".accordion").accordion({
             heightStyle: "content"
@@ -67,15 +70,18 @@
 
     /* Tabs */
     Tabs();
+
     function Tabs() {
         $('.tabs').tabs({
             show: {effect: "fadeIn", duration: 300},
-            hide: {effect: "fadeOut", duration: 300}
+            hide: {effect: "fadeOut", duration: 300},
+
         });
     }
 
     /* Select */
     aweSelect();
+
     function aweSelect() {
         $('.awe-select').each(function (index, el) {
             $(this).selectpicker();
@@ -85,6 +91,7 @@
 
     /* aweCalendar */
     aweCalendar();
+
     function aweCalendar() {
         $('.awe-calendar').each(function () {
             var aweselect = $(this);
@@ -157,6 +164,7 @@
 
     /* Menu Click */
     MenuBar();
+
     function MenuBar() {
 
         $('.menu-bars').on('click', function (event) {
@@ -278,6 +286,7 @@
 
     /*Banner Slide*/
     BannerSlider();
+
     function BannerSlider() {
         if ($('#banner-slider').length) {
             var offset_h = $('#header').innerHeight();
@@ -341,7 +350,8 @@
     }
 
     /*Slider Home*/
-    SliderRevolution();
+
+    //  SliderRevolution();
     function SliderRevolution() {
         if ($('#slider-revolution').length) {
             jQuery('#slider-revolution').show().revolution({
@@ -420,92 +430,96 @@
     }
 
 
-
     // =============================================
     // HOME PAGE 1 - REVOLUTION SLIDER
     // =============================================
-    if ($("#rev-slider-1").length) {
-        var tpj = jQuery;
-        var revapi1;
-        tpj(document).ready(function() {
-            if (tpj("#rev-slider-1").revolution == undefined) {
-                revslider_showDoubleJqueryError("#rev-slider-1");
-            } else {
-                revapi1 = tpj("#rev-slider-1").show().revolution({
-                    sliderType: "standard",
-                    jsFileLocation: "assets/revolution/js/",
-                    sliderLayout: "auto",
-                    dottedOverlay: "none",
-                    delay: 9000,
-                    disableProgressBar: "on",
-                    navigation: {
-                        keyboardNavigation: "on",
-                        keyboard_direction: "horizontal",
-                        mouseScrollNavigation: "off",
-                        mouseScrollReverse: "default",
-                        onHoverStop: "on",
-                        touch: {
-                            touchenabled: "on",
-                            swipe_threshold: 75,
-                            swipe_min_touches: 50,
-                            swipe_direction: "horizontal",
-                            drag_block_vertical: false
-                        },
-                        arrows: {
-                            style: "hermes",
-                            enable: true,
-                            hide_onmobile: true,
-                            hide_under: 600,
-                            hide_onleave: true,
-                            tmp: '<div class="tp-arr-allwrapper"><div class="tp-arr-imgholder"></div>',
-                            left: {
-                                h_align: "left",
-                                v_align: "center",
-                                h_offset: 0,
-                                v_offset: 0
+
+  //  SliderRevolution();
+
+    function SliderRevolution() {
+        if ($("#rev-slider-1").length) {
+            var tpj = jQuery;
+            var revapi1;
+            tpj(document).ready(function () {
+                if (tpj("#rev-slider-1").revolution == undefined) {
+                    revslider_showDoubleJqueryError("#rev-slider-1");
+                } else {
+                    revapi1 = tpj("#rev-slider-1").show().revolution({
+                        sliderType: "standard",
+                        jsFileLocation: "assets/revolution/js/",
+                        sliderLayout: "auto",
+                        dottedOverlay: "none",
+                        delay: 9000,
+                        disableProgressBar: "on",
+                        navigation: {
+                            keyboardNavigation: "on",
+                            keyboard_direction: "horizontal",
+                            mouseScrollNavigation: "off",
+                            mouseScrollReverse: "default",
+                            onHoverStop: "on",
+                            touch: {
+                                touchenabled: "on",
+                                swipe_threshold: 75,
+                                swipe_min_touches: 50,
+                                swipe_direction: "horizontal",
+                                drag_block_vertical: false
                             },
-                            right: {
-                                h_align: "right",
-                                v_align: "center",
-                                h_offset: 0,
-                                v_offset: 0
+                            arrows: {
+                                style: "hermes",
+                                enable: true,
+                                hide_onmobile: true,
+                                hide_under: 600,
+                                hide_onleave: true,
+                                tmp: '<div class="tp-arr-allwrapper"><div class="tp-arr-imgholder"></div>',
+                                left: {
+                                    h_align: "left",
+                                    v_align: "center",
+                                    h_offset: 0,
+                                    v_offset: 0
+                                },
+                                right: {
+                                    h_align: "right",
+                                    v_align: "center",
+                                    h_offset: 0,
+                                    v_offset: 0
+                                }
                             }
+
+                        },
+                        responsiveLevels: [1200, 992, 768, 480],
+                        visibilityLevels: [1200, 992, 768, 480],
+                        gridwidth: [1200, 992, 768, 480],
+                        gridheight: [800, 800, 700, 700],
+                        lazyType: "none",
+                        parallax: {
+                            type: "scroll",
+                            origo: "slidercenter",
+                            speed: 2000,
+                            levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 55],
+                        },
+                        shadow: 0,
+                        spinner: "off",
+                        stopLoop: "off",
+                        stopAfterLoops: -1,
+                        stopAtSlide: -1,
+                        shuffle: "off",
+                        autoHeight: "off",
+                        hideThumbsOnMobile: "off",
+                        hideSliderAtLimit: 0,
+                        hideCaptionAtLimit: 0,
+                        hideAllCaptionAtLilmit: 0,
+                        debugMode: false,
+                        fallbacks: {
+                            simplifyAll: "off",
+                            nextSlideOnWindowFocus: "off",
+                            disableFocusListener: false,
                         }
+                    });
+                }
+            });
+        }
 
-                    },
-                    responsiveLevels: [1200, 992, 768, 480],
-                    visibilityLevels: [1200, 992, 768, 480],
-                    gridwidth: [1200, 992, 768, 480],
-                    gridheight: [800, 800, 700, 700],
-                    lazyType: "none",
-                    parallax: {
-                        type: "scroll",
-                        origo: "slidercenter",
-                        speed: 2000,
-                        levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 55],
-                    },
-                    shadow: 0,
-                    spinner: "off",
-                    stopLoop: "off",
-                    stopAfterLoops: -1,
-                    stopAtSlide: -1,
-                    shuffle: "off",
-                    autoHeight: "off",
-                    hideThumbsOnMobile: "off",
-                    hideSliderAtLimit: 0,
-                    hideCaptionAtLimit: 0,
-                    hideAllCaptionAtLilmit: 0,
-                    debugMode: false,
-                    fallbacks: {
-                        simplifyAll: "off",
-                        nextSlideOnWindowFocus: "off",
-                        disableFocusListener: false,
-                    }
-                });
-            }
-        });
-    };
-
+    }
 
     /* Gallery Isotope */
     function GalleryIsotope() {
@@ -558,9 +572,9 @@
             url = $(target).data('video');
 
         var has_query_string = url.split('?', url);
-        if(typeof has_query_string[1] == 'string'){
-            url += '&' +$(target).data('query-string');
-        }else{
+        if (typeof has_query_string[1] == 'string') {
+            url += '&' + $(target).data('query-string');
+        } else {
             url += '?' + $(target).data('query-string');
         }
         $(target).find('iframe').attr('src', url);
@@ -574,7 +588,7 @@
     });
 
     /* Owl Single */
-    function OwlSingle() {
+  /*  function OwlSingle() {
         if ($('.owl-single').length) {
             $('.owl-single').each(function (index, el) {
                 var $this = $(this);
@@ -607,7 +621,7 @@
                 $this.owlCarousel(options);
             });
         }
-    }
+    }*/
 
     var timeout_slider;
     $(window).resize(function () {
@@ -620,6 +634,7 @@
 
     /* Coming Soon */
     CountDown();
+
     function CountDown() {
         if ($('#countdown').length) {
 
@@ -635,6 +650,7 @@
     }
 
     CountDate();
+
     /*==========  Count Date ==========*/
     function CountDate() {
         if ($('.count-date').length) {
@@ -646,7 +662,7 @@
 
                     $this.countdown(end_date, function (event) {
                         $(this).html(
-                            event.strftime('<span> %D <span>Days</span></span> <span> %H <span>HOURS</span></span> <span> %M <span>MINUTES</span></span> <span> %S <span>SECONDS</span></span>')
+                            event.strftime('<span> %D <span>JOURS</span></span> <span> %H <span>HEURES</span></span> <span> %M <span>MINUTES</span></span> <span> %S <span>SECONDS</span></span>')
                         );
                     });
 
@@ -658,6 +674,7 @@
 
     /* Popup Gallery */
     GalleryPopup();
+
     function GalleryPopup() {
 
         if ($('.gallery_item').length) {
@@ -684,8 +701,9 @@
     }
 
     /*Gallery Room Detail*/
-    GalleryRoomDetail();
-    function GalleryRoomDetail() {
+  //  GalleryRoomDetail();
+
+   /* function GalleryRoomDetail() {
 
         if ($('.room-detail_img').length) {
 
@@ -724,9 +742,10 @@
             }
         }
     }
-
+*/
     /* ACCOMMODATIONS SLIDE */
-    Accommodations1();
+   // Accommodations1();
+
     function Accommodations1() {
         if ($('.accomd-modations-slide_1').length) {
 
@@ -741,6 +760,7 @@
 
     /* SET BACKGROUND ROOM ITEM */
     BackgroundRoomItem();
+
     function BackgroundRoomItem() {
         $('.room_item-6, .room_item-5').each(function (index, el) {
             var $this = $(this),
@@ -1096,6 +1116,7 @@
     }
 
     AttractionList();
+
     function AttractionList() {
         $('.attraction_sidebar').on('click', '.attraction_heading_dropdown', function (event) {
             event.preventDefault();
@@ -1110,6 +1131,7 @@
 
     /*STATISTICS Count Number*/
     StatisticsCount();
+
     function StatisticsCount() {
         if ($('.statistics_item .count').length) {
 
@@ -1128,6 +1150,7 @@
 
     /*View Password*/
     ViewPassword();
+
     function ViewPassword() {
         $('.view-pass').mousedown(function (event) {
             $(this).prev('input[type="password"]').attr('type', 'text');
@@ -1244,7 +1267,7 @@
 
     $(document).ready(function () {
         $(window).load(function () {
-            $('#preloader').delay(1000).fadeOut('400', function () {
+            $('#preloader').delay(800).fadeOut('400', function () {
                 $(this).fadeOut()
             });
             $('body').append('<div class="awe-popup-overlay" id="awe-popup-overlay"></div><div class="awe-popup-wrap" id="awe-popup-wrap"><div class="awe-popup-content"></div><span class="awe-popup-close" id="awe-popup-close"></div>');

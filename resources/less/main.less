@@ -1,3 +1,10 @@
+.awe-btn.disabled{
+    opacity: 0.5;
+    cursor: grab;
+
+}
+
+
 #preloader {
 	position: fixed;
 	top: 0; bottom: 0; right: 0; left: 0;
@@ -7,7 +14,7 @@
 	.preloader-dot {
 		width: 0;
 		height: 0;
-		border: 2px solid  rgba(225, 189, 133, 1);
+		border: 2px solid @brand;
 		position: absolute;
 		top: 0; left: 0; right: 0; bottom: 0;
 		margin: auto;
@@ -208,11 +215,11 @@
 		right: 15px;
 
 		.owl-page {
-			border-color: #333;
+			border-color: @active;
 			margin: 0 4px;
 
 			&.active {
-				background-color: #333;
+				background-color: @active;
 			}
 		}
 	}
@@ -337,7 +344,7 @@
 		left: 0;
 		content: '';
 		//background: rgba(0, 0, 0, 0.7) url(../assets/images/bg_check-avi.png) no-repeat;
-        background: rgb(12 48 111 / 75%);
+        background-color:@active ;//#002565;
 		opacity: .85;
 		width: 100%;
 		position: absolute;

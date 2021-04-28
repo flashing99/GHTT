@@ -16,7 +16,8 @@ mix.js('resources/js/app.js', 'public/assets/js')
     // .sass('resources/sass/custom.scss', 'public/assets/css')
 
      .sass('resources/sass/app.scss', 'public/assets/css')
-      .less('resources/less/style.less', 'public/assets/css')
+    .sass('resources/sass/font-ghtt.scss', 'public/assets/css/lib')
+    .less('resources/less/style.less', 'public/assets/css')
 ;
     // .js('resources/js/scripts.js', 'public/assets/js')
     //.sass('resources/sass/app.scss', 'public/assets/css')        ;

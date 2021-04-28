@@ -25,7 +25,7 @@
                                 <option>3</option>
                             </select>
                             <select class="awe-select" name="children">
-                                <option>Children</option>
+                                <option>Enfants</option>
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>

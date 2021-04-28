@@ -19,7 +19,7 @@
                     <div class="accomd-modations-room_1">
 
                         <div class="img">
-                            <a href="#"><img src="./assets/images/room/img-1.jpg" alt=""></a>
+                            <a href="#"><img src="./assets/images/rooms/img-1.jpg" alt=""></a>
                         </div>
                         <div class="text">
                             <h2><a href="#">Luxury Room</a></h2>
@@ -36,7 +36,7 @@
                     <!-- ITEM -->
                     <div class="accomd-modations-room_1">
                         <div class="img">
-                            <a href="#"><img src="./assets/images/room/img-1.jpg" alt=""></a>
+                            <a href="#"><img src="./assets/images/rooms/img-1.jpg" alt=""></a>
                         </div>
                         <div class="text">
                             <h2><a href="#">Luxury Room</a></h2>
@@ -54,7 +54,7 @@
                     <!-- ITEM -->
                     <div class="accomd-modations-room_1">
                         <div class="img">
-                            <a href="#"><img src="./assets/images/room/img-1.jpg" alt=""></a>
+                            <a href="#"><img src="./assets/images/rooms/img-1.jpg" alt=""></a>
                         </div>
                         <div class="text">
                             <h2><a href="#">Luxury Room</a></h2>
@@ -71,7 +71,7 @@
                     <!-- ITEM -->
                     <div class="accomd-modations-room_1">
                         <div class="img">
-                            <a href="#"><img src="./assets/images/room/img-1.jpg" alt=""></a>
+                            <a href="#"><img src="./assets/images/rooms/img-1.jpg" alt=""></a>
                         </div>
                         <div class="text">
                             <h2><a href="#">Luxury Room</a></h2>
@@ -108,14 +108,8 @@
                     <h2 class="heading">Hébergement & Tarifs</h2>
                <img src="./assets/images/icon-accmod.png" alt="icon">
                 {{--    <img src="./assets/images/deco-1.svg" alt="icon">--}}
-
-
-
                     <p>Semper ac dolor vitae accumsan. Cras interdum hendrerit lacinia. Phasellus accumsan urna vitae molestie interdum. Nam sed placerat libero, non eleifend dolor.</p>
                 </div>
-
-
-
 
             <div class="accomd-modations-content_1" >
 
@@ -124,7 +118,7 @@
                     <!-- ITEM -->
                     <div class="accomd-modations-room">
                         <div class="img">
-                            <a href="#"><img src="./assets/images/room/img-1.jpg" alt=""></a>
+                            <a href="#"><img src="./assets/images/rooms/img-1.jpg" alt=""></a>
                         </div>
                         <div class="text">
                             <h2><a href="#">Bungalow F1 </a></h2>
@@ -137,7 +131,7 @@
                     <!-- ITEM -->
                     <div class="accomd-modations-room">
                         <div class="img">
-                            <a href="#"><img src="./assets/images/room/img-2.jpg" alt=""></a>
+                            <a href="#"><img src="./assets/images/rooms/img-2.jpg" alt=""></a>
                         </div>
                         <div class="text">
                             <h2><a href="#">Bungalow F2</a></h2>
@@ -151,7 +145,7 @@
                     <!-- ITEM -->
                     <div class="accomd-modations-room">
                         <div class="img">
-                            <a href="#"><img src="./assets/images/room/img-3.jpg" alt=""></a>
+                            <a href="#"><img src="./assets/images/rooms/img-3.jpg" alt=""></a>
                         </div>
                         <div class="text">
                             <h2><a href="#">Bungalow F3</a></h2>
@@ -164,7 +158,7 @@
                     <!-- ITEM -->
                     <div class="accomd-modations-room">
                         <div class="img">
-                            <a href="#"><img src="./assets/images/room/img-4.jpg" alt=""></a>
+                            <a href="#"><img src="./assets/images/rooms/img-4.jpg" alt=""></a>
                         </div>
                         <div class="text">
                             <h2><a href="#">Bungalow F4</a></h2>
@@ -208,7 +202,7 @@
                             <div class="col-xs-4">
                                 <div class="accomd-modations-room">
                                     <div class="img">
-                                        <a href="#"><img src="./assets/images/room/img-1.jpg" alt=""></a>
+                                        <a href="#"><img src="./assets/images/rooms/img-1.jpg" alt=""></a>
                                     </div>
                                     <div class="text">
                                         <h2><a href="#">Luxury Room</a></h2>
@@ -224,7 +218,7 @@
                             <div class="col-xs-4">
                                 <div class="accomd-modations-room">
                                     <div class="img">
-                                        <a href="#"><img src="./assets/images/room/img-1.jpg" alt=""></a>
+                                        <a href="#"><img src="./assets/images/rooms/img-1.jpg" alt=""></a>
                                     </div>
                                     <div class="text">
                                         <h2><a href="#">Family Room</a></h2>
@@ -240,7 +234,7 @@
                             <div class="col-xs-4">
                                 <div class="accomd-modations-room">
                                     <div class="img">
-                                        <a href="#"><img src="./assets/images/room/img-1.jpg" alt=""></a>
+                                        <a href="#"><img src="./assets/images/rooms/img-1.jpg" alt=""></a>
                                     </div>
                                     <div class="text">
                                         <h2><a href="#">Couple Room</a></h2>
@@ -260,7 +254,7 @@
                             <div class="col-xs-4">
                                 <div class="accomd-modations-room">
                                     <div class="img">
-                                        <a href="#"><img src="./assets/images/room/img-1.jpg" alt=""></a>
+                                        <a href="#"><img src="./assets/images/rooms/img-1.jpg" alt=""></a>
                                     </div>
                                     <div class="text">
                                         <h2><a href="#">Luxury Room</a></h2>
@@ -276,7 +270,7 @@
                             <div class="col-xs-4">
                                 <div class="accomd-modations-room">
                                     <div class="img">
-                                        <a href="#"><img src="./assets/images/room/img-1.jpg" alt=""></a>
+                                        <a href="#"><img src="./assets/images/rooms/img-1.jpg" alt=""></a>
                                     </div>
                                     <div class="text">
                                         <h2><a href="#">Family Room</a></h2>
@@ -292,7 +286,7 @@
                             <div class="col-xs-4">
                                 <div class="accomd-modations-room">
                                     <div class="img">
-                                        <a href="#"><img src="./assets/images/room/img-1.jpg" alt=""></a>
+                                        <a href="#"><img src="./assets/images/rooms/img-1.jpg" alt=""></a>
                                     </div>
                                     <div class="text">
                                         <h2><a href="#">Couple Room</a></h2>
@@ -312,7 +306,7 @@
                                                     <div class="col-xs-4">
                                                         <div class="accomd-modations-room">
                                                             <div class="img">
-                                                                <a href="#"><img src="./assets/images/room/img-1.jpg" alt=""></a>
+                                                                <a href="#"><img src="./assets/images/rooms/img-1.jpg" alt=""></a>
                                                             </div>
                                                             <div class="text">
                                                                 <h2><a href="#">Luxury Room</a></h2>
@@ -327,7 +321,7 @@
                                                     <div class="col-xs-4">
                                                         <div class="accomd-modations-room">
                                                             <div class="img">
-                                                                <a href="#"><img src="./assets/images/room/img-1.jpg" alt=""></a>
+                                                                <a href="#"><img src="./assets/images/rooms/img-1.jpg" alt=""></a>
                                                             </div>
                                                             <div class="text">
                                                                 <h2><a href="#">Family Room</a></h2>
@@ -342,7 +336,7 @@
                                                     <div class="col-xs-4">
                                                         <div class="accomd-modations-room">
                                                             <div class="img">
-                                                                <a href="#"><img src="./assets/images/room/img-1.jpg" alt=""></a>
+                                                                <a href="#"><img src="./assets/images/rooms/img-1.jpg" alt=""></a>
                                                             </div>
                                                             <div class="text">
                                                                 <h2><a href="#">Couple Room</a></h2>
@@ -357,7 +351,7 @@
                                                     <div class="col-xs-4">
                                                         <div class="accomd-modations-room">
                                                             <div class="img">
-                                                                <a href="#"><img src="./assets/images/room/img-1.jpg" alt=""></a>
+                                                                <a href="#"><img src="./assets/images/rooms/img-1.jpg" alt=""></a>
                                                             </div>
                                                             <div class="text">
                                                                 <h2><a href="#">Standard</a></h2>
@@ -372,7 +366,7 @@
                                                     <div class="col-xs-4">
                                                         <div class="accomd-modations-room">
                                                             <div class="img">
-                                                                <a href="#"><img src="./assets/images/room/img-1.jpg" alt=""></a>
+                                                                <a href="#"><img src="./assets/images/rooms/img-1.jpg" alt=""></a>
                                                             </div>
                                                             <div class="text">
                                                                 <h2><a href="#">Standard</a></h2>
@@ -387,7 +381,7 @@
                                                     <div class="col-xs-4">
                                                         <div class="accomd-modations-room">
                                                             <div class="img">
-                                                                <a href="#"><img src="./assets/images/room/img-1.jpg" alt=""></a>
+                                                                <a href="#"><img src="./assets/images/rooms/img-1.jpg" alt=""></a>
                                                             </div>
                                                             <div class="text">
                                                                 <h2><a href="#">Standard</a></h2>

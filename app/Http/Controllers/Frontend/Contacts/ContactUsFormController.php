@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\FrontEnd\Contacts;
+namespace App\Http\Controllers\Frontend\Contacts;
 
 use App\Models\Contact;
 
@@ -12,12 +12,12 @@ class ContactUsFormController extends Controller
 {
     // Create Contact Form
     public function createForm(Request $request) {
-        return view('FrontEnd.contactus');
+        return view('Frontend.contactus');
     }
 
     // Store Contact Form data
     public function ContactUsForm(Request $request) {
-    
+
         // Form validation
         $this->validate($request, [
             'lastName'      => 'required',
@@ -29,7 +29,7 @@ class ContactUsFormController extends Controller
             'subject'       => 'required',
             'message'       => 'required'
         ]);
-        
+
         $dataInput['lastname']  = $request->lastName;
         $dataInput['firstname'] = $request->firstName;
         $dataInput['company']   = $request->company;
@@ -40,7 +40,7 @@ class ContactUsFormController extends Controller
 
         //  Store data in database
         Contact::create($dataInput);
-        
+
         //  Send mail to admin
         Mail::send('frontend.mail', array(
             'lastname'      => $request->lastName,
@@ -50,7 +50,7 @@ class ContactUsFormController extends Controller
             'phone'         => $request->phone,
             'subject'       => $request->subject,
             'user_query'    => $request->message,
-            
+
         ), function($message) use ($request){
 
             $message->from($request->email);
@@ -61,5 +61,5 @@ class ContactUsFormController extends Controller
         return back()->with('success', 'Nous avons bien reçu votre message et vous remercions de nous avoir contacté.');
     }
 
-    
+
 }

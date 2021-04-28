@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+/*---------- Fonts GHTT Variable-------*/
+
+@font-face {
+  font-family: "icomoon-ghtt";
+  src: url(/fonts/icomoon-ghtt.eot?c61f9462da886ce5ad9ef1bad636d6f9);
+  src: url(/fonts/icomoon-ghtt.eot?c61f9462da886ce5ad9ef1bad636d6f9) format("embedded-opentype"), url(/fonts/icomoon-ghtt.ttf?3789799346639a822408ef299e1431d7) format("truetype"), url(/fonts/icomoon-ghtt.woff?88e29bb906676979c7c4a3211b4280f8) format("woff"), url(/fonts/icomoon-ghtt.svg?a6b0e7053b6707b4186910d6b4afdd7b) format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^=ghtt-icon-],
+[class*=" ghtt-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon-ghtt" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #1e7dbc;
+}
+
+.ghtt-icon-sports1:before {
+  content: "\E900";
+}
+
+.ghtt-icon-base-nautique:before {
+  content: "\E901";
+}
+
+.ghtt-icon-clim:before {
+  content: "\E902";
+}
+
+.ghtt-icon-equitation:before {
+  content: "\E903";
+}
+
+.ghtt-icon-foret:before {
+  content: "\E904";
+}
+
+.ghtt-icon-garderie-enfants:before {
+  content: "\E905";
+}
+
+.ghtt-icon-horse-club:before {
+  content: "\E906";
+}
+
+.ghtt-icon-landry:before {
+  content: "\E907";
+}
+
+.ghtt-icon-multi-sports:before {
+  content: "\E908";
+}
+
+.ghtt-icon-parking:before {
+  content: "\E909";
+}
+
+.ghtt-icon-piscine:before {
+  content: "\E90A";
+}
+
+.ghtt-icon-plage:before {
+  content: "\E90B";
+}
+
+.ghtt-icon-rv:before {
+  content: "\E90C";
+}
+
+.ghtt-icon-salle-gym:before {
+  content: "\E90D";
+}
+
+.ghtt-icon-sports:before {
+  content: "\E90E";
+}
+
+.ghtt-icon-tennis:before {
+  content: "\E90F";
+}
+
+.ghtt-icon-terains-tennis:before {
+  content: "\E92E";
+}
+
+.ghtt-icon-theatre:before {
+  content: "\E910";
+}
+
+.ghtt-icon-wifi:before {
+  content: "\E911";
+}
+

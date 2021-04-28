@@ -271,6 +271,7 @@
 		font-size: 16px;
 		font-weight: bold;
 		font-family: @Montserrat;
+        background: @light-gray3;
 
 		label {
 			font-weight: bold;
@@ -301,11 +302,13 @@
 }
 
 .reservation-heading {
+    //background: @brand;
+    color:@white;
 	font-size: 16px;
-	color: #333333;
+    color:@active;
 	font-family: @Montserrat;
 	text-transform: uppercase;
-	padding: 12px 20px;
+	padding: 20px;
 	font-weight: bold;
 	text-align: center;
 	border-bottom: 1px solid #e4e4e4;
@@ -341,6 +344,15 @@
 			font-family: @Montserrat;
 			text-transform: uppercase;
 		}
+         label.error {
+            color: #ff0909!important;
+            text-transform: none!important;
+            font-weight: 600;
+            font-family: 'Hind'!important;
+            font-size: 14px!important;
+            margin: 8px 0 10px 0;
+
+        }
 
 		.awe-calendar-wrapper {
 			width: 100%;
@@ -348,8 +360,10 @@
 			.awe-calendar {
 				background-color: #fff;
 				border-width: 0;
-				height: 30px;
-				line-height: 30px;
+				//height: 30px;
+				//line-height: 30px;
+                height: 52px;
+                line-height: 52px;
 				color: #898989;
 				font-weight: 500;
 			}
@@ -360,9 +374,12 @@
 
 			.dropdown-toggle {
 				background-color: #fff;
-				height: 30px;
+				//height: 30px;
+                //line-height: 30px;
 				border-width: 0;
-				line-height: 30px;
+
+                height: 52px;
+                line-height: 52px;
 
 				.filter-option, .caret {
 					color: #898989;
@@ -415,6 +432,8 @@
 		width: 100%;
 		font-size: 14px;
 		padding: 10px;
+        font-weight: 600;
+        letter-spacing: 1px;
 	}
 }
 /* END / RESERVATION SIDEBAR */

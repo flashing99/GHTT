@@ -1,16 +1,22 @@
+@extends('frontend.layouts.master')
+{{--add TITLE to page--}}
+@section('header_page_title' ,'Restaurants')
+{{-- add CSS LINKS--}}
+@section('include_css')
+    {{--    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
+    {{--    <link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/lib/owl.carousel.css') }}">--}}
+    {{--    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
+@endsection
 
+@section('main-content')
 
+    {{-- +++++++++++++++ add footer template  +++++++++++++++++++++--}}
+    @include('frontend.layouts.common.header')
+    {{-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
 
-
-
-
-
-
-
-
-
-
-
+    {{-- +++++++++++++++ add footer template  +++++++++++++++++++++--}}
+    @include('frontend.layouts.common.banner-header',[ 'title'=> 'Contactez-NOUS ', 'sub_title'=>'Contactez nous pour de plus d\'information','bg_id'=>'bg-15'])
+    {{-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
 
 
 
@@ -31,7 +37,7 @@
                             @endif
 
                             <form method="post" action="{{ route('contactus.store') }}" class="form_box box-lg m-0">
-                                
+
                                 @csrf
 
                                 <!-- +++++++++++  -->
@@ -145,7 +151,7 @@
                                         <button type="submit" class=" col btn btn-primary sigma_btn-custom" name="button">Envoyer</button>
                                     </div>
                                 </div>
-                                
+
 
                             </form>
 
@@ -166,3 +172,22 @@
 
 
             </div>
+
+
+@endsection
+
+
+
+
+@section('include_scripts')
+      ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
+       <script type="text/javascript" src="{{ asset('./assets/js/lib/bootstrap-select.js') }}"></script>
+
+    <!-- validate -->
+
+       <script type="text/javascript" src="{{ asset('./assets/js/lib/jquery.form.min.js') }}"></script>
+      <script type="text/javascript" src="{{ asset('./assets/js/lib/jquery.validate.min.js') }}"></script>
+    {{--    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
+
+
+@endsection

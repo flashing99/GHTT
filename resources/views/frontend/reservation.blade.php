@@ -26,7 +26,8 @@
     {{-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
 
     {{-- +++++++++++++++ add footer template  +++++++++++++++++++++--}}
-    @include('frontend.layouts.common.banner-header')
+
+    @include('frontend.layouts.common.banner-header',[ 'title'=> 'Réservation', 'sub_title'=>'Réservez votre Bungalow au complexe CET','bg_id'=>'bg-9'])
     {{-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
 
     {{-- +++++++++++++++ Reservation  - STERP-1 template  ++++++++++--}}

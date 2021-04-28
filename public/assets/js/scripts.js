@@ -32,6 +32,7 @@
             prevText: '<i class="lotus-icon-left-arrow"></i>',
             nextText: '<i class="lotus-icon-right-arrow"></i>',
             buttonImageOnly: false
+
         });
 
         /* Datepicker from - to */
@@ -73,7 +74,8 @@
     function Tabs() {
         $('.tabs').tabs({
             show: {effect: "fadeIn", duration: 300},
-            hide: {effect: "fadeOut", duration: 300}
+            hide: {effect: "fadeOut", duration: 300},
+
         });
     }
 
@@ -283,152 +285,69 @@
     }
 
     /*Banner Slide*/
+    /* BannerSlider();
 
-    //  BannerSlider();
-    function BannerSlider() {
-        if ($('#banner-slider').length) {
-            var offset_h = $('#header').innerHeight();
-            $('#banner-slider').owlCarousel({
-                autoPlay: 5000,
+     function BannerSlider() {
+         if ($('#banner-slider').length) {
+             var offset_h = $('#header').innerHeight();
+             $('#banner-slider').owlCarousel({
+                 autoPlay: 5000,
+                 navigation: true,
+                 singleItem: true,
+                 pagination: false,
+                 transitionStyle: 'fade',
+                 navigationText: ['<i class="lotus-icon-left-arrow"></i>', '<i class="lotus-icon-right-arrow"></i>'],
+                 beforeInit: function () {
+                     var height = $('#banner-slider').data().height,
+                         window_h = $(window).height(),
+                         window_w = $(window).width();
 
-                navigation: true,
-                singleItem: true,
-                pagination: false,
-                transitionStyle: 'fade',
-                navigationText: ['<i class="lotus-icon-left-arrow"></i>', '<i class="lotus-icon-right-arrow"></i>'],
-                beforeInit: function () {
-                    var height = $('#banner-slider').data().height,
-                        window_h = $(window).height(),
-                        window_w = $(window).width();
+                     $('.slider-item').each(function (index, el) {
+                         var url = $(this).data().image;
 
-                    $('.slider-item').each(function (index, el) {
-                        var url = $(this).data().image;
+                         $(this).css('background-image', 'url(' + url + ')');
 
-                        $(this).css('background-image', 'url(' + url + ')');
+                         if (height != '' && height != undefined) {
 
-                        if (height != '' && height != undefined) {
+                             if (window_w > 767) {
+                                 $(this).css('height', height);
+                             } else if (window_w <= 767) {
+                                 $(this).css('height', 500);
+                             } else if (window_w <= 480) {
+                                 $(this).css('height', 400);
+                             }
 
-                            if (window_w > 767) {
-                                $(this).css('height', height);
-                            } else if (window_w <= 767) {
-                                $(this).css('height', 500);
-                            } else if (window_w <= 480) {
-                                $(this).css('height', 400);
-                            }
+                         } else {
+                             $(this).css('height', window_h - offset_h);
+                         }
 
-                        } else {
-                            $(this).css('height', window_h - offset_h);
-                        }
+                     });
 
-                    });
+                 },
+                 beforeUpdate: function () {
+                     var height = $('#banner-slider').data().height,
+                         window_w = $(window).width();
 
-                },
-                beforeUpdate: function () {
-                    var height = $('#banner-slider').data().height,
-                        window_w = $(window).width();
-
-                    if (!(height != '' && height != undefined)) {
-                        $('.slider-item').each(function (index, el) {
-                            var window_h = $(window).height()
-                            $(this).css('height', window_h - offset_h + 'px');
-                        });
-                    } else {
-                        $('.slider-item').each(function (index, el) {
-                            if (window_w > 767) {
-                                $(this).css('height', height);
-                            } else if (window_w <= 767) {
-                                $(this).css('height', 500);
-                            } else if (window_w <= 480) {
-                                $(this).css('height', 400);
-                            }
-                        });
-                    }
-                }
-            });
-        }
-    }
-
-    /*Slider Home*/
-  /* SliderRevolution();
-
-
-    function SliderRevolution() {
-        if ($('#slider-revolution').length) {
-            jQuery('#slider-revolution').show().revolution({
-                dottedOverlay: "none",
-                delay: 7000,
-                startwidth: 1060,
-                startheight: 700,
-                hideThumbs: 200,
-
-                thumbWidth: 100,
-                thumbHeight: 50,
-                thumbAmount: 5,
-
-                navigationType: "both",
-                navigationArrows: "yes",
-                navigationStyle: "round",
-
-                touchenabled: "on",
-                onHoverStop: "on",
-
-                swipe_velocity: 0.7,
-                swipe_min_touches: 1,
-                swipe_max_touches: 1,
-                drag_block_vertical: false,
-
-                parallax: "mouse",
-                parallaxBgFreeze: "on",
-                parallaxLevels: [7, 4, 3, 2, 5, 4, 3, 2, 1, 0],
-
-                keyboardNavigation: "off",
-
-                navigationHAlign: "center",
-                navigationVAlign: "bottom",
-                navigationHOffset: 0,
-                navigationVOffset: 20,
-
-                soloArrowLeftHalign: "left",
-                soloArrowLeftValign: "center",
-                soloArrowLeftHOffset: 20,
-                soloArrowLeftVOffset: 0,
-
-                soloArrowRightHalign: "right",
-                soloArrowRightValign: "center",
-                soloArrowRightHOffset: 20,
-                soloArrowRightVOffset: 0,
-
-                shadow: 0,
-                fullWidth: "on",
-                fullScreen: "on",
-
-                spinner: "spinner4",
-
-                stopLoop: "off",
-                stopAfterLoops: -1,
-                stopAtSlide: -1,
-
-                shuffle: "off",
-
-                autoHeight: "off",
-                forceFullWidth: "off",
-
-
-                hideThumbsOnMobile: "off",
-                hideNavDelayOnMobile: 1500,
-                hideBulletsOnMobile: "off",
-                hideArrowsOnMobile: "off",
-                hideThumbsUnderResolution: 0,
-
-                hideSliderAtLimit: 0,
-                hideCaptionAtLimit: 0,
-                hideAllCaptionAtLilmit: 0,
-                startWithSlide: 0,
-                fullScreenOffsetContainer: "#header"
-            });
-        }
-    }*/
-
+                     if (!(height != '' && height != undefined)) {
+                         $('.slider-item').each(function (index, el) {
+                             var window_h = $(window).height()
+                             $(this).css('height', window_h - offset_h + 'px');
+                         });
+                     } else {
+                         $('.slider-item').each(function (index, el) {
+                             if (window_w > 767) {
+                                 $(this).css('height', height);
+                             } else if (window_w <= 767) {
+                                 $(this).css('height', 500);
+                             } else if (window_w <= 480) {
+                                 $(this).css('height', 400);
+                             }
+                         });
+                     }
+                 }
+             });
+         }
+     }*/
 
     /* Gallery Isotope */
     function GalleryIsotope() {
@@ -571,7 +490,7 @@
 
                     $this.countdown(end_date, function (event) {
                         $(this).html(
-                            event.strftime('<span> %D <span>Days</span></span> <span> %H <span>HOURS</span></span> <span> %M <span>MINUTES</span></span> <span> %S <span>SECONDS</span></span>')
+                            event.strftime('<span> %D <span>JOURS</span></span> <span> %H <span>HEURES</span></span> <span> %M <span>MINUTES</span></span> <span> %S <span>SECONDS</span></span>')
                         );
                     });
 
@@ -609,6 +528,18 @@
         }
     }
 
+
+    /*Multi carousel Room Detail*/
+
+
+    $('.owl-carousel').each(function () {
+        var carousel = $(this),
+            carousel_properties = carousel.data('properties') || null;
+
+        carousel.owlCarousel(carousel_properties != null ? carousel_properties : false);
+    });
+
+
     /*Gallery Room Detail*/
     GalleryRoomDetail();
 
@@ -621,7 +552,7 @@
                 pagination: false,
                 navigationText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
                 singleItem: true,
-                mouseDrag: false,
+                mouseDrag: true,
                 transitionStyle: 'fade'
             });
         }
@@ -632,7 +563,7 @@
                 items: 7,
                 pagination: false,
                 navigation: false,
-                mouseDrag: false,
+                mouseDrag: true,
                 navigationText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
                 itemsCustom: [[0, 3], [320, 4], [480, 5], [768, 6], [992, 7], [1200, 7]]
             });
@@ -648,9 +579,24 @@
 
                     return false;
                 });
+
+                $('.room-detail_img').on("click", '.owl-item', function (event) {
+
+                    var $this = $(this),
+                        index = $this.index();
+                    $('.room-detail_thumbs').find('.active').removeClass('active');
+
+                    // $(".room-detail_thumbs").data("owlCarousel").goTo(index);
+                    $(".room-detail_thumbs").find('.owl-item').eq(index).addClass('active');
+                    $this.addClass('active');
+
+
+                    return false;
+                });
             }
         }
     }
+
 
     /* ACCOMMODATIONS SLIDE */
     Accommodations1();
@@ -1073,6 +1019,10 @@
     if ($('#send-contact-form').length) {
         $('#send-contact-form').validate({
             rules: {
+                child: {
+                    required: true,
+                    minlength: 20
+                },
                 name: {
                     required: true,
                     minlength: 2
@@ -1089,8 +1039,13 @@
                     required: true,
                     minlength: 10
                 }
+
             },
             messages: {
+                child: {
+                    required: "Please enter a child.",
+                    minlength: $.format("At least {0} characters required.")
+                },
                 name: {
                     required: "Please enter your name.",
                     minlength: $.format("At least {0} characters required.")
@@ -1107,6 +1062,7 @@
                     required: "Please enter a message.",
                     minlength: $.format("At least {0} characters required.")
                 }
+
             },
 
             submitHandler: function (form) {
@@ -1129,38 +1085,57 @@
             rules: {
                 arrive: {
                     required: true,
-                    minlength: 10
+                    minlength: 10,
+                    date: true
                 },
                 departure: {
                     required: true,
-                    minlength: 10
+                    minlength: 10,
+                    date: true
+                },
+                type: {
+                    required: true,
+                    // minlength: 1,
+                    digits: false
                 },
                 adults: {
                     required: true,
-                    minlength: 1
+                    // minlength: 1,
+                    digits: true
                 },
                 children: {
-                    required: false
+                    required: true,
+                    minlength: 1,
+                    digits: true
                 }
             },
             messages: {
                 arrive: {
-                    required: "Please enter a arrive.",
+                    required: "Merci de renseignez vos dates.",
                     minlength: $.format("At least {0} characters required.")
                 },
                 departure: {
-                    required: "Please enter a departure.",
+                    required: "Merci de renseignez vos dates.",
+                    minlength: $.format("At least {0} characters required.")
+                },
+                type: {
+                    required: "Veuillez séléctionner le type d'hébergement.",
                     minlength: $.format("At least {0} characters required.")
                 },
                 adults: {
-                    required: "Please select number of adults.",
+                    required: "Entrez le nombre de personnes Adultes",
                     minlength: $.format("At least {0} characters required.")
                 },
+                children: {
+                    required: "Entrez le nombre de d'enfants ",
+                    minlength: $.format("At least {0} characters required.")
+                }
             },
 
             submitHandler: function (form) {
                 $(form).ajaxSubmit({
                     success: function (responseText, statusText, xhr, $form) {
+                       // console.log('response'+responseText);
                         $(form).parent().append(responseText);
                         $(form).remove();
                     }
@@ -1174,16 +1149,191 @@
         });
     }
 
+    // =============================================
+    // Boocking Cart
+    // =============================================
+
+
+   function BoockingRooms(e) {
+
+        let $totalBox = $('.reservation-room-seleted_total span');
+        let  $finalizeBook =  $('#finalize-Book');
+        let $initializeBook  =  $('#initialize-Book');
+        let $totalPrice = 0;
+        let $html = "";
+        //let $roomSelected = $('.reservation-room-selected');
+        // Your jquery code
+        $(".awe-btn-9").on('click', function (e) {
+            e.preventDefault();
+            let $listSelectedRooms = $('#list-selected-rooms');
+            let $price = $(this).parent().find('.reservation-room_price .price').text();
+            let $type = $(this).parent().parent().find('.reservation-room_name').text();
+            let $id = $(this).data('id');
+            let $itemId = 'item-' + $id;
+            //  $id= $(this).parent().attr("data-id");
+
+            // alert("PRICE : " + $price + " / NAME : " + $type);
+            //----------------------------------
+            $html = '';
+            $html += ' <div class="reservation-room-seleted_item  pl0 pr0"  id="' + $itemId + '" data-id="' + $id + '" style="display: flex;">';
+            $html += '   <div class=" col-md-8">';
+            $html += '       <h6 class="block "> ' + $type + ' </h6>';
+            $html += '       <span class="block apb-option">2 Adult, 1 Child</span>';
+            $html += '       <span class="block pb-option">Du 04/04/22 Au 08/04/22</span>';
+            $html += '       <a href="#" class=" block reservation-room-seleted_change f14 f-600  deleteRowButton" data-item="#' + $itemId + '"  >Supprimer</a>';
+            $html += '   </div>';
+            $html += '   <div class=" col-md-4  text-right">';
+            $html += '        <span class="reservation-amout f16 f-600  ">' + $price + '</span>  dzd';
+            $html += '   </div>';
+            $html += ' </div>';
+            //--------------- add Html -------------------
+            $listSelectedRooms.append($html);
+            updateTotals();
+
+            // ---- Disable Button [Reserver]
+            $(this).prop("disabled", true).addClass('disabled');
+
+            //--------------- Update total Value-------------------
+            function updateTotals() {
+                $totalPrice = getItemsTotal('.reservation-amout');
+                // console.log('totalPrice =====' + $totalPrice);
+                $totalBox.text( toMoney($totalPrice));
+
+                //--- Display Button  [ Finaliser la réservation ]
+                if($totalPrice > 0){
+                    console.log('Hidden');
+                    $finalizeBook.removeClass('hidden');
+                    $initializeBook.removeClass('hidden');
+                }else{
+                    console.log('Visible');
+                    $finalizeBook.addClass('hidden');
+                    $initializeBook.addClass('hidden');
+                }
+            }
+
+            //--------------- Calculate  Sum Total -------------------
+            function getItemsTotal(selector) {
+                return Array.from($(selector)).reduce(sumReducer, 0);
+            }
+
+            function sumReducer(total, item) {
+                return total += parseInt(item.innerHTML, 10);
+            }
+            function toMoney(number) {
+                return   number.toFixed(2) +' dzd';
+            }
+
+            //--------- DELETE SELECTED ITEM -------
+            function deleteItem(itemId) {
+                $(itemId).remove();
+                //  $(this).prop("disabled", true).addClass('disabled');
+            }
+
+            //---- Actions for Button Delete
+            $listSelectedRooms.on('click', '.deleteRowButton', function (event) {
+
+                //----- Enable Button  [ Reserver] --------
+                let $BtnDeleteId = $(this).parent().parent().attr('data-id');
+                console.log('data-id BTN RESERVE ::: '+$BtnDeleteId);
+
+                $('.awe-btn-9[data-id=' + $BtnDeleteId + ']').prop("disabled", false).removeClass('disabled');
+
+                //----DELETE ITEM ------------------
+                deleteItem($(event.target).data('item'));
+                //----UPDATE TOTAL ----------------
+                updateTotals();
+
+            });
+
+
+        });
+    }
+
+    // =============================================
+    // Check availability Step-1
+    //===============================================
+
+
+    if ($('#send-availability-form').length) {
+        $('#send-availability-form').validate({
+
+            rules: {
+                arrival: {
+                    required: true,
+                    date: true
+
+                },
+                Departure: {
+                    required: true,
+                    date: true
+                },
+                room_type: {
+                    required: true,
+                    minlength: 2
+                },
+                adult: {
+                    required: true,
+                    minlength: 1
+                },
+                child: {
+                    required: true,
+                    minlength: 1
+                }
+            },
+            messages: {
+                arrival: {
+                    // required: "Please enter your name.",
+                    // minlength: $.format("At least {0} characters required.")
+                    required: "Merci de renseignez vos dates.",
+                    // minlength: $.format("At least {0} characters required.")
+
+                },
+                Departure: {
+                    required: "Merci de renseignez vos dates.",
+                    // minlength: $.format("At least {0} characters required.")
+                },
+                room_type: {
+                    required: "Veuillez séléctionner le type de Bungalow.",
+                    // minlength: $.format("At least {0} characters required.")
+                },
+                adult: {
+                    required: "Entrez le nombre de personnes Adultes",
+                    // minlength: $.format("At least {0} characters required.")
+                },
+                child: {
+                    required: "Entrez le nombre d'enfants.",
+                    // minlength: $.format("At least {0} characters required.")
+                }
+            },
+
+            submitHandler: function (form) {
+                $(form).ajaxSubmit({
+                    success: function (responseText, statusText, xhr, $form) {
+                        $('#availability-content').slideUp(600, function () {
+                            $('#send-availability-form input[type=text], #send-availability-form textarea').val('');
+                            $('#availability-content').html(responseText).slideDown(600);
+                        });
+                    }
+                });
+                return false;
+            }
+        });
+    }
+
+
+    //===============================================
+
     $(document).ready(function () {
         $(window).load(function () {
-            $('#preloader').delay(1000).fadeOut('400', function () {
+            $('#preloader').delay(800).fadeOut('400', function () {
                 $(this).fadeOut()
             });
             $('body').append('<div class="awe-popup-overlay" id="awe-popup-overlay"></div><div class="awe-popup-wrap" id="awe-popup-wrap"><div class="awe-popup-content"></div><span class="awe-popup-close" id="awe-popup-close"></div>');
             GalleryIsotope();
-            GuestBookMasonry();
-            AttractionMap();
-            ContactMap();
+            // GuestBookMasonry();
+            // AttractionMap();
+            // ContactMap();
+            BoockingRooms();
         });
 
         $(window).scroll(function (event) {
@@ -1192,10 +1342,10 @@
 
         $(window).resize(function (event) {
             ParallaxScroll();
-            PopupCenter();
+            //PopupCenter();
             MenuResize();
             MenuSticky();
-            AttractionClick();
+            // AttractionClick();
         }).trigger('resize');
 
     });

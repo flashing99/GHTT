@@ -10,10 +10,13 @@
 <!-- GOOGLE FONT -->
 <link href='{{ asset('http://fonts.googleapis.com/css?family=Hind:400,300,500,600%7cMontserrat:400,700' ) }}' rel='stylesheet' type='text/css'>
 
-<!-- CSS LIBRARY -->
+<!-- CSS LIBRARY FONT-->
 <link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/lib/font-awesome.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/lib/font-lotusicon.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/lib/bootstrap.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/lib/font-ghtt.css') }}">
+
+<!-- CSS LIBRARY -->
+<link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/lib/bootstrap.min-3.3.1.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/lib/jquery-ui.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/lib/magnific-popup.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('./assets/css/lib/bootstrap-select.min.css') }}">

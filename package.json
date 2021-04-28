@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "font-awesome": "^4.7.0",
         "less-loader": "^5.0.0",
         "postcss-custom-properties": "^11.0.0"
     }

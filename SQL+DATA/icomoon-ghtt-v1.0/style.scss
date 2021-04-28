@@ -1,0 +1,144 @@
+@import "variables";
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?45ynpa');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?45ynpa#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?45ynpa') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?45ynpa') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?45ynpa##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="ghtt-icon-"], [class*=" ghtt-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ghtt-icon-terains-tennis {
+  &:before {
+    content: $ghtt-icon-terains-tennis;     
+    color: #0c306f;
+  }
+}
+.ghtt-icon-sports1 {
+  &:before {
+    content: $ghtt-icon-sports1;     
+    color: #0c306f;
+  }
+}
+.ghtt-icon-base-nautique {
+  &:before {
+    content: $ghtt-icon-base-nautique;     
+    color: #0c306f;
+  }
+}
+.ghtt-icon-clim {
+  &:before {
+    content: $ghtt-icon-clim;     
+    color: #0c306f;
+  }
+}
+.ghtt-icon-equitation {
+  &:before {
+    content: $ghtt-icon-equitation;     
+    color: #0c306f;
+  }
+}
+.ghtt-icon-foret {
+  &:before {
+    content: $ghtt-icon-foret;     
+    color: #0c306f;
+  }
+}
+.ghtt-icon-garderie-enfants {
+  &:before {
+    content: $ghtt-icon-garderie-enfants;     
+    color: #0c306f;
+  }
+}
+.ghtt-icon-horse-club {
+  &:before {
+    content: $ghtt-icon-horse-club;     
+    color: #0c306f;
+  }
+}
+.ghtt-icon-landry {
+  &:before {
+    content: $ghtt-icon-landry;     
+    color: #0c306f;
+  }
+}
+.ghtt-icon-multi-sports {
+  &:before {
+    content: $ghtt-icon-multi-sports;     
+    color: #0c306f;
+  }
+}
+.ghtt-icon-parking {
+  &:before {
+    content: $ghtt-icon-parking;     
+    color: #0c306f;
+  }
+}
+.ghtt-icon-piscine {
+  &:before {
+    content: $ghtt-icon-piscine;     
+    color: #0c306f;
+  }
+}
+.ghtt-icon-plage {
+  &:before {
+    content: $ghtt-icon-plage;     
+    color: #0c306f;
+  }
+}
+.ghtt-icon-rv {
+  &:before {
+    content: $ghtt-icon-rv;     
+    color: #0c306f;
+  }
+}
+.ghtt-icon-salle-gym {
+  &:before {
+    content: $ghtt-icon-salle-gym;     
+    color: #0c306f;
+  }
+}
+.ghtt-icon-sports {
+  &:before {
+    content: $ghtt-icon-sports;     
+    color: #0c306f;
+  }
+}
+.ghtt-icon-tennis {
+  &:before {
+    content: $ghtt-icon-tennis;     
+    color: #0c306f;
+  }
+}
+.ghtt-icon-theatre {
+  &:before {
+    content: $ghtt-icon-theatre;     
+    color: #0c306f;
+  }
+}
+.ghtt-icon-wifi {
+  &:before {
+    content: $ghtt-icon-wifi;     
+    color: #0c306f;
+  }
+}
+

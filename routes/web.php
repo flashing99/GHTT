@@ -2,6 +2,19 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+/*Route::get('/', function () {
+    return view('frontend.home');
+});
+Route::get('/home', function(){
+    return view('frontend.home');
+});
+Route::get('/about', function () {
+
+    return view('frontend.about' );
+})->name('moha');
+*/
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,7 +76,7 @@ Route::namespace('Backend')->prefix('backoffice')->group(function(){
         //Route::get('create/', ['as' => 'create', 'uses' => 'BookingsController@create']);
     });
 
-    
+
 
 
 

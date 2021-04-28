@@ -1,299 +1,111 @@
-<!-- RESERVATION -->
+{{--##############################################################--}}
+
+<!-------------------  RESERVATION  STEP 1  ( Form )------------------------->
+
+{{--###############################################################--}}
+
 <section class="section-reservation-page bg-white">
 
     <div class="container">
         <div class="reservation-page">
 
-            <!-- STEP -->
-            <div class="reservation_step">
-                <ul>
-                    <li class="active"><a href="#"><span>1.</span> Choisissez la date</a></li>
-                    <li><a href="#"><span>2.</span> Choisissez le type</a></li>
-                    <li><a href="#"><span>3.</span> Faites une réservation</a></li>
-                    <li><a href="#"><span>4.</span> Confirmation</a></li>
-                </ul>
-            </div>
-            <!-- END / STEP -->
-
             <div class="row">
 
                 <div class="col-12 col-md-8 col-lg-8 col-md-offset-2">
+                    <div class="form-search-room">
+                               <form id="ajax-form-search-room" action="{{route('reservation.show',2)}}" method="post">
+{{--                        <form id="ajax-form-search-room1" action="#" method="post">--}}
+                            @csrf
 
-                    <div class="reservation-sidebar mb40">
+                            <div class="reservation-sidebar mb40">
 
-                        <!-- SIDEBAR AVAILBBILITY -->
-                        <div class="reservation-sidebar_availability bg-gray">
+                                <!-- SIDEBAR AVAILBBILITY -->
+                                <div class="reservation-sidebar_availability bg-gray">
 
-                            <!-- HEADING -->
-                            <h2 class="reservation-heading">VOTRE RESERVATION</h2>
-                            <!-- END / HEADING -->
+                                    <!-- HEADING -->
+                                    <h2 class="reservation-heading">VOTRE RESERVATION</h2>
+                                    <!-- END / HEADING -->
 
-                            <h6 class="check_availability_title">VOS DATES DE SÉJOUR</h6>
+                                    <h6 class="check_availability_title">VOS DATES DE SÉJOUR</h6>
 
-                            <div class="check_availability-field">
-                                <label>Arrivée</label>
-                                <input type="text" class="awe-calendar awe-input from" placeholder="Arrive">
-                            </div>
-
-                            <div class="check_availability-field">
-                                <label>Départ</label>
-                                <input type="text" class="awe-calendar awe-input to" placeholder="Depature">
-                            </div>
-
-                            <h6 class="check_availability_title">NOMBRE DE PERSONES</h6>
-
-                            <div class="check_availability-field">
-                                <label>TYPE DE BUNGALOWS</label>
-                                <select class="awe-select">
-                                    <option>F1</option>
-                                    <option>F2</option>
-                                    <option>F3</option>
-                                    <option>F4</option>
-
-                                </select>
-                            </div>
-
-                            <div class="check_availability_group pl0">
-                                {{--         <span class="label-group">Nombres de personnes</span>--}}
-                                <div class="check_availability-field_group ">
                                     <div class="check_availability-field">
-                                        <label>Adulte</label>
-                                        <select class="awe-select">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                            <option>6</option>
-                                        </select>
+                                        <label>Arrivée</label>
+                                        <div>
+                                            <input type="text" class="awe-calendar awe-input from field-text "
+                                                   name='arrive' placeholder="Arrivée" required>
+                                        </div>
+
                                     </div>
 
                                     <div class="check_availability-field">
-                                        <label>Enfant</label>
-                                        <select class="awe-select">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                            <option>6</option>
+                                        <label>Départ</label>
+                                        <input type="text" class="awe-calendar awe-input to field-text "
+                                               name='departure' placeholder="Départ" required>
+                                    </div>
+
+                                    <h6 class="check_availability_title">NOMBRE DE PERSONES</h6>
+
+                                    <div class="check_availability-field">
+                                        <label>TYPE DE BUNGALOWS</label>
+                                        <select class="awe-select field-text " name="type"
+                                                placeholder="Séléctionner le type d'hébergement" required>
+                                            {{--                                    <option value="-1">Séléctionner le type d'hébergement </option>--}}
+                                            <option value="f1">F1</option>
+                                            <option value="f2">F2</option>
+                                            <option value="f3">F3</option>
+                                            <option value="f4">F4</option>
+
                                         </select>
                                     </div>
+
+                                    <div class="check_availability_group pl0">
+                                        {{--         <span class="label-group">Nombres de personnes</span>--}}
+                                        <div class="check_availability-field_group ">
+                                            <div class="check_availability-field">
+                                                <label>Adultes</label>
+                                                <select class="awe-select field-text" name="adults" required>
+                                                    {{--                                            <option value="-1">Nombre d'adultes</option>--}}
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="check_availability-field">
+                                                <label>Enfants</label>
+                                                <select class="awe-select field-text " name="children" required>
+                                                    {{--                                            <option value="-1">Nombre d'anfants</option>--}}
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <button class="vailability-submit awe-btn awe-btn-13">VÉRIFIER LA DISPONIBILITÉ
+                                    </button>
 
                                 </div>
+                                <!-- END / SIDEBAR AVAILBBILITY -->
+
+                                <div name="contact-content"></div>
 
                             </div>
-
-                            {{--  <div class="check_availability_group">
-
-                                  <span class="label-group">CHAMBRE 2</span>
-
-                                  <div class="check_availability-field_group">
-
-                                      <div class="check_availability-field">
-                                          <label>Adulte</label>
-                                          <select class="awe-select">
-                                              <option>1</option>
-                                              <option>2</option>
-                                              <option>3</option>
-                                              <option>4</option>
-                                              <option>5</option>
-                                              <option>6</option>
-                                          </select>
-                                      </div>
-
-                                      <div class="check_availability-field">
-                                          <label>Chirld</label>
-                                          <select class="awe-select">
-                                              <option>1</option>
-                                              <option>2</option>
-                                              <option>3</option>
-                                              <option>4</option>
-                                              <option>5</option>
-                                              <option>6</option>
-                                          </select>
-                                      </div>
-
-                                  </div>
-
-                              </div>--}}
-
-                            <button class="awe-btn awe-btn-13">VÉRIFIER LA DISPONIBILITÉ</button>
-
-                        </div>
-                        <!-- END / SIDEBAR AVAILBBILITY -->
-
+                        </form>
                     </div>
-
                 </div>
 
                 {{-- :::::::::::::::: CALANDER ::::::::::::::: --}}
-             {{--   <div class="col-md-8 col-lg-9">
-                    <div class="reservation_content bg-gray">
-                        <h2 class="reservation-heading">DISPONIBILITÉ DU COMPLEXE</h2>
 
-                        <div class="col-sm-6">
-                            <div class="reservation-calendar_custom">
-
-                                <div class="reservation-calendar_title">
-                                    <span class="reservation-calendar_month uppercase">Avril</span>
-                                    <span class="reservation-calendar_year"> 2021</span>
-
-                                    <a href="#" class="reservation-calendar_prev reservation-calendar_corner"><i
-                                            class="lotus-icon-left-arrow"></i></a>
-                                </div>
-
-                                <table class="reservation-calendar_tabel">
-                                    <thead>
-                                    <tr>
-                                        <th> Lun</th>
-                                        <th> Mar</th>
-                                        <th> Mer</th>
-                                        <th> Jeu</th>
-                                        <th> Ven</th>
-                                        <th> Sam</th>
-                                        <th> Dim</th>
-                                    </tr>
-                                    </thead>
-                                    <tr>
-                                        <td></td>
-                                        <td class="reservation-calendar_current-date">
-                                            <a href="#"><small>1</small> <span class="f24">&bull;</span></a>
-                                        </td>
-                                        <td class="current-select"><a href="#"><small>2</small> <span>Arrivée</span></a>
-                                        </td>
-                                        <td class="current-select"><a href="#"><small>3</small></a></td>
-                                        <td class="current-select"><a href="#"><small>4</small></a></td>
-                                        <td class="current-select"><a href="#"><small>5</small> <span>Départ</span></a>
-                                        </td>
-                                        <td><a href="#"><small>6</small></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#"><small>7</small></a></td>
-                                        <td><a href="#"><small>8</small></a></td>
-                                        <td><a href="#"><small>9</small></a></td>
-                                        <td><a href="#"><small>10</small></a></td>
-                                        <td class="reservation-calendar_current-select"><a
-                                                href="#"><small>11</small></a></td>
-                                        <td class="reservation-calendar_current-select"><a
-                                                href="#"><small>12</small></a></td>
-                                        <td><a href="#"><small>13</small></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="current-select"><a href="#"><small>14</small><span>Arrivée</span></a>
-                                        </td>
-                                        <td class="current-select"><a href="#"><small>15</small></a></td>
-                                        <td class="current-select"><a href="#"><small>16</small></a></td>
-                                        <td class="current-select"><a href="#"><small>17</small></a></td>
-                                        <td class="current-select"><a href="#"><small>18</small></a></td>
-                                        <td class="current-select"><a href="#"><small>19</small></a></td>
-                                        <td class="current-select"><a href="#"><small>20</small></a></td>
-                                    <tr>
-                                        <td class="current-select"><a href="#"><small>21</small><span>Départ</span></a>
-                                        </td>
-                                        <td><a href="#"><small>22</small></a></td>
-                                        <td><a href="#"><small>23</small></a></td>
-                                        <td><a href="#"><small>24</small></a></td>
-                                        <td><a href="#"><small>25</small></a></td>
-                                        <td><a href="#"><small>26</small></a></td>
-                                        <td><a href="#"><small>27</small></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#"><small>28</small></a></td>
-                                        <td><a href="#"><small>29</small></a></td>
-                                        <td><a href="#"><small>30</small></a></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                </table>
-
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6">
-                            <div class="reservation-calendar_custom">
-
-                                <div class="reservation-calendar_title">
-                                    <span class="reservation-calendar_month">Mai </span>
-                                    <span class="reservation-calendar_year">2021</span>
-
-                                    <a href="#" class="reservation-calendar_next reservation-calendar_corner"><i
-                                            class="lotus-icon-right-arrow"></i></a>
-                                </div>
-
-                                <table class="reservation-calendar_tabel">
-                                    <thead>
-                                    <tr>
-                                        <th> Lun</th>
-                                        <th> Mar</th>
-                                        <th> Mer</th>
-                                        <th> Jeu</th>
-                                        <th> Ven</th>
-                                        <th> Sam</th>
-                                        <th> Dim</th>
-                                    </tr>
-                                    </thead>
-                                    <tr>
-                                        <td></td>
-                                        <td class="reservation-calendar_current-date">
-                                            <a href="#"><small>1</small> <span> </span></a>
-                                        </td>
-                                        <td class="current-select"><a href="#"><small>2</small> <span>Arrivée</span></a>
-                                        </td>
-                                        <td class="current-select"><a href="#"><small>3</small></a></td>
-                                        <td class="current-select"><a href="#"><small>4</small></a></td>
-                                        <td class="current-select"><a href="#"><small>5</small> <span>Départ</span></a>
-                                        </td>
-                                        <td><a href="#"><small>6</small></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#"><small>7</small></a></td>
-                                        <td><a href="#"><small>8</small></a></td>
-                                        <td><a href="#"><small>9</small></a></td>
-                                        <td><a href="#"><small>10</small></a></td>
-                                        <td class="reservation-calendar_current-select"><a
-                                                href="#"><small>11</small></a></td>
-                                        <td class="reservation-calendar_current-select"><a
-                                                href="#"><small>12</small></a></td>
-                                        <td><a href="#"><small>13</small></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#"><small>14</small></a></td>
-                                        <td><a href="#"><small>15</small></a></td>
-                                        <td><a href="#"><small>16</small></a></td>
-                                        <td><a href="#"><small>17</small></a></td>
-                                        <td><a href="#"><small>18</small></a></td>
-                                        <td><a href="#"><small>19</small></a></td>
-                                        <td><a href="#"><small>20</small></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#"><small>21</small></a></td>
-                                        <td><a href="#"><small>22</small></a></td>
-                                        <td><a href="#"><small>23</small></a></td>
-                                        <td><a href="#"><small>24</small></a></td>
-                                        <td><a href="#"><small>25</small></a></td>
-                                        <td><a href="#"><small>26</small></a></td>
-                                        <td><a href="#"><small>27</small></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#"><small>28</small></a></td>
-                                        <td><a href="#"><small>29</small></a></td>
-                                        <td><a href="#"><small>30</small></a></td>
-                                        <td><a href="#"><small>31</small></a></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                </table>
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>--}}
-                {{-- :::::::::::::::: CALANDER ::::::::::::::: --}}
 
             </div>
         </div>

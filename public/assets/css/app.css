@@ -15,7 +15,7 @@
 */
 
 .c-main {
-  color: #0b9cbc;
+  color: #0c306f;
 }
 
 .bg-white-2 {
@@ -476,17 +476,25 @@
 }
 
 .block {
-  display: block;
+  display: block !important;
 }
 
 .inline-block {
   display: inline-block;
 }
 
+.text-center {
+  text-align: center !important;
+}
+
 @media only screen and (max-width: 1200px) {
   .v-align {
     display: block !important;
   }
+}
+
+button {
+  border-radius: 20px;
 }
 
 @-webkit-keyframes moveFromLeft {
@@ -586,7 +594,7 @@
 #header.header-v3 .header_top .socials a:hover,
 #header.header-v3 .header_top .socials a.active {
   background-color: #fff;
-  color: #333;
+  color: #17c1e6;
 }
 
 #header.header-v3 .header_content {
@@ -617,7 +625,7 @@
   left: 20px;
   right: 20px;
   width: auto;
-  background-color: #0b9cbc;
+  background-color: #0c306f;
   -webkit-animation: moveFromLeft 400ms ease;
           animation: moveFromLeft 400ms ease;
 }
@@ -634,11 +642,11 @@
 
 #header.header-v3 .header_content .header_menu .menu .sub-menu li a:hover {
   color: #fff;
-  background-color: #0b9cbc;
+  background-color: #0c306f;
 }
 
 #header.header-v3 .header_content .header_menu .menu .sub-menu li.current-menu-item a {
-  background-color: #0b9cbc !important;
+  background-color: #0c306f !important;
 }
 
 #header.header-v3 .header_content:after {
@@ -835,12 +843,12 @@
 
 .item.room-item .title a:hover,
 .item.room-item .title a:focus {
-  color: #0b9cbc;
+  color: #0c306f;
 }
 
 .item.room-item .price {
   font: 600 16px "Montserrat";
-  color: #0b9cbc;
+  color: #0c306f;
   margin-bottom: 15px;
   text-transform: uppercase;
 }
@@ -886,7 +894,7 @@
 
 .item.room-item-style-2 .outer .bgr .details .title a:hover,
 .item.room-item-style-2 .outer .bgr .details .title a:focus {
-  color: #0b9cbc;
+  color: #17c1e6;
 }
 
 .item.room-item-style-2 .outer .bgr .details .info {
@@ -969,11 +977,11 @@
   padding-right: 35px;
 }
 
-/* ===============================  OUR BEST ================================ */
+/* ===============================  OUR BEST  SERVICES================================ */
 
 .ot-out-best .content .item {
   width: 165px;
-  height: 160px;
+  height: 165px;
   background-color: #fbfbfb;
   padding: 0 5px;
   display: table-cell;
@@ -992,24 +1000,24 @@
 
 .ot-out-best .owl-controls .owl-prev,
 .ot-out-best .owl-controls .owl-next {
-  border-color: #bcbcbc !important;
+  border-color: #1e7dbc !important;
   transition: all 0.3s;
   line-height: 36px !important;
 }
 
 .ot-out-best .owl-controls .owl-prev:hover,
 .ot-out-best .owl-controls .owl-next:hover {
-  border-color: #0E171E !important;
+  border-color: #17c1e6 !important;
 }
 
 .ot-out-best .owl-controls .owl-prev:hover i:before,
 .ot-out-best .owl-controls .owl-next:hover i:before {
-  color: #0E171E !important;
+  color: #17c1e6 !important;
 }
 
 .ot-out-best .owl-controls .owl-prev i:before,
 .ot-out-best .owl-controls .owl-next i:before {
-  color: #bcbcbc !important;
+  color: #1e7dbc !important;
 }
 
 .ot-out-best .owl-controls .owl-prev {
@@ -1137,7 +1145,7 @@
 }
 
 .section-news .item .title:hover {
-  color: #0b9cbc;
+  color: #0c306f;
 }
 
 .section-news .item .img {
@@ -1175,7 +1183,7 @@
   content: "\F041";
   font: normal normal normal 14px/1 FontAwesome;
   color: #fff;
-  background-color: #0b9cbc;
+  background-color: #0c306f;
   font-size: 30px;
   width: 60px;
   height: 60px;
@@ -1260,21 +1268,50 @@
 
 /*================================= FOOTER ===================================== */
 
-footer.footer-style-2 {
+footer {
+  /*&.footer-style-3 {
+      a {
+          color: $c-white !important;
+          transition: all .3s;
+
+          &:hover {
+              color: $hover !important;
+          }
+      }
+
+      color: $c-white;
+
+      .footer_top {
+          background: transparent !important;
+          position: relative;
+          z-index: 1;
+
+          .ot-heading {
+              z-index: 1;
+
+              h2 {
+                  color: $c-white;
+              }
+          }
+      }
+  }*/
+}
+
+footer.footer-style-main {
   background-color: transparent !important;
   color: #fff;
 }
 
-footer.footer-style-2 a {
+footer.footer-style-main a {
   color: #fff !important;
   transition: all 0.3s;
 }
 
-footer.footer-style-2 a:hover {
-  color: #0b9cbc !important;
+footer.footer-style-main a:hover {
+  color: #17c1e6 !important;
 }
 
-footer.footer-style-2 .footer_top {
+footer.footer-style-main .footer_top {
   padding: 20px 40px !important;
   margin: 100px 0;
   background: url(/images/news.png?abeca809d7ab0cd16a92c9bc965fdb2f) no-repeat !important;
@@ -1282,38 +1319,38 @@ footer.footer-style-2 .footer_top {
   z-index: 2;
 }
 
-footer.footer-style-2 .footer_top .img-mail {
+footer.footer-style-main .footer_top .img-mail {
   max-width: 50px;
   height: auto;
   display: inline-block;
 }
 
-footer.footer-style-2 .footer_top .desc {
+footer.footer-style-main .footer_top .desc {
   vertical-align: bottom;
 }
 
-footer.footer-style-2 .footer_top .mailchimp-form .input-text::-moz-placeholder {
+footer.footer-style-main .footer_top .mailchimp-form .input-text::-moz-placeholder {
   color: red;
 }
 
-footer.footer-style-2 .footer_top .mailchimp-form .input-text:-ms-input-placeholder {
+footer.footer-style-main .footer_top .mailchimp-form .input-text:-ms-input-placeholder {
   color: red;
 }
 
-footer.footer-style-2 .footer_top .mailchimp-form .input-text::placeholder {
+footer.footer-style-main .footer_top .mailchimp-form .input-text::placeholder {
   color: red;
 }
 
-footer.footer-style-2 .footer_top .content {
+footer.footer-style-main .footer_top .content {
   position: relative;
   z-index: 2;
 }
 
-footer.footer-style-2 .footer_top .content h4 {
+footer.footer-style-main .footer_top .content h4 {
   color: #fff;
 }
 
-footer.footer-style-2 .footer_center {
+footer.footer-style-main .footer_center {
   color: #fff !important;
   position: relative;
   z-index: 2;
@@ -1321,54 +1358,27 @@ footer.footer-style-2 .footer_center {
   padding-top: 10px;
 }
 
-footer.footer-style-2 .footer_center .content {
+footer.footer-style-main .footer_center .content {
   position: relative;
   z-index: 1;
 }
 
-footer.footer-style-2 .footer_center .widget .widget-logo {
+footer.footer-style-main .footer_center .widget .widget-logo {
   padding-top: 0 !important;
 }
 
-footer.footer-style-2 .footer_center .widget .widget-logo .img {
+footer.footer-style-main .footer_center .widget .widget-logo .img {
   margin-right: 0 !important;
   max-width: 200px !important;
 }
 
-footer.footer-style-2 .footer_center .widget .widget-logo .img img {
+footer.footer-style-main .footer_center .widget .widget-logo .img img {
   display: block;
   margin: 0 auto;
 }
 
-footer.footer-style-3 {
-  color: #fff;
-}
-
-footer.footer-style-3 a {
-  color: #fff !important;
-  transition: all 0.3s;
-}
-
-footer.footer-style-3 a:hover {
-  color: #0b9cbc !important;
-}
-
-footer.footer-style-3 .footer_top {
-  background: transparent !important;
-  position: relative;
-  z-index: 1;
-}
-
-footer.footer-style-3 .footer_top .ot-heading {
-  z-index: 1;
-}
-
-footer.footer-style-3 .footer_top .ot-heading h2 {
-  color: #fff;
-}
-
 footer .bgr-footer {
-  background: url(/images/footer-center.png?a759a056075b33e09ce2e607b35da7cb) no-repeat !important;
+  background: url(/images/footer-center.jpg?46839b9b43cf4016faad628167426ae6) no-repeat !important;
   background-size: cover !important;
   position: relative;
 }
@@ -1377,7 +1387,7 @@ footer .copyright {
   padding: 15px 0;
   position: relative;
   z-index: 2;
-  border-top: 1px solid #30393f;
+  border-top: 1px solid #0c306f;
 }
 
 footer .copyright .social a i {
@@ -1385,7 +1395,7 @@ footer .copyright .social a i {
 }
 
 footer .copyright .social a:hover i {
-  color: #0b9cbc;
+  color: #17c1e6;
 }
 
 footer .copyright p {

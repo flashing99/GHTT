@@ -1,0 +1,173 @@
+//@import "variables";
+$c-main: #0c306f;
+$secondary:#1e7dbc;
+/*---------- Fonts GHTT Variable-------*/
+
+$icomoon-font-family: "icomoon-ghtt" !default;
+$icomoon-font-path: "../fonts-ghtt/ghtt" !default;
+
+$ghtt-icon-sports1: "\e900";
+$ghtt-icon-base-nautique: "\e901";
+$ghtt-icon-clim: "\e902";
+$ghtt-icon-equitation: "\e903";
+$ghtt-icon-foret: "\e904";
+$ghtt-icon-garderie-enfants: "\e905";
+$ghtt-icon-horse-club: "\e906";
+$ghtt-icon-landry: "\e907";
+$ghtt-icon-multi-sports: "\e908";
+$ghtt-icon-parking: "\e909";
+$ghtt-icon-piscine: "\e90a";
+$ghtt-icon-plage: "\e90b";
+$ghtt-icon-rv: "\e90c";
+$ghtt-icon-salle-gym: "\e90d";
+$ghtt-icon-sports: "\e90e";
+$ghtt-icon-terains-tennis: "\e92e";
+$ghtt-icon-tennis: "\e90f";
+$ghtt-icon-theatre: "\e910";
+$ghtt-icon-wifi: "\e911";
+
+
+@font-face {
+    font-family: '#{$icomoon-font-family}';
+    src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?vvm9m1');
+    src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?vvm9m1#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?vvm9m1') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?vvm9m1') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?vvm9m1##{$icomoon-font-family}') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="ghtt-icon-"], [class*=" ghtt-icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: '#{$icomoon-font-family}' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    color:$secondary;
+}
+
+.ghtt-icon-sports1 {
+    &:before {
+        content: $ghtt-icon-sports1;
+
+    }
+}
+.ghtt-icon-base-nautique {
+    &:before {
+        content: $ghtt-icon-base-nautique;
+
+    }
+}
+.ghtt-icon-clim {
+    &:before {
+        content: $ghtt-icon-clim;
+
+    }
+}
+.ghtt-icon-equitation {
+    &:before {
+        content: $ghtt-icon-equitation;
+
+    }
+}
+.ghtt-icon-foret {
+    &:before {
+        content: $ghtt-icon-foret;
+
+    }
+}
+.ghtt-icon-garderie-enfants {
+    &:before {
+        content: $ghtt-icon-garderie-enfants;
+
+    }
+}
+.ghtt-icon-horse-club {
+    &:before {
+        content: $ghtt-icon-horse-club;
+
+    }
+}
+.ghtt-icon-landry {
+    &:before {
+        content: $ghtt-icon-landry;
+
+    }
+}
+.ghtt-icon-multi-sports {
+    &:before {
+        content: $ghtt-icon-multi-sports;
+
+    }
+}
+.ghtt-icon-parking {
+    &:before {
+        content: $ghtt-icon-parking;
+
+    }
+}
+.ghtt-icon-piscine {
+    &:before {
+        content: $ghtt-icon-piscine;
+
+    }
+}
+.ghtt-icon-plage {
+    &:before {
+        content: $ghtt-icon-plage;
+
+    }
+}
+.ghtt-icon-rv {
+    &:before {
+        content: $ghtt-icon-rv;
+
+    }
+}
+.ghtt-icon-salle-gym {
+    &:before {
+        content: $ghtt-icon-salle-gym;
+
+    }
+}
+.ghtt-icon-sports {
+    &:before {
+        content: $ghtt-icon-sports;
+
+    }
+}
+.ghtt-icon-tennis {
+    &:before {
+        content: $ghtt-icon-tennis;
+
+    }
+}
+.ghtt-icon-terains-tennis {
+    &:before {
+        content: $ghtt-icon-terains-tennis;
+
+    }
+}
+.ghtt-icon-theatre {
+    &:before {
+        content: $ghtt-icon-theatre;
+
+    }
+}
+.ghtt-icon-wifi {
+    &:before {
+        content: $ghtt-icon-wifi;
+
+    }
+}
+

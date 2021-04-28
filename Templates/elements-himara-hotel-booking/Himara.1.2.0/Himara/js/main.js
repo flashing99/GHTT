@@ -1142,7 +1142,7 @@ Version:       1.1.0
         } else {
           revapi9 = tpj("#rev-slider-event").show().revolution({
             sliderType: "hero",
-            jsFileLocation: "revolution/js/", 
+            jsFileLocation: "revolution/js/",
             dottedOverlay: "twoxtwo",
             delay: 9000,
             navigation: {},
