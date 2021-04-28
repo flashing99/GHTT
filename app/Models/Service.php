@@ -3,14 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class SubcategoryHousing extends Model
+class Service extends Model
 {
-    use SoftDeletes;
 
-    protected $dates    = ['deleted_at'];
-    protected $table    = 'subcategory_housings';
+    protected $table    = 'services';
     //protected $primaryKey   = 'id';
     //public $incrementing    = false;
     //protected $keyType      = 'string';
@@ -26,16 +23,18 @@ class SubcategoryHousing extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'category_housing_id', 'description', 'image', 'price', 'state', 
+        'name', 'subcategory_housing_id', 'state', 
     ];
 
-    public function CategoryHousing(){
-        return $this->belongsTo(CategoryHousing::class);
+    // public function BookingDetail(){
+    //     return $this->hasOne(BookingDetail::class);
+    // }
+
+    public function subcategoryHousing()
+    {
+        return $this->belongsTo(SubcategoryHousing::class);
     }
 
-    public function services(){
-        return $this->hasMany(Service::class);
-    }
 
 
 

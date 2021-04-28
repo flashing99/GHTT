@@ -30,7 +30,7 @@ class Housing extends Model
     ];
 
     public function subcategoryHousing(){
-        return $this->belongsTo(SubcategoryHousing::class);
+        return $this->belongsTo(SubcategoryHousing::class)->with('services');
     }
 
     // public function views()
