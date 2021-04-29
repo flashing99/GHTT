@@ -108,36 +108,22 @@ echo($currentPageId);
 
     <script type="text/javascript">
 
-
-        // alert('sdqsdqsdqsdq');
-
-        function CurrentMenu(e) {
-
-            //let $menu = $('ul .menu ');
-
-
-        }
-
-
         $(document).ready(function () {
-
             let currentId = {{ $currentPageId }}
-
             $('.header_menu li').each(function () {
                 $(this).removeClass("current-menu-item");
             });
 
 
             $('.header_menu li').each(function () {
-                id = $(this).data('id');
-                if (id !== 'undefined') {
+                let id = $(this).data('id');
+                /*if (id !== 'undefined') {
                     console.log(id);
-                }
+                }*/
                 if (id === currentId) {
-                    console.log(' RESULT : ', currentId);
+                    console.log(' menu header - currentId (active Btn)  ::::: ', currentId);
                     $(this).addClass("current-menu-item");
                 }
-
             });
 
         })
