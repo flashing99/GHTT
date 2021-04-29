@@ -20,7 +20,7 @@
 @section('main-content')
 
     {{-- +++++++++++++++ add footer template  +++++++++++++++++++++--}}
-    @include('frontend.layouts.common.header')
+    @include('frontend.layouts.common.header'  , ['currentPageId'=>3 ])
     {{-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
 
     {{-- +++++++++++++++ add footer template  +++++++++++++++++++++--}}

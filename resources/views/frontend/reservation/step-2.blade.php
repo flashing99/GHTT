@@ -36,7 +36,7 @@
                             </div>
 
                             <div class="reservation-sidebar_availability  mt0   pd5">
-                                <a class="awe-btn awe-btn-3 hidden mt15 pl15   pr15" id="initialize-Book"
+                                <a class="awe-btn awe-btn-3 hidden mt0 pl15   pr15" id="initialize-Book"
                                    href= "#">
                                     Rénitialiser
                                 </a>
@@ -44,7 +44,7 @@
 
 
                             <div class="reservation-sidebar_availability  mt0   pd5">
-                                <a class="awe-btn awe-btn-13 hidden  mt15" id="finalize-Book"
+                                <a class="awe-btn awe-btn-13 hidden  mt0" id="finalize-Book"
                                    href= "{{route('reservation.check',3)}}">
                                     Finaliser la Réservation
                                 </a>

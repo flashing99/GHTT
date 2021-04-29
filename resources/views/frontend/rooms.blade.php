@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 {{--add TITLE to page--}}
-@section('header_page_title' ,'Hébergement')
+@section('header_page_title' ,'Hébergement'  )
 {{-- add CSS LINKS--}}
 @section('include_css')
     {{--    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
@@ -11,11 +11,11 @@
 @section('main-content')
 
     {{-- +++++++++++++++ add footer template  +++++++++++++++++++++--}}
-    @include('frontend.layouts.common.header')
+    @include('frontend.layouts.common.header ',['currentPageId'=>2 ])
     {{-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
 
     {{-- +++++++++++++++ add footer template  +++++++++++++++++++++--}}
-    @include('frontend.layouts.common.banner-header',[ 'title'=> 'Hébergement', 'sub_title'=>'Trouvez l\'hébergement Idéal pour vous et votre famille',"bg_id"=>'bg-16'])
+    @include('frontend.layouts.common.banner-header',[ 'title'=> 'Hébergement', 'sub_title'=>'Trouvez l\'hébergement Idéal pour vous et votre famille',"bg_id"=>'bg-16' ])
     {{-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
 
 <!--    --><?php // $type="F3"; ?>

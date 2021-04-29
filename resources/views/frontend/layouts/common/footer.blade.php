@@ -167,6 +167,7 @@
 {{-- +++++++++++ include extra script links for this page +++++++++++ --}}
 @yield('include_scripts')
 {{-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
+@yield('include_js_scripts')
 {{-- +++++++++++++ include script code for this page +++++++++++++++ --}}
 @yield('scripts')
 {{-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}

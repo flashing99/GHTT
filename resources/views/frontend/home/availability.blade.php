@@ -9,8 +9,8 @@
                 <div class="col-lg-12">
                     <form id="ajax-form-search-room" action="search_step_2.php" method="post">
                         <div class="availability-form d-flex align-items-center">
-                            <input type="text" name="arrive" class="awe-calendar from" placeholder="Arrival Date">
-                            <input type="text" name="departure" class="awe-calendar to" placeholder="Departure Date">
+                            <input type="text" name="arrive" class="awe-calendar from" placeholder="Date d'arrivée">
+                            <input type="text" name="departure" class="awe-calendar to" placeholder="Date de départ">
                             <select class="awe-select" name="type">
                                 <option>Type de Bungalow</option>
                                 <option>F1</option>
@@ -31,7 +31,7 @@
                                 <option>3</option>
                             </select>
                             <div class="vailability-submit">
-                                <button class="awe-btn awe-btn-13">VÉRIFIER LA DISPONIBILITÉ</button>
+                                <button class="awe-btn f-600 awe-btn-13">VÉRIFIER LA DISPONIBILITÉ</button>
                             </div>
                         </div>
                     </form>

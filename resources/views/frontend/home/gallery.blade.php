@@ -149,7 +149,7 @@
             </div>
 
             <div class="our-gallery text-center">
-                <a href="#" class="awe-btn awe-btn-default">BROWSE OUR GALLERY</a>
+                <a href="{{ route('show.galleries') }}" class="awe-btn awe-btn-3 f-600">Visiter notre galerie</a>
             </div>
 
         </div>

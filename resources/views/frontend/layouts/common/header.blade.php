@@ -1,4 +1,13 @@
 <!-- HEADER -->
+<?php
+
+
+if (!isset($currentPageId)) {
+    $currentPageId = 1;
+} ;
+
+echo($currentPageId);
+?>
 <header id="header" class="header-v2">
 
     <!-- HEADER TOP -->
@@ -52,12 +61,12 @@
             <!-- HEADER MENU -->
             <nav class="header_menu">
                 <ul class="menu">
-                    <li class="current-menu-item">
+                    <li class="current-menu-item" data-id="1">
                         <a href="/">Accueil </a>
                     </li>
                     {{-- <li><a href="/about">A propos</a></li>--}}
-                    <li> <a href='{{ route('show-rooms') }}'>Hébergement </a> </li>
-                    <li>
+                    <li data-id="2"><a href='{{ route('show-rooms') }}'>Hébergement </a></li>
+                    <li   data-id="3">
                         <a href="#">Restaurants <span class="fa fa-caret-down"></span></a>
                         <ul class="sub-menu">
                             <li><a href="{{route('show.restaurants')}}/#Casbah">Restaurant Casbah </a></li>
@@ -68,14 +77,13 @@
                         </ul>
                     </li>
 
-                    <li>
-
-                    <a href="{{route('reservation.show',1 )}}">Reservation </a>
-                    {{-- <a href="{{route('Booking.searchRoomForm') }}">Reservation </a>--}}
+                    <li data-id="4">
+                        <a href="{{route('reservation.show',1 )}}">Reservation </a>
+                        {{-- <a href="{{route('Booking.searchRoomForm') }}">Reservation </a>--}}
                     </li>
 
-                    <li> <a href="{{route('show.galleries')}}">Galerie </a> </li>
-                    <li><a href="{{route('contactus.store')}}">Contact</a></li>
+                    <li data-id="5"><a href="{{route('show.galleries')}}">Galerie </a></li>
+                    <li data-id="6"><a href="{{route('contactus.store')}}">Contact</a></li>
                 </ul>
             </nav>
             <!-- END / HEADER MENU -->
@@ -92,3 +100,48 @@
 
 </header>
 <!-- END / HEADER -->
+
+
+
+@section('include_js_scripts')
+
+
+    <script type="text/javascript">
+
+
+        // alert('sdqsdqsdqsdq');
+
+        function CurrentMenu(e) {
+
+            //let $menu = $('ul .menu ');
+
+
+        }
+
+
+        $(document).ready(function () {
+
+            let currentId = {{ $currentPageId }}
+
+            $('.header_menu li').each(function () {
+                $(this).removeClass("current-menu-item");
+            });
+
+
+            $('.header_menu li').each(function () {
+                id = $(this).data('id');
+                if (id !== 'undefined') {
+                    console.log(id);
+                }
+                if (id === currentId) {
+                    console.log(' RESULT : ', currentId);
+                    $(this).addClass("current-menu-item");
+                }
+
+            });
+
+        })
+
+    </script>
+@endsection
+
