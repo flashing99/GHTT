@@ -25,20 +25,54 @@
     }
 
     /* Datepicker */
-    DatePicker();
-
+   /* jQuery(function($){
+        $.datepicker.regional['fr'] = {
+            closeText: 'Fermer',
+            prevText: '&#x3c;Préc',
+            nextText: 'Suiv&#x3e;',
+            currentText: 'Aujourd\'hui',
+            monthNames: ['Janvier','Fevrier','Mars','Avril','Mai','Juin',
+                'Juillet','Aout','Septembre','Octobre','Novembre','Decembre'],
+            monthNamesShort: ['Jan','Fev','Mar','Avr','Mai','Jun',
+                'Jul','Aou','Sep','Oct','Nov','Dec'],
+            dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
+            dayNamesShort: ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'],
+            dayNamesMin: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
+            weekHeader: 'Sm',
+            dateFormat: 'dd-mm-yy',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: '',
+            minDate: 0,
+            maxDate: '+12M +0D',
+            numberOfMonths: 2,
+            showButtonPanel: true
+        };
+        $.datepicker.setDefaults($.datepicker.regional['fr']);
+    });*/
+     DatePicker();
     function DatePicker() {
-        $(".awe-calendar:not(.from, .to)").datepicker({
-            prevText: '<i class="lotus-icon-left-arrow"></i>',
-            nextText: '<i class="lotus-icon-right-arrow"></i>',
-            buttonImageOnly: false
-
-        });
-
         /* Datepicker from - to */
+
         $(".awe-calendar.from").datepicker({
             prevText: '<i class="lotus-icon-left-arrow"></i>',
             nextText: '<i class="lotus-icon-right-arrow"></i>',
+            //-----------------------
+            clear: "Clear",
+            format: 'yy-mm-dd', //"2007-01-26".
+            // autoclose: true,
+            // prevText: 'Précédent',
+            // nextText: 'Suivant',
+            todayHighlight:true,
+            currentText: 'Aujourd\'hui',
+            dayNames: ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
+            dayNamesShort: ["Dim", "Lun", "Mar", "Mer", "Jeu", "Vend", "Sam"],
+            dayNamesMin: ["Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa"],
+            monthNames: ["Janvier", "Fevrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Decembre"],
+            monthNamesShort: ["Jan", "Fev", "Mar", "Avr", "Mai", "Juin", "Jul", "Ao", "Sep", "Oct", "Nov", "Dec"],
+
+            //-----------------------
             buttonImageOnly: false,
             minDate: 0,
             onClose: function (selectedDate) {
@@ -53,10 +87,12 @@
             nextText: '<i class="lotus-icon-right-arrow"></i>',
             buttonImageOnly: false,
             minDate: 0,
+            numberOfMonths: 1,
             onClose: function (selectedDate) {
                 //$(".awe-calendar.from").datepicker( "option", "maxDate", selectedDate );
             }
         });
+        $.datepicker.setDefaults($.datepicker.regional['fr']);
     }
 
     /*Accordion*/
@@ -205,16 +241,13 @@
     }
 
     function AwePopup(callback) {
-
         $('.awe-ajax').on('click', function (event) {
             var $this = $(this),
                 link_href = $this.attr('href');
 
             $('body').addClass('awe-overflow-h');
             $('#awe-popup-overlay, #awe-popup-wrap').addClass('in');
-
             getContentAjax(link_href, '#awe-popup-wrap .awe-popup-content', callback);
-
             return false;
         });
 
@@ -233,7 +266,6 @@
 
     function PopupCenter() {
         if ($('#awe-popup-wrap').hasClass('in')) {
-
             var $this = $('#awe-popup-wrap .awe-popup-content'),
                 window_h = $(window).innerHeight(),
                 height_e = $this.innerHeight(),
@@ -404,8 +436,11 @@
             url += '&' + $(target).data('query-string');
         } else {
             url += '?' + $(target).data('query-string');
+
         }
-        $(target).find('iframe').attr('src', url);
+
+        $(target).find('iframe').attr('src', url) ;
+        $(target).find('iframe').attr('width', 560);
 
         $(target).addClass('opened');
         $(target).click(function () {
@@ -460,7 +495,7 @@
     }).resize();
 
 
-    /* Coming Soon */
+    /* Coming Soon
     CountDown();
 
     function CountDown() {
@@ -476,10 +511,10 @@
             });
         }
     }
+   */
 
+   /*
     CountDate();
-
-    /*==========  Count Date ==========*/
     function CountDate() {
         if ($('.count-date').length) {
             $('.count-date').each(function (index, el) {
@@ -498,7 +533,7 @@
 
             });
         }
-    }
+    }*/
 
     /* Popup Gallery */
     GalleryPopup();
@@ -1019,13 +1054,22 @@
     if ($('#send-contact-form').length) {
         $('#send-contact-form').validate({
             rules: {
-                child: {
+                lastName: {
                     required: true,
-                    minlength: 20
+                    minlength: 3
                 },
-                name: {
+                firstName: {
+                    required: true,
+                    minlength: 3
+                },
+               /* company: {
                     required: true,
                     minlength: 2
+                },*/
+                phone: {
+                    required: true,
+                    minlength: 10,
+                    digits:true,
                 },
                 email: {
                     required: true,
@@ -1037,30 +1081,38 @@
                 },
                 message: {
                     required: true,
-                    minlength: 10
+                    minlength: 5
                 }
 
             },
             messages: {
-                child: {
-                    required: "Please enter a child.",
-                    minlength: $.format("At least {0} characters required.")
+                lastName: {
+                    required: "Entrez votre nom.",
+                    minlength: $.format(" {0} caractères ou plus sont requis.")
                 },
-                name: {
-                    required: "Please enter your name.",
-                    minlength: $.format("At least {0} characters required.")
+                firstName: {
+                    required: "Entrez votre prénom.",
+                    minlength: $.format(" {0} caractères ou plus sont requis.")
+                },
+                /*company: {
+                    required: "Entrez votre nom d'entreprise.",
+                    minlength: $.format(" {0} caractères ou plus sont requis.")
+                },*/
+                phone: {
+                    required: "Entrez unméro de téléphone valide .",
+                    minlength: $.format(" {0} nombres ou plus sont requis.")
                 },
                 email: {
-                    required: "Please enter your email.",
-                    email: "Please enter a valid email."
+                    required: "Entrez votre adresse e-mail.",
+                    email: "Entrez un email valide."
                 },
                 subject: {
-                    required: "Please enter your subject.",
-                    minlength: $.format("At least {0} characters required.")
+                    required: "Entrez votre sujet.",
+                    minlength: $.format(" {0} caractères ou plus sont requis.")
                 },
                 message: {
-                    required: "Please enter a message.",
-                    minlength: $.format("At least {0} characters required.")
+                    required: "Entrez votre message.",
+                    minlength: $.format(" {0} caractères ou plus sont requis.")
                 }
 
             },
@@ -1080,7 +1132,7 @@
     }
 
     /* ----------------------------- search form ------------------------- */
-    if ($('#ajax-form-search-room').length) {
+    /*if ($('#ajax-form-search-room').length) {
         $('#ajax-form-search-room').validate({
             rules: {
                 arrive: {
@@ -1147,14 +1199,14 @@
         $('#ajax-form-search-room .vailability-submit .awe-btn').on('click', function () {
             $(this).parents('form:first').submit();
         });
-    }
+    }*/
 
     // =============================================
     // Boocking Cart
     // =============================================
 
 
-   function BoockingRooms(e) {
+   /*function BoockingRooms(e) {
 
         let $totalBox = $('.reservation-room-seleted_total span');
         let  $finalizeBook =  $('#finalize-Book');
@@ -1247,14 +1299,14 @@
 
 
         });
-    }
+    }*/
 
     // =============================================
     // Check availability Step-1
     //===============================================
 
 
-    if ($('#send-availability-form').length) {
+    /*if ($('#send-availability-form').length) {
         $('#send-availability-form').validate({
 
             rules: {
@@ -1319,7 +1371,7 @@
             }
         });
     }
-
+*/
 
     //===============================================
 
@@ -1330,10 +1382,11 @@
             });
             $('body').append('<div class="awe-popup-overlay" id="awe-popup-overlay"></div><div class="awe-popup-wrap" id="awe-popup-wrap"><div class="awe-popup-content"></div><span class="awe-popup-close" id="awe-popup-close"></div>');
             GalleryIsotope();
-            // GuestBookMasonry();
+             GuestBookMasonry();
             // AttractionMap();
             // ContactMap();
-            BoockingRooms();
+           //BoockingRooms();
+
         });
 
         $(window).scroll(function (event) {
@@ -1352,53 +1405,3 @@
 
 })(jQuery);
 
-// function for ajax
-function sendBooking() {
-    var $ = jQuery;
-    $('#ajax-form-search-send').validate({
-        rules: {
-            name: {
-                required: true,
-                minlength: 2
-            },
-            surname: {
-                required: false
-            },
-            email: {
-                required: true,
-                email: true
-            },
-            phone: {
-                required: true,
-                minlength: 9
-            }
-        },
-        messages: {
-            name: {
-                required: "Please enter your name.",
-                minlength: $.format("At least {0} characters required.")
-            },
-            email: {
-                required: "Please enter your email.",
-                email: "Please enter a valid email."
-            },
-            phone: {
-                required: "Please enter your phone.",
-                minlength: $.format("At least {0} characters required.")
-            }
-        },
-
-        submitHandler: function (form) {
-            $(form).ajaxSubmit({
-                success: function (responseText, statusText, xhr, $form) {
-                    $(form).parent().append(responseText);
-                    $(form).remove();
-                }
-            });
-            return false;
-        }
-    });
-
-    $('#ajax-form-search-send').submit();
-    return false;
-}

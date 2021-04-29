@@ -5,7 +5,7 @@
 <!-- title dynamic-->
 <title> GHTT ::: @yield('header_page_title')</title>
 <!-- Fav icon -->
-<link rel="icon" href="{{ asset('./images/favicons/favicon.ico') }}">
+<link rel="icon" href="{{ asset('./assets/images/favicons/favicon.ico') }}">
 
 <!-- GOOGLE FONT -->
 <link href='{{ asset('http://fonts.googleapis.com/css?family=Hind:400,300,500,600%7cMontserrat:400,700' ) }}' rel='stylesheet' type='text/css'>

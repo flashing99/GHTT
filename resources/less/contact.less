@@ -32,10 +32,23 @@
 				padding: 7px 0;
 
 				.icon {
-					color: @brand;
-					font-size: 20px;
-					margin-right: 20px;
+					//color: @brand;
+					//font-size: 20px;
+					 margin-right: 20px;
 					vertical-align: middle;
+
+                    //---------------------
+                    width:30px;
+                    height: 30px;
+                    line-height: 30px;
+                    text-align: center;
+                    color: @white;
+                    background-color: @hover;
+                    -webkit-border-radius: 100%;
+                    -moz-border-radius: 100%;
+                    border-radius: 100%;
+                    font-size: 16px;
+
 				}
 			}
 		}
@@ -93,7 +106,7 @@
 
 				.img {
 					float: left;
-					width: 100px;
+                    width: 150px;
 					position: relative;
 
 					.fa {
@@ -116,7 +129,7 @@
 				}
 
 				.text {
-					margin-left: 120px;
+					margin-left: 170px;
 					color: #333333;
 
 					address {
@@ -135,15 +148,28 @@
 	}
 
 	.contact-form {
+        [class^=col-],
+        [class*="col-"]{
+            min-height: 75px;
+        }
+
+
+        .form-group {
+            margin-bottom:4px;
+        }
+        .error{
+            color: @danger;
+        }
 
 
 		.field-text,
 		.field-textarea {
-			border: 2px solid @color;
+			border: 2px solid @light-gray4;
+
 			width: 100%;
-			margin-top: 20px;
+			margin-top: 5px;
 			color: @color;
-			.placeholder(@color);
+			.placeholder(@brand);
 			.transition(all 0.3s ease);
 
 			&:focus {
@@ -157,11 +183,19 @@
 		}
 
 		.awe-btn {
-			margin-top: 20px;
+			/*margin-top: 20px;
 			width: 200px;
 			padding-top: 12px;
 			padding-bottom: 12px;
-			font-size: 15px;
+			font-size: 15px;*/
+
+            margin-top: 20px;
+            /* width: 200px; */
+            min-width: 150px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: 15px;
+            font-weight: 600;
 		}
 	}
 }

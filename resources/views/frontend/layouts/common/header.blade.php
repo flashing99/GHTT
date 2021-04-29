@@ -54,51 +54,28 @@
                 <ul class="menu">
                     <li class="current-menu-item">
                         <a href="/">Accueil </a>
-                        {{--  <ul class="sub-menu">
-                              <li><a href="index.html">Home 1</a></li>
-                              <li class="current-menu-item"><a href="index-2.html">Home 2</a></li>
-                              <li><a href="index-3.html">Home 3</a></li>
-                              <li><a href="index-4.html">Home 4</a></li>
-                          </ul>--}}
                     </li>
                     {{-- <li><a href="/about">A propos</a></li>--}}
-
-                    <li>
-                        <a href='{{ route('show-rooms') }}'>Hébergement </a>
-                        {{--     <ul class="sub-menu">
-                                 <li><a href="room-1.html">Bungalow F1</a></li>
-                                 <li><a href="room-2.html">Bungalow F2</a></li>
-                                 <li><a href="room-3.html">Bungalow F3</a></li>
-                                 <li><a href="room-4.html">Bungalow F4</a></li>
-                             </ul>--}}
-                    </li>
+                    <li> <a href='{{ route('show-rooms') }}'>Hébergement </a> </li>
                     <li>
                         <a href="#">Restaurants <span class="fa fa-caret-down"></span></a>
                         <ul class="sub-menu">
-                            <li><a href="{{route('show-restaurants')}}/#Casbah">Restaurant Casbah </a></li>
-                            <li><a href="{{route('show-restaurants')}}/#Panoramique ">Restaurant panoramique</a></li>
-                            <li><a href="{{route('show-restaurants')}}/#Horse Club">Restaurant Horse club</a></li>
-                            <li><a href="{{route('show-restaurants')}}/#Typique">Restaurant Typique</a></li>
-                            <li><a href="{{route('show-restaurants')}}/#Buvette">Buvettes</a></li>
-
+                            <li><a href="{{route('show.restaurants')}}/#Casbah">Restaurant Casbah </a></li>
+                            <li><a href="{{route('show.restaurants')}}/#Panoramique ">Restaurant panoramique</a></li>
+                            <li><a href="{{route('show.restaurants')}}/#Horse Club">Restaurant Horse club</a></li>
+                            <li><a href="{{route('show.restaurants')}}/#Typique">Restaurant Typique</a></li>
+                            <li><a href="{{route('show.restaurants')}}/#Buvette">Buvettes</a></li>
                         </ul>
                     </li>
 
                     <li>
-                        <a href="{{route('reservation.show',1 )}}">Reservation </a>
+
+                    <a href="{{route('reservation.show',1 )}}">Reservation </a>
+                    {{-- <a href="{{route('Booking.searchRoomForm') }}">Reservation </a>--}}
                     </li>
 
-                    <li>
-                        <a href="#">Gallerie </a>
-                        {{--  <ul class="sub-menu">
-                              <li><a href="gallery.html">Gallery Style 1</a></li>
-                              <li><a href="gallery-2.html">Gallery Style 2</a></li>
-                              <li><a href="gallery-3.html">Gallery Style 3</a></li>
-                          </ul>--}}
-                    </li>
-
-                    </li>
-                    <li><a href="contactus">Contact</a></li>
+                    <li> <a href="{{route('show.galleries')}}">Galerie </a> </li>
+                    <li><a href="{{route('contactus.store')}}">Contact</a></li>
                 </ul>
             </nav>
             <!-- END / HEADER MENU -->

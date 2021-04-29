@@ -24,7 +24,7 @@ class BookingsController extends Controller
     public function reserveForm(Request $request){
 
         return $request->type.', '.$request->view;
-        
+
 
         $categorys = SubcategoryHousing::where('state', '1')->get();
 
@@ -43,6 +43,8 @@ class BookingsController extends Controller
         ]);
     }
 
+
+    //----
     public function searchRoom(Request $request)
     {
 
@@ -174,9 +176,9 @@ class BookingsController extends Controller
                             $serviceIds[] = $service->id;
                             $chambres['services'][]        = array('id' => $service->id, 'name' => $service->name);
                         }
-                        
+
                     }
-                    
+
 
                     //$chambres[$key]['viewsID'] = $view->id;
                     //$chambres[$key]['views'] = $view->name;
@@ -197,8 +199,8 @@ class BookingsController extends Controller
             $chambres['vueid'] = $lesviews[$j]['id'];
 
             $beng[] = $chambres;
-        }        
-        
+        }
+
         //return $chambres;
         //return $beng;
         //$collection = collect($beng);
@@ -224,7 +226,7 @@ class BookingsController extends Controller
     }
 //------------------------
 
-    
+
 
 
 

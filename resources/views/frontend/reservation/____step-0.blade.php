@@ -4,13 +4,10 @@
 
 {{--###############################################################--}}
 
-{{$col = 8}}
-{{--{{--}}
 
 {{--( is_null($col)) ?$col= 8 : $col= 4--}}
 
 
-{{--}}--}}
 
 
 <section class="section-reservation-page bg-white">
@@ -20,7 +17,7 @@
 
             <div class="row">
 
-                <div class="col-12 col-md-{{$col}} col-lg-{{$col}} col-md-offset-2">
+                <div class="col-12 col-md-8 col-lg-8 col-md-offset-2">
                     <div class="form-search-room">
                         {{--          <form id="ajax-form-search-room" action="{{route('reservation-step-2',2)}}" method="post">--}}
                         <form id="ajax-form-search-room1" method="post">

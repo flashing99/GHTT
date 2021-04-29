@@ -60,11 +60,11 @@ class ReservationsController extends Controller
         /* $returnHTML = view('frontend.reservation')->with(['step'=>$step])->render();
          return response()->json(array('success' => true, 'html'=>$returnHTML));*/
         //return redirect()->route('reservation-step', ['step' => 2]);
-       // return Route::redirect('/reservations', '2');
 
 
-       //return   Redirect::route('reservation-step-2',$step );
-       // return view('frontend.reservation')->with(['step' => $step]);
+
+
+
     }
 
 
@@ -77,7 +77,6 @@ class ReservationsController extends Controller
 
      return view('frontend.reservation')->with(['step' => $step]);
        // Redirect::route('reservation-step-3',$step );
-
 
     }
 

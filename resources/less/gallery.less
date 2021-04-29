@@ -82,7 +82,9 @@
 			opacity: 0;
 			pointer-events: none;
 			.transition(all 0.3s ease-out);
-			.gradient(transparent,@brand);
+			//.gradient(transparent,@hover);
+            background:-webkit-linear-gradient(top, transparent, @hover);
+            background: gradient(linear, left top, left bottom, from(transparent), to( @hover));
 		}
 
 		.text {
@@ -195,7 +197,11 @@
 				color: @color;
 				text-transform: uppercase;
 				font-weight: 500;
+                border-radius: 4px;
+                font-size: 14px;
 				display:block;
+                letter-spacing: 1px;
+                text-transform: uppercase;
 				padding: 7px 15px;
 				.transition(all 0.2s ease);
 			}

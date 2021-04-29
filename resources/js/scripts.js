@@ -28,17 +28,28 @@
     DatePicker();
 
     function DatePicker() {
-        $(".awe-calendar:not(.from, .to)").datepicker({
-            prevText: '<i class="lotus-icon-left-arrow"></i>',
-            nextText: '<i class="lotus-icon-right-arrow"></i>',
-            buttonImageOnly: false
 
-        });
 
         /* Datepicker from - to */
+
+        $.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );
+
         $(".awe-calendar.from").datepicker({
-            prevText: '<i class="lotus-icon-left-arrow"></i>',
-            nextText: '<i class="lotus-icon-right-arrow"></i>',
+            // prevText: '<i class="lotus-icon-left-arrow"></i>',
+            // nextText: '<i class="lotus-icon-right-arrow"></i>',
+            //-----------------------
+            clear: "Clear",
+            format: 'yyyy-mm-dd',
+            // autoclose: true,
+            prevText: 'Précédent',
+            nextText: 'Suivant',
+            todayHighlight:true,
+            dayNames: ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
+            dayNamesShort: ["Dim", "Lun", "Mar", "Mer", "Jeu", "Vend", "Sam"],
+            dayNamesMin: ["Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa"],
+            monthNames: ["Janvier", "Fevrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Decembre"],
+            monthNamesShort: ["Jan", "Fev", "Mar", "Avr", "Mai", "Juin", "Jul", "Ao", "Sep", "Oct", "Nov", "Dec"],
+            //-----------------------
             buttonImageOnly: false,
             minDate: 0,
             onClose: function (selectedDate) {
