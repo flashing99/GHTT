@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $slides = Slider::all();
-        return view('frontend.home', ['slides'=>$slides]);
+       /* $slides = Slider::all();
+        return view('frontend.home', ['slides'=>$slides]);*/
     }
 }
