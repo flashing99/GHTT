@@ -2,7 +2,7 @@
 <section class="section-gallery bg-white">
 
     <div class="gallery  no-padding">
-        <h2 class="heading text-center">GALLERIE</h2>
+        <h2 class="heading text-center">GALERIE</h2>
 
         <!-- FILTER -->
         <div class="gallery-cat text-center">
