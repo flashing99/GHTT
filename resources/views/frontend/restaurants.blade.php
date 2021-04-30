@@ -40,7 +40,7 @@
                             restauration classique avec un espace familial qui fait se sentir vraiment chez soi.
                         </p>
                         <div>
-                            <img src="./assets/images/icon-accmod.png" alt="icon">
+                            <img src="./assets/images/icon-accmod.png" alt="icon" class="color-deco-filtre">
                         </div>
                     </div>
 

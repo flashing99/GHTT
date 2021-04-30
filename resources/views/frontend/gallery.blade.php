@@ -49,26 +49,30 @@
 
                             <!-- ITEM -->
                             @isset($galleries)
-                                @foreach($galleries as $item)
+                                @foreach($galleries as $media)
 
 
-                                    @if($item['type'] =='movie')
-                                        {{--{{"+ + + + + "}}--}}
+                                    @if($media['type'] =='2')
 
+                                        {{-- {{"+ + + + + "}}--}}
+                                       {{--
+                                         type =1 => image
+                                         type =2 => movie
+                                        --}}
+                                        {{-- {{"+ + + + + "}}--}}
 
-
-                                        @for ($i = 0; $i <count($item['categories']); $i++)
+                                        @for ($i = 0; $i <count($media['categories']); $i++)
                                             <p style="display: none;  color: white">
                                                 {{$text=""}}
-                                                {{   $text= $text.' '.$item['categories'][$i] }}</p>
+                                                {{   $text= $text.' '.$media['categories'][$i] }}</p>
                                         @endfor
                                         {{--{{"+ + + + + "}}--}}
                                     <!-- ITEM -->
                                         <div class="item-isotope {{$text}}">
                                             <div class="gallery_item">
-                                                <a href="{{$item['url-movie']}}" target="_blank" class="mfp-iframe"
-                                                   title="Luxury Room view all">
-                                                    <img src="./assets/images/gallery/page/{{$item['url']}}.jpg" alt="">
+                                                <a href="{{$media['urlMovie']}}" target="_blank" class="mfp-iframe"
+                                                   title="{{$media['title']}}">
+                                                    <img src="./assets/images/gallery/page/{{$media['url']}}.jpg" alt="">
                                                 </a>
                                                 <span class="icon"><i class="fa lotus-icon-media-play"></i></span>
                                             </div>
@@ -76,19 +80,19 @@
                                         <!-- END / ITEM -->
                                     @else
                                         {{$text=""}}
-                                        @for ($i = 0; $i <count($item['categories']); $i++)
+                                        @for ($i = 0; $i <count($media['categories']); $i++)
                                             <p style="display: none;  color: white">
-                                                {{  $text= $text.' '.$item['categories'][$i] }}</p>
+                                                {{  $text= $text.' '.$media['categories'][$i] }}</p>
                                         @endfor
                                     <!-- END / ITEM  image -->
                                         <div class="item-isotope  {{$text}}">
                                             <div class="gallery_item">
                                                 <a href="./assets/images/gallery/popup/img-1.jpg" class="mfp-image"
-                                                   title="Luxury Room view all">
-                                                    <img src="./assets/images/gallery/page/{{$item['url']}}.jpg"
+                                                   title="{{$media['title']}}">
+                                                    <img src="./assets/images/gallery/page/{{$media['url']}}.jpg"
                                                          alt="">
                                                 </a>
-                                                <h6 class="text">{{$item['title']}}</h6>
+                                                <h6 class="text">{{$media['title']}}</h6>
                                             </div>
 
                                         </div>

@@ -32,6 +32,7 @@ class ImageController extends Controller
 
         $thumbnailsListe  = [];
         $path   = storage_path('app/public/gallerie/images/thumbnail');
+       /* $path   = storage_path('storage/gallerie/images/thumbnail');*/
         $files  = File::files($path);
 
         foreach($files as $i => $path)
@@ -43,7 +44,7 @@ class ImageController extends Controller
             //$liste[]    = pathinfo($path);
             //$Image_Name = $pathinfo['basename'];
             $smallthumbnailpath = $pathinfo['dirname'].'/'.$pathinfo['basename'];
-            
+
             $thumbnailsListe[]  = $smallthumbnailpath;
 
             $this->createThumbnail($smallthumbnailpath, 136, 136);
@@ -60,7 +61,7 @@ class ImageController extends Controller
         ]);
     }
 
-    
+
     /**
      * Create a thumbnail of specified size
      *

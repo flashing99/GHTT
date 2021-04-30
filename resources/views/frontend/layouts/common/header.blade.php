@@ -5,8 +5,8 @@
 if (!isset($currentPageId)) {
     $currentPageId = 1;
 } ;
-
-echo($currentPageId);
+/*
+echo($currentPageId);*/
 ?>
 <header id="header" class="header-v2">
 

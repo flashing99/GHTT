@@ -1,101 +1,3 @@
-{{--
-<!-- ACCOMMODATIONS 1 -->
-<section class="section-accommo_1 bg-white">
-    <div class="container">
-
-        <div class="accomd-modations_1">
-
-            <div class="accomd-modations-header">
-                <h2 class="heading">Hébergement </h2>
-                <img src="./assets/images/icon-accmod.png" alt="icon">
-                <p>Semper ac dolor vitae accumsan. Cras interdum hendrerit lacinia. Phasellus accumsan urna vitae molestie interdum. Nam sed placerat libero, non eleifend dolor.</p>
-            </div>
-
-            <div class="accomd-modations-content_1" >
-
-                <div class="accomd-modations-slide_1" >
-
-                    <!-- ITEM -->
-                    <div class="accomd-modations-room_1">
-
-                        <div class="img">
-                            <a href="#"><img src="./assets/images/room/img-1.jpg" alt=""></a>
-                        </div>
-                        <div class="text">
-                            <h2><a href="#">Luxury Room</a></h2>
-                            <p class="desc">Cum sociis natoque penatibus et magnis dis part urient montes, nascetur ridiculus mus. Vestib ulum id ligula porta felis euis.</p>
-                            <div class="wrap-price">
-                                <p class="price  f-600">
-                                    <span class="amout">$320</span> /days
-                                </p>
-                                <a href="#" class="awe-btn awe-btn-default">VIEW DETAIL</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END / ITEM -->
-                    <!-- ITEM -->
-                    <div class="accomd-modations-room_1">
-                        <div class="img">
-                            <a href="#"><img src="./assets/images/room/img-1.jpg" alt=""></a>
-                        </div>
-                        <div class="text">
-                            <h2><a href="#">Luxury Room</a></h2>
-                            <p class="desc">Cum sociis natoque penatibus et magnis dis part urient montes, nascetur ridiculus mus. Vestib ulum id ligula porta felis euis.</p>
-                            <div class="wrap-price">
-                                <p class="price  f-600">
-                                    <span class="amout">$320</span> /days
-                                </p>
-                                <a href="#" class="awe-btn awe-btn-default">VIEW DETAIL</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END / ITEM -->
-
-                    <!-- ITEM -->
-                    <div class="accomd-modations-room_1">
-                        <div class="img">
-                            <a href="#"><img src="./assets/images/room/img-1.jpg" alt=""></a>
-                        </div>
-                        <div class="text">
-                            <h2><a href="#">Luxury Room</a></h2>
-                            <p class="desc">Cum sociis natoque penatibus et magnis dis part urient montes, nascetur ridiculus mus. Vestib ulum id ligula porta felis euis.</p>
-                            <div class="wrap-price">
-                                <p class="price  f-600">
-                                    <span class="amout">$320</span> /days
-                                </p>
-                                <a href="#" class="awe-btn awe-btn-default">VIEW DETAIL</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END / ITEM -->
-                    <!-- ITEM -->
-                    <div class="accomd-modations-room_1">
-                        <div class="img">
-                            <a href="#"><img src="./assets/images/room/img-1.jpg" alt=""></a>
-                        </div>
-                        <div class="text">
-                            <h2><a href="#">Luxury Room</a></h2>
-                            <p class="desc">Cum sociis natoque penatibus et magnis dis part urient montes, nascetur ridiculus mus. Vestib ulum id ligula porta felis euis.</p>
-                            <div class="wrap-price">
-                                <p class="price  f-600">
-                                    <span class="amout">$320</span> /days
-                                </p>
-                                <a href="#" class="awe-btn awe-btn-default">VIEW DETAIL</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END / ITEM -->
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-</section>
-<!-- ACCOMMODATIONS -->
---}}
 
 
 <!-- ACCOMMODATIONS 2 -->
@@ -106,7 +8,9 @@
 
                 <div class="accomd-modations-header">
                     <h2 class="heading">Restaurants</h2>
-                    <img src="./assets/images/icon-accmod.png" alt="icon">
+
+
+                    <img src="./assets/images/icon-accmod.png" alt="icon" class="color-deco-filtre">
                     <p>Le Complexe dispose de 4 grands restaurants en son sein, qui combinent un espace de restauration classique avec un espace familial qui fait se sentir vraiment chez soi.</p>
                 </div>
 

@@ -33,4 +33,5 @@ class Slider extends Model
     //     return $this->belongsTo(BannerClient::class);
     // }
 
+
 }

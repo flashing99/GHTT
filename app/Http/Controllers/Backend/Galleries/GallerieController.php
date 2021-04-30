@@ -43,7 +43,7 @@ class GallerieController extends Controller
             if ($request->has('type') && !empty($request->type)) {
                 $data->where('type', $request->type);
             }
-            
+
             $data->get();
 
             return Datatables::of($data)
@@ -55,14 +55,14 @@ class GallerieController extends Controller
             ->editColumn('media', function ($data)
             {
                 if($data->type==2){
-                    
+
                     $media = '<a href="'. $data->name. '" target="_blank" class="btn btn-block btn-secondary"><i class="fas fa-play"></i></a>';
 
                 } else {
                     //$media = '<img src=\''.$data->name.'\' height=\'50\'/>';
                     $media = '<img class="img-thumbnail img-md" src="' . url("backoffice/galleries/images/thumbnail/" . $data->name) . '" />';
                 }
-                
+
                 return $media;
                 //return date('d-m-Y à H:i', strtotime($data->created_at) );
             })
@@ -73,7 +73,7 @@ class GallerieController extends Controller
                 } else {
                     $type = 'Image';
                 }
-                
+
                 return $type;
                 //return date('d-m-Y à H:i', strtotime($data->created_at) );
             })
@@ -114,6 +114,7 @@ class GallerieController extends Controller
     public function store(Request $request)
     {
 
+
         if(Gate::denies('add-galleries')){
             return redirect( route('galleries.index') );
         }
@@ -121,9 +122,9 @@ class GallerieController extends Controller
         //--
          $rules         = [ 'type'          => ['required', 'integer'] ];
         $customMessages = [ 'type.required' => 'Le champ :attribute est obligatoire.' ];
-        
+
         $validator = Validator::make($request->all(), $rules, $customMessages);
-        
+
         if($validator->fails()) {
             return Redirect::to('backoffice/galleries/create')->withErrors($validator);
         }
@@ -186,7 +187,7 @@ class GallerieController extends Controller
 
 
 
-
+        $categories[] = $request->categorie;
 
         // Input media data :
         $data = [
@@ -195,8 +196,12 @@ class GallerieController extends Controller
             'type'                  => $request->type,
             'description'           => $request->description,
             'category_gallerie_id'  => $request->categorie,
+           /* 'category_gallerie_id'  =>  json_encode($categories),*/
+
             'state'                 => $request->etat,
         ];
+
+
 
         // Add media :
         //-------------------
@@ -254,7 +259,7 @@ class GallerieController extends Controller
 
         //$manufacturers = Manufacturer::where('state', '1')->get();
         $categories = CategoryGallerie::where('state', '1')->get();
-        
+
         return view('Backend.galleries.edit')->with([
             'gallery'       => $gallery,
             'categories'    => $categories
@@ -342,7 +347,7 @@ class GallerieController extends Controller
         {
             $oldImage   = $gallery->name;
         }
-        
+
 
         $gallery->title                 = $request->titre;
         $gallery->type                  = $request->type;

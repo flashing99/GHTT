@@ -26,13 +26,15 @@ class Gallerie extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'name', 'type', 'description', 'state', 'category_gallerie_id', 
+        'title', 'name', 'type', 'description', 'state', 'category_gallerie_id',
     ];
 
-    public function CategoryGallerie(){
+   public function CategoryGallerie(){
         return $this->belongsTo(CategoryGallerie::class);
     }
-
+  /*  public function CategoriesGallerie(){
+        return $this->hasMany(CategoryGallerie::class);
+    }*/
 
 
 }

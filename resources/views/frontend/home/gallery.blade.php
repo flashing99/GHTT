@@ -14,6 +14,7 @@
                 <li><a href="#" data-filter=".dining">ANIMATION</a></li>
             </ul>
         </div>
+
         <!-- END / FILTER -->
 
         <!-- GALLERY CONTENT -->

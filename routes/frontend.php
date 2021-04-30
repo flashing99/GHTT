@@ -2,13 +2,16 @@
 
 
 use Illuminate\Support\Facades\Route;
-
+/*
 Route::get('/', function () {
     return view('frontend.home');
 });
 Route::get('/home', function(){
     return view('frontend.home');
-});
+});*/
+//== Sliders ============
+Route::get('/', 'HomeController@index')->name("/");
+//=== Restaurants ======
 /*Route::get('/about', function () {
     return view('frontend.about' );
 });
@@ -22,8 +25,8 @@ Route::get('/rooms/{type}', function ($type) {
     return view('frontend.rooms.room-details', ['type'=>$type] );
 })->name('details-room');
 
-
-
+//== Sliders ============
+Route::get('/sliders', 'Sliders\SlidersController@index')->name("show.sliders");
 //=== Restaurants ======
 
 Route::get('/restaurants', 'Restaurants\RestaurantsController@index')->name("show.restaurants");

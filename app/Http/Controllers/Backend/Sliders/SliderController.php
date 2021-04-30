@@ -5,12 +5,17 @@ namespace App\Http\Controllers\Backend\Sliders;
 use App\Models\Slider;
 
 use App\Http\Controllers\Controller;
+use Exception;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Storage;
-
 use App\Traits\UploadTrait;
-
 use Gate, Auth, DataTables, Redirect, Response, Validator;
+use Illuminate\Validation\ValidationException;
+
+
+/************** BACK-END ************************/
 
 class SliderController extends Controller
 {
@@ -24,7 +29,7 @@ class SliderController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index(Request $request)
     {
@@ -141,7 +146,7 @@ class SliderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Deliverymen  $famille
+     * @param Slider $slider
      * @return \Illuminate\Http\Response
      */
     public function edit(Slider $slider)
@@ -152,7 +157,7 @@ class SliderController extends Controller
         }
 
         //$manufacturers = Manufacturer::where('state', '1')->get();
-        
+
         return view('Backend.sliders.edit')->with([
             'slider'            => $slider,
             //'manufacturers'     => $manufacturers
@@ -163,8 +168,8 @@ class SliderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Deliverymen  $famille
+     * @param Request $request
+     * @param Slider $slider
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Slider $slider)
@@ -269,19 +274,18 @@ class SliderController extends Controller
     }
 
 
-    
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \App\User $user
+     * @param Request $request
+     * @param Slider $slider
      * @return \Illuminate\Http\Response
      */
     public function updateOrder(Request $request, Slider $slider)
     {
         // $idSlide = $request->slider_id;
         // $order = $request->order;
-        
+
 
 
         // $this->validate($request, [
@@ -294,20 +298,21 @@ class SliderController extends Controller
         }
         //return $request->slide . ' - ' . $request->order;
 
-        
+
         $slider->order    = $request->order;
 
         $slider->save();
 
         return Response::json($slider->order);
     }
-    
+
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \App\User $user
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Slider $slider
+     * @return RedirectResponse|Redirector
+     * @throws ValidationException
      */
     public function statusUser(Request $request, Slider $slider)
     {
@@ -329,8 +334,9 @@ class SliderController extends Controller
     /**
      * Remove the specified resource.
      *
-     * @param  \App\Deliverymen  $famille
-     * @return \Illuminate\Http\Response
+     * @param Slider $slider
+     * @return RedirectResponse|Redirector
+     * @throws Exception
      */
     public function destroy(Slider $slider)
     {

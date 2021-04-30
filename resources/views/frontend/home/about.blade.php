@@ -12,8 +12,23 @@
                     <div class="text">
                         <h2 class="heading">A PROPOS</h2>
                         <span class="box-border"></span>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source</p>
-                       {{-- <a href="#" class="awe-btn awe-btn-default">LIRE PLUS</a>--}}
+                        <p> Le complexe touristique C.E.T est situé à 68 km à l'ouest de la capitale Alger,
+                            dans une région qui vous offre une variété quasi infinie de paysages.
+                        </p>
+                        <p>
+                            Pour vos week-ends ou vacances en campings en Algérie, découvrez ce Complexe 3 étoiles qui
+                            vous propose 13 emplacements ou 13 locations.
+                            Pour vos loisirs aquatiques, vous bénéficiez sur place de deux plages et piscine de
+                            plein-air, des espaces verts, deux plages, des espaces de loisirs, une ambiance
+                            parfaite.
+                        </p>
+                        <p>
+                            Côté sport, le complexe propose de l'équitation, des randonnées pédestres, Le complexe
+                            propose également diverses activités sur place : du Tennis, Volley Ball,Ski nautique, plongé soumarine et des randonnées équestres.
+                            Le Complexe vos propose des animations ainsi que des animations pour vos enfants.</p>
+                        {{-- <a href="#" class="awe-btn awe-btn-default">LIRE PLUS</a>--}}
+
+
                     </div>
                 </div>
             </div>

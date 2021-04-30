@@ -487,7 +487,7 @@ mark,
 .heading {
   margin: 0;
   color: #092e6b;
-  font-size: 36px;
+  font-size: 32px;
   font-weight: bold;
   font-family: 'Montserrat';
   text-transform: uppercase;
@@ -1772,6 +1772,9 @@ blockquote p:after {
 }
 /* 4.   Home
 --------------------------------------------------------------------------------*/
+.color-deco-filtre {
+  filter: sepia(1%) hue-rotate(180deg) saturate(300%);
+}
 .awe-btn.disabled {
   opacity: 0.5;
   cursor: -webkit-grab;
@@ -2185,7 +2188,7 @@ blockquote p:after {
   width: 100%;
 }
 .home-about .text .heading {
-  margin-top: 15px;
+  margin-top: 0px;
 }
 .home-about .text span.box-border {
   width: 250px;
@@ -2194,7 +2197,7 @@ blockquote p:after {
   color: #092e6b;
   line-height: 1.5em;
   margin-bottom: 0;
-  margin-top: 25px;
+  margin-top: 15px;
   font-size: 14px;
 }
 .home-about .text .awe-btn {
