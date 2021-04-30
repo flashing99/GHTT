@@ -100,7 +100,7 @@
 
                             <div class="text-center mb50">
                                 <p  >Pour toutes questions, suggestions ou remarques n’hésitez pas à nous contacter en remplissant le formulaire ci-dessous :</p>
-                                <img src="./assets/images/icon-accmod.png" alt="icon">
+                                <img src="./assets/images/icon-accmod.png" alt="icon" class="color-deco-filtre">
                             </div>
 
                             <div class="contact-form">
