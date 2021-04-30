@@ -1,15 +1,19 @@
 <?php
 
 
+use App\Models\Slider;
 use Illuminate\Support\Facades\Route;
-/*
-Route::get('/', function () {
+
+/*Route::get('/', function () {
     return view('frontend.home');
 });
 Route::get('/home', function(){
-    return view('frontend.home');
+
+    $slides = Slider::all();
+    return view('frontend.home', ['slides'=>$slides]);
 });*/
 //== Sliders ============
+Route::get('/home', 'HomeController@index')->name("/");
 Route::get('/', 'HomeController@index')->name("/");
 //=== Restaurants ======
 /*Route::get('/about', function () {

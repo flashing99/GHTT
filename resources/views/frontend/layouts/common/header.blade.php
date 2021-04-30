@@ -21,8 +21,8 @@ echo($currentPageId);*/
             <div class="header_right float-right">
 
                         <span class="login-register">
-                            <a href="login.html">Login</a>
-                            <a href="register.html">register</a>
+                            <a href="#">Login</a>
+                            <a href="#">register</a>
                         </span>
 
                 <div class="dropdown currency">
@@ -54,7 +54,7 @@ echo($currentPageId);*/
         <div class="container">
             <!-- HEADER LOGO -->
             <div class="header_logo">
-                <a href="#"><img src="../assets/images/logo140.png" alt=""></a>
+                <a href="/"><img src="../assets/images/logo140.png" alt=""></a>
             </div>
             <!-- END / HEADER LOGO -->
 
